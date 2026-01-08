@@ -4,948 +4,713 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sierra Leone Football Agency - Players</title>
+    <link rel="icon" type="image/svg+xml" href="./IMAGES/logo.svg">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        /* ===== ENHANCED PLAYER CARD STYLES FOR SLIDER ===== */
-        .player-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Search Section at Top */
-        .search-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .search-header h2 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 2.2rem;
-        }
-
-        .search-header p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .search-box {
-            display: flex;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            gap: 0.5rem;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
-        }
-
-        .search-btn {
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
-        }
-
-        .search-filters {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            background: var(--white);
-            border: 2px solid var(--border-color);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            border-color: var(--primary-color);
-        }
-
-        /* Slider/Carousel Styles */
-        .slider-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .slider-header h2 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-        }
-
-        .slider-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .slider-btn {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slider-btn:hover {
-            background: var(--secondary-color);
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .slider-counter {
-            font-weight: 600;
-            color: var(--text-dark);
-            min-width: 70px;
-            text-align: center;
-            font-size: 1.1rem;
-            background: var(--background-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-        }
-
-        /* Player Slider Container */
-        .player-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            background: var(--background-light);
-            padding: 3rem;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slider-slide {
-            min-width: 100%;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .slider-slide.active {
-            display: block;
-        }
-
-        /* Enhanced Player Card for Slider */
-        .slider-slide .player-card {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .slider-slide .player-image {
-            height: 400px;
-            border-radius: var(--border-radius) 0 0 var(--border-radius);
-            overflow: hidden;
-        }
-
-        .slider-slide .player-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .slider-slide .player-card:hover .player-image img {
-            transform: scale(1.05);
-        }
-
-        .slider-slide .player-info {
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .slider-slide .player-featured {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: linear-gradient(135deg, var(--accent-color), #ff6b6b);
-            color: var(--white);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
-        }
-
-        .slider-slide .player-info h4 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .slider-slide .player-position {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .slider-slide .player-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1rem 0;
-            padding: 1rem;
-            background: var(--background-light);
-            border-radius: var(--border-radius);
-        }
-
-        .slider-slide .player-stat {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-        }
-
-        /* Club History in Slider */
-        .slider-slide .player-club-history {
-            margin: 1.5rem 0;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, rgba(46, 139, 87, 0.05), rgba(30, 58, 138, 0.05));
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .slider-slide .club-history-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .slider-slide .clubs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .slider-slide .club-badge {
-            background: var(--white);
-            color: var(--text-dark);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .slider-slide .club-badge:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(46, 139, 87, 0.2);
-        }
-
-        .slider-slide .player-attributes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-            padding: 1rem 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .slider-slide .attribute {
-            text-align: center;
-        }
-
-        .slider-slide .attribute-value {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.3rem;
-        }
-
-        .slider-slide .attribute-label {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .slider-slide .player-specialty {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-            margin: 1.5rem 0;
-            display: inline-block;
-            align-self: flex-start;
-        }
-
-        .slider-slide .player-profile-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            border: none;
-            border-radius: var(--border-radius);
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 1rem;
-        }
-
-        .slider-slide .player-profile-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3);
-        }
-
-        /* Slider Dots Navigation */
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 2rem;
-        }
-
-        .dot {
-            width: 14px;
-            height: 14px;
-            background: var(--border-color);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active,
-        .dot:hover {
-            background: var(--primary-color);
-            transform: scale(1.3);
-            box-shadow: 0 0 10px rgba(46, 139, 87, 0.3);
-        }
-
-        /* Slider Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive Design for Slider */
-        @media (max-width: 992px) {
-            .slider-slide .player-card {
-                max-width: 700px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .slider-slide .player-card {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
-            
-            .slider-slide .player-image {
-                height: 300px;
-                border-radius: var(--border-radius) var(--border-radius) 0 0;
-            }
-            
-            .search-box {
-                flex-direction: column;
-            }
-            
-            .slider-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .player-slider {
-                padding: 1.5rem;
-            }
-            
-            .slider-slide .player-info {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .slider-slide .player-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .slider-slide .player-attributes {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .slider-slide .player-info h4 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/players2.css">
+    <link rel="stylesheet" href="./css/players.css">
 </head>
 <body>
     <!-- ===== NAVIGATION ===== -->
-    <nav class="main-nav">
-        <div class="container nav-container">
-            <img class="agent-logo" src="./IMAGES/logo.jpg" alt="">
-            <a href="index.html" class="logo">Sierra Leone Football Agency</a>
-            <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="players.html">PLAYERS</a></li>
-                <li><a href="matches.html">MATCHES</a></li>
-                <li><a href="about.html">ABOUT US</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
+    <nav class="bbc-nav">
+        <div class="bbc-top-strip">
+            <div class="container bbc-top-container">
+                <div class="bbc-top-left">
+                    <a href="home.html" class="bbc-logo-link">
+                        <img src="./IMAGES/logo.svg" alt="Sierra Leone Football Agency Logo" class="bbc-logo">
+                        <span class="bbc-brand">SIERRA LEONE FOOTBALL AGENCY</span>
+                    </a>
+                </div>
+                <div class="bbc-top-right">
+                    <a href="#" class="bbc-signin" id="nav-signin">Sign in</a>
+                    <a href="#" class="bbc-signup" id="nav-signup">Register</a>
+                    <button class="bbc-search-toggle" id="bbc-search-toggle" aria-label="Search">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                            <path d="M12.5 11H11.7L11.4 10.7C12.4 9.6 13 8.1 13 6.5C13 2.9 10.1 0 6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5 11z"/>
+                        </svg>
+                    </button>
+                    <button class="bbc-menu-toggle" id="bbc-menu-toggle" aria-label="Menu">
+                        <span class="bbc-menu-icon">☰</span>
+                        <span class="bbc-menu-text">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bbc-main-nav">
+            <div class="container bbc-main-container">
+                <ul class="bbc-categories">
+                    <li class="bbc-home">
+                        <a href="home.html">
+                            <span class="bbc-home-icon">🏠</span>
+                            HOME
+                        </a>
+                    </li>
+                    <li><a href="players.html">PLAYERS</a></li>
+                    <li><a href="matches.html">MATCHES</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li class="bbc-more">
+                        <a href="#">
+                            SECTIONS <span class="bbc-dropdown-arrow">▼</span>
+                        </a>
+                        <ul class="bbc-dropdown-menu">
+                            <li><a href="#video-highlights">🎬 VIDEO HIGHLIGHTS</a></li>
+                            <li><a href="#fixtures-results">📅 FIXTURES & RESULTS</a></li>
+                            <li><a href="#announcements">📢 ANNOUNCEMENTS</a></li>
+                            <li><a href="#latest-news">📰 LATEST NEWS</a></li>
+                            <li><a href="#highlights-section">⚡ HIGHLIGHTS</a></li>
+                            <li><a href="#international">🌍 INTERNATIONAL</a></li>
+                            <li><a href="#top-stories">🔥 TOP STORIES</a></li>
+                            <li><a href="#discovery">🌟 DISCOVERY</a></li>
+                            <li><a href="#all-sports">⚽ ALL SPORTS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="bbc-search-container">
+                    <div class="bbc-search-box">
+                        <input type="text" id="bbc-search-input" 
+                               class="bbc-search-input" 
+                               placeholder="Search players, matches, news...">
+                        <button class="bbc-search-btn" id="bbc-search-btn">Search</button>
+                    </div>
+                    <div class="bbc-search-results" id="bbc-search-results"></div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- ===== SEARCH SECTION AT TOP ===== -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="search-header">
-                <h2>FIND PLAYERS</h2>
-                
-                
-                <div class="search-box">
-                    <input type="text" placeholder="Search by name, position, or club..." class="search-input">
-                    <button class="search-btn">
-                        🔍 Search Players
-                    </button>
+    <!-- Mobile Menu (same as before) -->
+    <div class="bbc-mobile-overlay" id="bbc-mobile-overlay">
+        <div class="bbc-mobile-menu">
+            <div class="bbc-mobile-header">
+                <a href="home.html" class="bbc-mobile-logo">
+                    <img src="./IMAGES/logo.svg" alt="SL Football Agency" class="bbc-mobile-logo-img">
+                    <span class="bbc-mobile-brand">SL FA</span>
+                </a>
+                <button class="bbc-mobile-close" id="bbc-mobile-close">×</button>
+            </div>
+            
+            <div class="bbc-mobile-sections">
+                <div class="bbc-section-group">
+                    <h4 class="bbc-section-title">MAIN PAGES</h4>
+                    <ul class="bbc-mobile-categories">
+                        <li class="bbc-mobile-home">
+                            <a href="home.html">
+                                <span class="bbc-home-icon">🏠</span>
+                                HOME
+                            </a>
+                        </li>
+                        <li><a href="players.html">PLAYERS</a></li>
+                        <li><a href="matches.html">MATCHES</a></li>
+                        <li><a href="about.html">ABOUT US</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CLEAN HERO SECTION ===== -->
+    <section class="players-hero-clean">
+        <div class="container">
+            <div class="hero-content-clean">
+                <h1 class="hero-title-clean">Sierra Leone Football Agency Players</h1>
+                <p class="hero-subtitle-clean">Discover talented footballers from Sierra Leone And International. Browse profiles, stats, and performance data.</p>
                 
-                <div class="search-filters">
-                    <button class="filter-btn active">All Players</button>
-                    <button class="filter-btn">Defenders</button>
-                    <button class="filter-btn">Midfielders</button>
-                    <button class="filter-btn">Strikers</button>
-                    <button class="filter-btn">Goalkeepers</button>
+                <!-- Simple Search -->
+                <div class="simple-search">
+                    <div class="search-box-clean">
+                        <input type="text" placeholder="Search player name..." class="search-input-clean">
+                        <button class="search-btn-clean">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                            Search
+                        </button>
+                    </div>
+                    
+                    <!-- Position Filters -->
+                    <div class="position-filters">
+                        <button class="position-filter active" data-position="all">All Players</button>
+                        <button class="position-filter" data-position="gk">Goalkeepers</button>
+                        <button class="position-filter" data-position="def">Defenders</button>
+                        <button class="position-filter" data-position="mid">Midfielders</button>
+                        <button class="position-filter" data-position="att">Attackers</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== PLAYER SLIDER/CAROUSEL ===== -->
-    <section class="section">
+    <!-- Players Grid -->
+            <div class="players-grid">
+                <!-- Player 1 - Steven Caulker -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">⭐ Featured</div>
+                        <img src="./IMAGES/P1.jpg" alt="Steven Caulker" class="player-image-clean" 
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Steven Caulker</h3>
+                            <div class="player-position-clean">Defender</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">28</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">Bo Rangers</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">8.5/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">🛡️ Defense</div>
+                            <div class="skill-tag">💪 Strength</div>
+                            <div class="skill-tag">👑 Leadership</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="steven-caulker">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="steven-caulker">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="steven-caulker">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 2 - Mohamed N Kamara -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">🧤 Goalkeeper</div>
+                        <img src="./IMAGES/P2.jpg" alt="Mohamed N Kamara" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Mohamed N Kamara</h3>
+                            <div class="player-position-clean">Goalkeeper</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">25</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">East End Lions</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">8.2/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">🧤 Saves</div>
+                            <div class="skill-tag">🎯 Reflexes</div>
+                            <div class="skill-tag">⚡ Agility</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="mohamed-kamara">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="mohamed-kamara">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="mohamed-kamara">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 3 - Augustine Kargbo -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">🌟 Young Talent</div>
+                        <img src="./IMAGES/p9.webp" alt="Augustine Kargbo" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Augustine Kargbo</h3>
+                            <div class="player-position-clean">Midfielder</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">21</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">East End Lions</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">7.8/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">⚡ Pace</div>
+                            <div class="skill-tag">🤸 Dribbling</div>
+                            <div class="skill-tag">🎯 Vision</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="augustine-kargbo">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="augustine-kargbo">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="augustine-kargbo">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 4 - Musa Noah Kamara -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">⚽ Striker</div>
+                        <img src="./IMAGES/p7.webp" alt="Musa Noah Kamara" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Musa Noah Kamara</h3>
+                            <div class="player-position-clean">Striker</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">22</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">Bo Rangers</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">8.0/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">🎯 Finishing</div>
+                            <div class="skill-tag">⚡ Pace</div>
+                            <div class="skill-tag">🧠 Positioning</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="musa-kamara">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="musa-kamara">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="musa-kamara">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 5 - Quami Quee -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">👴 Veteran</div>
+                        <img src="./IMAGES/p8.jpg" alt="Quami Quee" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Quami Quee</h3>
+                            <div class="player-position-clean">Midfielder</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">37</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">Mighty Blackpool</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">7.5/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">🧠 Experience</div>
+                            <div class="skill-tag">🎯 Passing</div>
+                            <div class="skill-tag">👑 Leadership</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="quami-quee">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="quami-quee">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="quami-quee">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 6 - Juma Bah -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">🌱 Rising Star</div>
+                        <img src="./IMAGES/P4.jpg" alt="Juma Bah" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Juma Bah</h3>
+                            <div class="player-position-clean">Defender</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">18</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">FC Kallon</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">7.2/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">⚡ Recovery</div>
+                            <div class="skill-tag">🛡️ Tackling</div>
+                            <div class="skill-tag">💪 Strength</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="juma-bah">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="juma-bah">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="juma-bah">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 7 - Buya Turay -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">🔄 Box-to-Box</div>
+                        <img src="./IMAGES/P5.jpg" alt="Buya Turay" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Buya Turay</h3>
+                            <div class="player-position-clean">Midfielder</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">24</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">Bo Rangers</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">7.9/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">💪 Stamina</div>
+                            <div class="skill-tag">🛡️ Defense</div>
+                            <div class="skill-tag">🎯 Work Rate</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="buya-turay">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="buya-turay">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="buya-turay">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 8 - Kai Kamara -->
+                <div class="player-card-clean">
+                    <div class="player-image-wrapper">
+                        <div class="player-status">🏆 Legend</div>
+                        <img src="./IMAGES/P6.jpg" alt="Kai Kamara" class="player-image-clean"
+                             onerror="this.src='./IMAGES/player-placeholder.jpg'">
+                    </div>
+                    <div class="player-info-clean">
+                        <div class="player-main-info">
+                            <h3 class="player-name-clean">Kai Kamara</h3>
+                            <div class="player-position-clean">Striker</div>
+                        </div>
+                        
+                        <div class="player-details">
+                            <div class="player-stat">
+                                <span class="stat-label">Age</span>
+                                <span class="stat-value">38</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Club</span>
+                                <span class="stat-value">Retired</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">9.0/10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="player-skills">
+                            <div class="skill-tag">🎯 Finishing</div>
+                            <div class="skill-tag">✈️ Heading</div>
+                            <div class="skill-tag">🧠 Experience</div>
+                        </div>
+                        
+                        <!-- NEW: Player Actions -->
+                        <div class="player-actions-clean">
+                            <button class="action-btn view-profile-btn" data-player="kai-kamara">
+                                👤 Profile
+                            </button>
+                            <button class="action-btn compare-btn" data-player="kai-kamara">
+                                ⚖️ Compare
+                            </button>
+                            <button class="action-btn scout-btn" data-player="kai-kamara">
+                                📋 Scout Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn">Load More Players</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== PLAYER COMPARISON MODAL ===== -->
+<div class="comparison-modal" id="comparisonModal">
+    <div class="comparison-content">
+        <div class="comparison-header">
+            <h3>Compare Players</h3>
+            <button class="close-comparison" id="closeComparison">×</button>
+        </div>
+        <div class="comparison-grid" id="comparisonGrid">
+            <!-- Players will be added here -->
+        </div>
+        <div class="comparison-actions">
+            <button class="btn-secondary" id="clearComparison">Clear All</button>
+            <button class="btn-primary" id="exportComparison">Export Comparison</button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PLAYER PROFILE MODAL ===== -->
+<div class="player-profile-modal" id="playerProfileModal">
+    <div class="profile-content" id="profileContent">
+        <!-- Player profile will be loaded here -->
+    </div>
+</div>
+
+<!-- ===== SCOUT REPORT MODAL ===== -->
+<div class="scout-modal" id="scoutModal">
+    <div class="scout-content" id="scoutContent">
+        <!-- Scout report will be loaded here -->
+    </div>
+</div>
+
+    <!-- ===== PLAYER STATS OVERVIEW ===== -->
+    <section class="section stats-section-clean">
         <div class="container">
-            <div class="slider-header">
-                <h2>OUR FEATURED PLAYERS</h2>
-                <div class="slider-controls">
-                    <button class="slider-btn prev-btn">❮</button>
-                    <span class="slider-counter">1 / 8</span>
-                    <button class="slider-btn next-btn">❯</button>
-                </div>
+            <div class="section-header-clean">
+                <h2>League Statistics</h2>
+                <p>Top performers in Sierra Leone Premier League</p>
             </div>
-            
-            <div class="player-slider">
-                <div class="slider-track">
-                    <!-- Player 1 - STEVEN CAULKER -->
-                    <div class="slider-slide active">
-                        <div class="player-card">
-                            <div class="player-featured">Experienced</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/P1.jpg" alt="Steven Caulker - Defender">
-                            </div>
-                            <div class="player-info">
-                                <h4>STEVEN CAULKER</h4>
-                                <div class="player-position">DEFENDER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 28</div>
-                                    <div class="player-stat">📏 180cm</div>
-                                    <div class="player-stat">🦵 Right Foot</div>
-                                    <div class="player-stat">⚖️ 82kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">Tottenham</span>
-                                        <span class="club-badge">Cardiff City</span>
-                                        <span class="club-badge">Leicester City</span>
-                                        <span class="club-badge">Southampton</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">✈️ 88%</div>
-                                        <div class="attribute-label">Aerial</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🛡️ 85%</div>
-                                        <div class="attribute-label">Tackling</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">💪 90%</div>
-                                        <div class="attribute-label">Strength</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Leadership & Aerial Duels</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
+
+            <div class="stats-grid-clean">
+                <!-- Top Scorers -->
+                <div class="stats-card-clean">
+                    <div class="stats-header">
+                        <div class="stats-icon">⚽</div>
+                        <div>
+                            <h3>Top Scorers</h3>
+                            <p>2025/26 Season</p>
                         </div>
                     </div>
-                    
-                    <!-- Player 2 - MOHAMED N KAMARA -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Flexible</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/P2.jpg" alt="Mohamed N Kamara - Goalkeeper">
+                    <div class="stats-list">
+                        <div class="stats-item">
+                            <span class="rank">1</span>
+                            <div class="player">
+                                <div class="player-name">John Bangura</div>
+                                <div class="player-club">Bo Rangers</div>
                             </div>
-                            <div class="player-info">
-                                <h4>MOHAMED N KAMARA</h4>
-                                <div class="player-position">GOALKEEPER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 25</div>
-                                    <div class="player-stat">📏 175cm</div>
-                                    <div class="player-stat">🦵 Right Foot</div>
-                                    <div class="player-stat">⚖️ 72kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">East End Lions</span>
-                                        <span class="club-badge">Bo Rangers</span>
-                                        <span class="club-badge">FC Kallon</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎯 87%</div>
-                                        <div class="attribute-label">Long-Passing</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">👀 89%</div>
-                                        <div class="attribute-label">Flexibility</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">💪 95%</div>
-                                        <div class="attribute-label">Stamina</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Diving & One-on-One</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
+                            <span class="stat">12 goals</span>
                         </div>
-                    </div>
-                    
-                    <!-- Player 3 - AUGUSTINE KARGBO -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Young Talent</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/p9.webp" alt="Augustine Kargbo - Midfielder">
+                        <div class="stats-item">
+                            <span class="rank">2</span>
+                            <div class="player">
+                                <div class="player-name">Mohamed Kamara</div>
+                                <div class="player-club">East End Lions</div>
                             </div>
-                            <div class="player-info">
-                                <h4>AUGUSTINE KARGBO</h4>
-                                <div class="player-position">MIDFIELDER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 21</div>
-                                    <div class="player-stat">📏 185cm</div>
-                                    <div class="player-stat">🦵 Both Feet</div>
-                                    <div class="player-stat">⚖️ 76kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">East End Lions</span>
-                                        <span class="club-badge">Sierra Leone U20</span>
-                                        <span class="club-badge">FC Kallon Academy</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">⚡ 91%</div>
-                                        <div class="attribute-label">Pace</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🤸 86%</div>
-                                        <div class="attribute-label">Dribbling</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎪 88%</div>
-                                        <div class="attribute-label">Technique</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Dribbling & Long Shots</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
+                            <span class="stat">10 goals</span>
                         </div>
-                    </div>
-                    
-                    <!-- Player 4 - MUSA NOAH KAMARA -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Goal Scorer</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/p7.webp" alt="Musa Noah Kamara - Striker">
+                        <div class="stats-item">
+                            <span class="rank">3</span>
+                            <div class="player">
+                                <div class="player-name">Ibrahim Koroma</div>
+                                <div class="player-club">Mighty Blackpool</div>
                             </div>
-                            <div class="player-info">
-                                <h4>MUSA NOAH KAMARA</h4>
-                                <div class="player-position">STRIKER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 22</div>
-                                    <div class="player-stat">📏 180cm</div>
-                                    <div class="player-stat">🦵 Left Foot</div>
-                                    <div class="player-stat">⚖️ 74kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">Bo Rangers</span>
-                                        <span class="club-badge">Sierra Leone U23</span>
-                                        <span class="club-badge">Mighty Blackpool</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎯 92%</div>
-                                        <div class="attribute-label">Finishing</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">⚡ 88%</div>
-                                        <div class="attribute-label">Pace</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🧠 85%</div>
-                                        <div class="attribute-label">Positioning</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Clinical Finishing & Movement</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Player 5 - QUAMI QUEE -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Veteran</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/p8.jpg" alt="Quami Quee - Midfielder">
-                            </div>
-                            <div class="player-info">
-                                <h4>QUAMI QUEE</h4>
-                                <div class="player-position">MIDFIELDER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 37</div>
-                                    <div class="player-stat">📏 175cm</div>
-                                    <div class="player-stat">🦵 Right Foot</div>
-                                    <div class="player-stat">⚖️ 70kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">Mighty Blackpool</span>
-                                        <span class="club-badge">East End Lions</span>
-                                        <span class="club-badge">FC Kallon</span>
-                                        <span class="club-badge">Bo Rangers</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎯 90%</div>
-                                        <div class="attribute-label">Experience</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🛡️ 82%</div>
-                                        <div class="attribute-label">Tackling</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🧠 88%</div>
-                                        <div class="attribute-label">Game IQ</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Leadership & Game Control</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Player 6 - JUMA BAH -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Rising Star</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/P4.jpg" alt="Juma Bah - Defender">
-                            </div>
-                            <div class="player-info">
-                                <h4>JUMA BAH</h4>
-                                <div class="player-position">DEFENDER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 18</div>
-                                    <div class="player-stat">📏 185cm</div>
-                                    <div class="player-stat">🦵 Right Foot</div>
-                                    <div class="player-stat">⚖️ 78kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">FC Kallon Academy</span>
-                                        <span class="club-badge">Sierra Leone U17</span>
-                                        <span class="club-badge">Wilberforce Strikers</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">⚡ 89%</div>
-                                        <div class="attribute-label">Recovery</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎯 86%</div>
-                                        <div class="attribute-label">Clearance</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">💪 84%</div>
-                                        <div class="attribute-label">Strength</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Speed Recovery & Interceptions</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Player 7 - BUYA TURAY -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Box-to-Box</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/P5.jpg" alt="Buya Turay - Midfielder">
-                            </div>
-                            <div class="player-info">
-                                <h4>BUYA TURAY</h4>
-                                <div class="player-position">MIDFIELDER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 24</div>
-                                    <div class="player-stat">📏 175cm</div>
-                                    <div class="player-stat">🦵 Left Foot</div>
-                                    <div class="player-stat">⚖️ 71kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">Bo Rangers</span>
-                                        <span class="club-badge">East End Lions</span>
-                                        <span class="club-badge">Ports Authority</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">💪 87%</div>
-                                        <div class="attribute-label">Stamina</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🛡️ 83%</div>
-                                        <div class="attribute-label">Defense</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎯 85%</div>
-                                        <div class="attribute-label">Work Rate</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Box-to-Box & Ball Recovery</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Player 8 - KAI KAMARA -->
-                    <div class="slider-slide">
-                        <div class="player-card">
-                            <div class="player-featured">Legend</div>
-                            <div class="player-image">
-                                <img src="./IMAGES/P6.jpg" alt="Kai Kamara - Striker">
-                            </div>
-                            <div class="player-info">
-                                <h4>KAI KAMARA</h4>
-                                <div class="player-position">STRIKER</div>
-                                
-                                <div class="player-stats">
-                                    <div class="player-stat">⭐ Age: 38</div>
-                                    <div class="player-stat">📏 185cm</div>
-                                    <div class="player-stat">🦵 Right Foot</div>
-                                    <div class="player-stat">⚖️ 80kg</div>
-                                </div>
-                                
-                                <!-- CLUB HISTORY -->
-                                <div class="player-club-history">
-                                    <div class="club-history-title">🏟️ Club History:</div>
-                                    <div class="clubs">
-                                        <span class="club-badge">Columbus Crew</span>
-                                        <span class="club-badge">Sporting KC</span>
-                                        <span class="club-badge">New England Rev</span>
-                                        <span class="club-badge">CF Montréal</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-attributes">
-                                    <div class="attribute">
-                                        <div class="attribute-value">🎯 91%</div>
-                                        <div class="attribute-label">Finishing</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">✈️ 86%</div>
-                                        <div class="attribute-label">Heading</div>
-                                    </div>
-                                    <div class="attribute">
-                                        <div class="attribute-value">🧠 90%</div>
-                                        <div class="attribute-label">Experience</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="player-specialty">🎯 Specialty: Target Man & Headed Goals</div>
-                                <button class="btn player-profile-btn">View Full Profile</button>
-                            </div>
+                            <span class="stat">9 goals</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Slider Dots Navigation -->
-            <div class="slider-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-                <span class="dot" data-slide="3"></span>
-                <span class="dot" data-slide="4"></span>
-                <span class="dot" data-slide="5"></span>
-                <span class="dot" data-slide="6"></span>
-                <span class="dot" data-slide="7"></span>
+
+                <!-- Top Assists -->
+                <div class="stats-card-clean">
+                    <div class="stats-header">
+                        <div class="stats-icon">🎯</div>
+                        <div>
+                            <h3>Top Assists</h3>
+                            <p>2025/26 Season</p>
+                        </div>
+                    </div>
+                    <div class="stats-list">
+                        <div class="stats-item">
+                            <span class="rank">1</span>
+                            <div class="player">
+                                <div class="player-name">David Sesay</div>
+                                <div class="player-club">Bo Rangers</div>
+                            </div>
+                            <span class="stat">8 assists</span>
+                        </div>
+                        <div class="stats-item">
+                            <span class="rank">2</span>
+                            <div class="player">
+                                <div class="player-name">Mohamed Bangura</div>
+                                <div class="player-club">East End Lions</div>
+                            </div>
+                            <span class="stat">7 assists</span>
+                        </div>
+                        <div class="stats-item">
+                            <span class="rank">3</span>
+                            <div class="player">
+                                <div class="player-name">Samuel Conteh</div>
+                                <div class="player-club">FC Kallon</div>
+                            </div>
+                            <span class="stat">6 assists</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clean Sheets -->
+                <div class="stats-card-clean">
+                    <div class="stats-header">
+                        <div class="stats-icon">🧤</div>
+                        <div>
+                            <h3>Clean Sheets</h3>
+                            <p>2025/26 Season</p>
+                        </div>
+                    </div>
+                    <div class="stats-list">
+                        <div class="stats-item">
+                            <span class="rank">1</span>
+                            <div class="player">
+                                <div class="player-name">Patrick Mansaray</div>
+                                <div class="player-club">Bo Rangers</div>
+                            </div>
+                            <span class="stat">6 clean sheets</span>
+                        </div>
+                        <div class="stats-item">
+                            <span class="rank">2</span>
+                            <div class="player">
+                                <div class="player-name">Samuel Kargbo</div>
+                                <div class="player-club">East End Lions</div>
+                            </div>
+                            <span class="stat">5 clean sheets</span>
+                        </div>
+                        <div class="stats-item">
+                            <span class="rank">3</span>
+                            <div class="player">
+                                <div class="player-name">Mohamed Conteh</div>
+                                <div class="player-club">FC Kallon</div>
+                            </div>
+                            <span class="stat">4 clean sheets</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SOCIAL MEDIA SECTION IN FOOTER ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <!-- Footer Links -->
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="players.html">Players</a>
-                <a href="matches.html">Matches</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a href="home.html">HOME</a>
+                <a href="players.html">PLAYERS</a>
+                <a href="matches.html">MATCHES</a>
+                <a href="about.html">ABOUT US</a>
+                <a href="contact.html">CONTACT</a>
             </div>
             
-            <!-- Social Media Links -->
             <div class="footer-social">
                 <h4>FOLLOW US</h4>
                 <div class="footer-social-links">
@@ -961,16 +726,8 @@
                         <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                     </a>
                     
-                    <a href="https://linkedin.com/company/footballagencySL" class="footer-social-link linkedin" target="_blank" title="LinkedIn">
-                        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
-                    
                     <a href="https://youtube.com/footballagencySL" class="footer-social-link youtube" target="_blank" title="YouTube">
                         <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    
-                    <a href="https://wa.me/23278801801" class="footer-social-link whatsapp" target="_blank" title="WhatsApp">
-                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .164 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.886-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/></svg>
                     </a>
                 </div>
                 
@@ -982,109 +739,1653 @@
         </div>
     </footer>
 
-    <!-- ===== SLIDER JAVASCRIPT ===== -->
+    
+    <!-- SIGN IN AND OUT MODAL -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <button class="auth-close-btn" id="authClose">&times;</button>
+            
+            <!-- Sign In Form -->
+            <div id="signinForm" class="auth-form active">
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your dashboard</p>
+                </div>
+                
+                <form id="signinFormElement" class="auth-form-body">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" data-target="loginPassword">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit-btn">Sign In</button>
+                    
+                    <div class="auth-divider">
+                        <span>or continue with</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button type="button" class="social-btn google-btn">
+                            <img src="./IMAGES/social/google.svg" alt="Google"> Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <img src="./IMAGES/social/facebook.svg" alt="Facebook"> Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="auth-switch">
+                        Don't have an account? <a href="#" class="switch-link" data-form="signup">Sign up</a>
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="auth-form">
+                <div class="auth-header">
+                    <h2>CREATE AN ACCOUNT</h2>
+                    <p>Join Sierra Leone Football Agency today</p>
+                </div>
+                
+                <form id="signupFormElement" class="auth-form-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="signupPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" data-target="signupPassword">👁️</button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Weak</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" data-target="confirmPassword">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userType">I am a</label>
+                        <select id="userType" required>
+                            <option value="">Select user type</option>
+                            <option value="player">Player</option>
+                            <option value="scout">Scout/Agent</option>
+                            <option value="coach">Coach</option>
+                            <option value="fan">Fan</option>
+                            <option value="media">Media</option>
+                        </select>
+                    </div>
+                    
+                    <label class="checkbox terms">
+                        <input type="checkbox" id="agreeTerms" required>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                    
+                    <button type="submit" class="auth-submit-btn">Create Account</button>
+                    
+                    <p class="auth-switch">
+                        Already have an account? <a href="#" class="switch-link" data-form="signin">Sign in</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
     <script>
-        // Player Slider Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slider-slide');
-            const dots = document.querySelectorAll('.dot');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const counter = document.querySelector('.slider-counter');
-            let currentSlide = 0;
-            
-            // Initialize slider
-            function showSlide(n) {
-                // Remove active class from all slides and dots
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Calculate new slide index
-                currentSlide = (n + slides.length) % slides.length;
-                
-                // Add active class to current slide and dot
-                slides[currentSlide].classList.add('active');
-                dots[currentSlide].classList.add('active');
-                
-                // Update counter
-                counter.textContent = `${currentSlide + 1} / ${slides.length}`;
-            }
-            
-            // Next slide
-            function nextSlide() {
-                showSlide(currentSlide + 1);
-            }
-            
-            // Previous slide
-            function prevSlide() {
-                showSlide(currentSlide - 1);
-            }
-            
-            // Event listeners for buttons
-            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-            
-            // Event listeners for dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                });
+        /**
+ * Sierra Leone Football Agency - About Page JavaScript
+ * Optimized and consolidated from original about.html
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ===== GLOBAL VARIABLES =====
+    const DOM = {
+        nav: document.querySelector('.bbc-nav'),
+        menuToggle: document.getElementById('bbc-menu-toggle'),
+        searchToggle: document.getElementById('bbc-search-toggle'),
+        mobileOverlay: document.getElementById('bbc-mobile-overlay'),
+        mobileClose: document.getElementById('bbc-mobile-close'),
+        mobileSearch: document.getElementById('bbc-mobile-search'),
+        searchInput: document.getElementById('bbc-search-input'),
+        searchBtn: document.getElementById('bbc-search-btn'),
+        authModal: document.getElementById('authModal'),
+        authCloseBtn: document.getElementById('authClose'),
+        backToTopBtn: document.getElementById('backToTop') || createBackToTopButton()
+    };
+
+    // ===== AUTH BUTTONS =====
+    const authButtons = [
+        document.getElementById('nav-signin'),
+        document.getElementById('nav-signup'),
+        document.getElementById('mobile-signin'),
+        document.getElementById('mobile-signup')
+    ];
+
+    // ===== INITIALIZATION =====
+    init();
+
+    // ===== CORE FUNCTIONS =====
+
+    function init() {
+        setupNavigation();
+        setupAuthModal();
+        setupScrollEffects();
+        setupSectionAnimations();
+        setupSmoothScrolling();
+        setupImageLoading();
+        setupFormValidation();
+        
+        console.log('About page initialized successfully');
+    }
+
+    // ===== NAVIGATION FUNCTIONS =====
+    function setupNavigation() {
+        // Mobile Menu Toggle
+        if (DOM.menuToggle && DOM.mobileOverlay) {
+            DOM.menuToggle.addEventListener('click', openMobileMenu);
+        }
+
+        // Mobile Menu Close
+        if (DOM.mobileClose) {
+            DOM.mobileClose.addEventListener('click', closeMobileMenu);
+        }
+
+        // Mobile Search Toggle
+        if (DOM.searchToggle && DOM.mobileSearch) {
+            DOM.searchToggle.addEventListener('click', toggleMobileSearch);
+        }
+
+        // Desktop Search
+        if (DOM.searchInput && DOM.searchBtn) {
+            DOM.searchBtn.addEventListener('click', performSearch);
+            DOM.searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') performSearch();
             });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight') nextSlide();
-                if (e.key === 'ArrowLeft') prevSlide();
-            });
-            
-            // Auto-slide every 5 seconds
-            let slideInterval = setInterval(nextSlide, 5000);
-            
-            // Pause auto-slide on hover
-            const slider = document.querySelector('.player-slider');
-            if (slider) {
-                slider.addEventListener('mouseenter', () => {
-                    clearInterval(slideInterval);
-                });
-                
-                slider.addEventListener('mouseleave', () => {
-                    slideInterval = setInterval(nextSlide, 5000);
-                });
+        }
+
+        // Active Link Highlighting
+        highlightActiveLink();
+        
+        // Close everything with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+                if (DOM.mobileSearch) DOM.mobileSearch.classList.remove('active');
             }
-            
-            // Filter buttons functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Simple alert for demonstration
-                    const position = this.textContent;
-                    if (position !== 'All Players') {
-                        alert(`Filtering by: ${position}\n(Advanced filtering would show only ${position} players)`);
-                    }
-                });
-            });
-            
-            // Search button functionality
-            const searchBtn = document.querySelector('.search-btn');
-            if (searchBtn) {
-                searchBtn.addEventListener('click', function() {
-                    const searchInput = document.querySelector('.search-input');
-                    const searchTerm = searchInput.value.trim();
-                    
-                    if (searchTerm) {
-                        alert(`Searching for: "${searchTerm}"\n(Advanced search functionality would filter players)`);
-                    } else {
-                        alert('Please enter a search term');
-                        searchInput.focus();
-                    }
+        });
+
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                closeMobileMenu();
+                if (DOM.mobileSearch) DOM.mobileSearch.classList.remove('active');
+            }
+        });
+    }
+
+    function openMobileMenu() {
+        if (DOM.mobileOverlay) {
+            DOM.mobileOverlay.classList.add('active');
+            document.body.classList.add('bbc-menu-open');
+        }
+    }
+
+    function closeMobileMenu() {
+        if (DOM.mobileOverlay) {
+            DOM.mobileOverlay.classList.remove('active');
+            document.body.classList.remove('bbc-menu-open');
+        }
+    }
+
+    function toggleMobileSearch() {
+        if (window.innerWidth <= 992 && DOM.mobileSearch) {
+            DOM.mobileSearch.classList.toggle('active');
+            if (DOM.mobileSearch.classList.contains('active')) {
+                const mobileSearchInput = document.getElementById('bbc-mobile-search-input');
+                if (mobileSearchInput) mobileSearchInput.focus();
+            }
+        } else if (DOM.searchInput) {
+            DOM.searchInput.focus();
+        }
+    }
+
+    function performSearch() {
+        const query = DOM.searchInput ? DOM.searchInput.value.trim() : '';
+        if (query) {
+            console.log('Searching for:', query);
+            // Implement actual search functionality here
+            // Example: window.location.href = `/search?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    function highlightActiveLink() {
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.bbc-categories a, .bbc-mobile-categories a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // ===== AUTH MODAL FUNCTIONS =====
+    function setupAuthModal() {
+        // Auth button event listeners
+        authButtons.forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openAuthModal(this.id.includes('signup') ? 'signup' : 'signin');
                 });
             }
         });
+
+        // Close modal
+        if (DOM.authCloseBtn) {
+            DOM.authCloseBtn.addEventListener('click', closeAuthModal);
+        }
+
+        // Close modal when clicking outside
+        if (DOM.authModal) {
+            DOM.authModal.addEventListener('click', function(e) {
+                if (e.target === DOM.authModal) {
+                    closeAuthModal();
+                }
+            });
+        }
+
+        // Form switching
+        document.querySelectorAll('.switch-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetForm = this.getAttribute('data-form');
+                switchAuthForm(targetForm);
+            });
+        });
+
+        // Password toggle
+        document.querySelectorAll('.toggle-password').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                if (input) {
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        this.textContent = '🙈';
+                    } else {
+                        input.type = 'password';
+                        this.textContent = '👁️';
+                    }
+                }
+            });
+        });
+
+        // Password strength indicator
+        const passwordInput = document.getElementById('signupPassword');
+        if (passwordInput) {
+            passwordInput.addEventListener('input', updatePasswordStrength);
+        }
+
+        // Form submission
+        const signinForm = document.getElementById('signinFormElement');
+        const signupForm = document.getElementById('signupFormElement');
+        
+        if (signinForm) {
+            signinForm.addEventListener('submit', handleSignIn);
+        }
+        
+        if (signupForm) {
+            signupForm.addEventListener('submit', handleSignUp);
+        }
+    }
+
+    function openAuthModal(formType) {
+        if (DOM.authModal) {
+            DOM.authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            closeMobileMenu();
+            switchAuthForm(formType);
+        }
+    }
+
+    function closeAuthModal() {
+        if (DOM.authModal) {
+            DOM.authModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function switchAuthForm(formType) {
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.classList.remove('active');
+        });
+        
+        const targetForm = document.getElementById(formType + 'Form');
+        if (targetForm) {
+            targetForm.classList.add('active');
+        }
+    }
+
+    function updatePasswordStrength() {
+        const password = this.value;
+        const strength = calculatePasswordStrength(password);
+        const strengthFill = document.querySelector('.strength-fill');
+        const strengthText = document.querySelector('.strength-text');
+        
+        if (strengthFill && strengthText) {
+            const percentage = (strength / 5) * 100;
+            strengthFill.style.width = percentage + '%';
+            
+            // Update color and text
+            const colors = {
+                1: { color: '#ff4757', text: 'Very Weak' },
+                2: { color: '#ff6b81', text: 'Weak' },
+                3: { color: '#ffa502', text: 'Fair' },
+                4: { color: '#2ed573', text: 'Strong' },
+                5: { color: '#1dd1a1', text: 'Very Strong' }
+            };
+            
+            const strengthLevel = Math.min(Math.max(strength, 1), 5);
+            strengthFill.style.backgroundColor = colors[strengthLevel].color;
+            strengthText.textContent = colors[strengthLevel].text;
+        }
+    }
+
+    function calculatePasswordStrength(password) {
+        let strength = 0;
+        
+        if (password.length >= 8) strength++;
+        if (password.length >= 12) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        return Math.min(strength, 5);
+    }
+
+    function handleSignIn(e) {
+        e.preventDefault();
+        if (validateSignInForm()) {
+            // Simulate successful sign in
+            alert('Sign in successful!');
+            closeAuthModal();
+        }
+    }
+
+    function handleSignUp(e) {
+        e.preventDefault();
+        if (validateSignUpForm()) {
+            // Simulate successful sign up
+            alert('Account created successfully!');
+            closeAuthModal();
+        }
+    }
+
+    function validateSignInForm() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        if (!email || !password) {
+            alert('Please fill in all fields');
+            return false;
+        }
+        
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        return true;
+    }
+
+    function validateSignUpForm() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const userType = document.getElementById('userType').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        // Check required fields
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !userType) {
+            alert('Please fill in all required fields');
+            return false;
+        }
+        
+        // Validate email
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        // Check password match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return false;
+        }
+        
+        // Check password strength
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters long');
+            return false;
+        }
+        
+        // Check terms agreement
+        if (!agreeTerms) {
+            alert('You must agree to the terms and conditions');
+            return false;
+        }
+        
+        return true;
+    }
+
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // ===== SCROLL EFFECTS =====
+    function setupScrollEffects() {
+        // Sticky Navigation
+        if (DOM.nav) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    DOM.nav.classList.add('scrolled');
+                } else {
+                    DOM.nav.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Scroll Progress Bar
+        createScrollProgressBar();
+
+        // Back to Top Button
+        if (DOM.backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    DOM.backToTopBtn.classList.add('visible');
+                } else {
+                    DOM.backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            DOM.backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }
+
+    function createScrollProgressBar() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+
+    function createBackToTopButton() {
+        const backToTop = document.createElement('button');
+        backToTop.className = 'back-to-top';
+        backToTop.id = 'backToTop';
+        backToTop.innerHTML = '↑';
+        backToTop.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTop);
+        return backToTop;
+    }
+
+    // ===== SECTION ANIMATIONS =====
+    function setupSectionAnimations() {
+        const sections = document.querySelectorAll('.section');
+        
+        if (sections.length > 0) {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => sectionObserver.observe(section));
+        }
+    }
+
+    // ===== SMOOTH SCROLLING =====
+    function setupSmoothScrolling() {
+        // Mobile section links
+        document.querySelectorAll('.bbc-mobile-categories a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    closeMobileMenu();
+                    setTimeout(() => {
+                        const offset = 100;
+                        const elementPosition = targetElement.offsetTop - offset;
+                        window.scrollTo({
+                            top: elementPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            });
+        });
+
+        // Desktop section links
+        document.querySelectorAll('.bbc-dropdown-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offset = 120;
+                    const elementPosition = targetElement.offsetTop - offset;
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // "Learn More" buttons
+        document.querySelectorAll('.learn-more-single, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add smooth scroll or modal functionality here
+                console.log('Learn more clicked - implement specific action');
+            });
+        });
+    }
+
+    // ===== IMAGE LOADING =====
+    function setupImageLoading() {
+        const images = document.querySelectorAll('img');
+        
+        images.forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                img.addEventListener('error', function() {
+                    console.error('Failed to load image:', this.src);
+                    this.classList.add('error');
+                });
+            }
+        });
+
+        // Lazy load images with data-src attribute
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        if (lazyImages.length > 0) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    }
+
+    // ===== FORM VALIDATION =====
+    function setupFormValidation() {
+        // Contact form validation (if exists on page)
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (validateContactForm(this)) {
+                    // Simulate form submission
+                    console.log('Contact form submitted');
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                }
+            });
+        }
+    }
+
+    function validateContactForm(form) {
+        const name = form.querySelector('#name');
+        const email = form.querySelector('#email');
+        const subject = form.querySelector('#subject');
+        const message = form.querySelector('#message');
+        
+        if (!name || !name.value.trim()) {
+            alert('Please enter your name');
+            name.focus();
+            return false;
+        }
+        
+        if (!email || !email.value.trim() || !isValidEmail(email.value)) {
+            alert('Please enter a valid email address');
+            email.focus();
+            return false;
+        }
+        
+        if (!subject || !subject.value) {
+            alert('Please select a subject');
+            subject.focus();
+            return false;
+        }
+        
+        if (!message || !message.value.trim()) {
+            alert('Please enter your message');
+            message.focus();
+            return false;
+        }
+        
+        return true;
+    }
+
+    // ===== HELPER FUNCTIONS =====
+    
+    // Debounce function for performance
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Throttle function for scroll events
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    // ===== ERROR HANDLING =====
+    window.addEventListener('error', function(e) {
+        console.error('JavaScript Error:', e.message, e.filename, e.lineno);
+    });
+
+    // ===== PERFORMANCE MONITORING =====
+    if ('performance' in window) {
+        setTimeout(function() {
+            const perfEntries = performance.getEntriesByType('navigation');
+            if (perfEntries.length > 0) {
+                const navTiming = perfEntries[0];
+                console.log('Page loaded in:', navTiming.domContentLoadedEventEnd - navTiming.fetchStart, 'ms');
+            }
+        }, 0);
+    }
+});
+
+// ===== GLOBAL EXPORTS (if needed for module system) =====
+// Note: This is a standalone script, but we can add exports if needed
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {};
+}
     </script>
+<script>
+    // ===== PLAYERS PAGE FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Players page loaded - initializing features...');
+    
+    // Initialize all features
+    initSearch();
+    initFilters();
+    initImageFallbacks();
+    initPlayerCards();
+    initLoadMore();
+    initPlayerActions();
+    initComparison();
+    initModals();
+    
+    console.log('All features initialized successfully');
+});
+
+// ===== 1. SEARCH FUNCTIONALITY =====
+function initSearch() {
+    const searchInput = document.querySelector('.search-input-clean');
+    const searchBtn = document.querySelector('.search-btn-clean');
+    
+    if (!searchInput || !searchBtn) return;
+    
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') performSearch();
+    });
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        
+        if (!searchTerm) {
+            searchInput.focus();
+            showNotification('Please enter a search term', 'info');
+            return;
+        }
+        
+        const playerCards = document.querySelectorAll('.player-card-clean');
+        let found = false;
+        
+        playerCards.forEach(card => {
+            const playerName = card.querySelector('.player-name-clean').textContent.toLowerCase();
+            
+            if (playerName.includes(searchTerm)) {
+                card.style.display = 'block';
+                card.style.animation = 'pulse 1s';
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                found = true;
+                
+                // Reset animation
+                setTimeout(() => {
+                    card.style.animation = '';
+                }, 1000);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        showNotification(found ? `Found players matching "${searchTerm}"` : `No players found for "${searchTerm}"`, 
+                        found ? 'success' : 'warning');
+    }
+}
+
+// ===== 2. FILTER FUNCTIONALITY =====
+function initFilters() {
+    const filters = document.querySelectorAll('.position-filter');
+    
+    filters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            const position = this.getAttribute('data-position');
+            
+            // Update active filter
+            filters.forEach(f => f.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Apply filter
+            filterPlayers(position);
+        });
+    });
+    
+    function filterPlayers(position) {
+        const playerCards = document.querySelectorAll('.player-card-clean');
+        
+        playerCards.forEach(card => {
+            const playerPos = card.querySelector('.player-position-clean').textContent.toLowerCase();
+            let shouldShow = true;
+            
+            if (position !== 'all') {
+                if (position === 'gk' && !playerPos.includes('goalkeeper')) shouldShow = false;
+                else if (position === 'def' && !playerPos.includes('defender')) shouldShow = false;
+                else if (position === 'mid' && !playerPos.includes('midfielder')) shouldShow = false;
+                else if (position === 'att' && !playerPos.includes('striker') && 
+                         !playerPos.includes('attacker') && !playerPos.includes('forward')) {
+                    shouldShow = false;
+                }
+            }
+            
+            card.style.display = shouldShow ? 'block' : 'none';
+            
+            if (shouldShow) {
+                card.style.animation = 'fadeIn 0.5s ease';
+            }
+        });
+        
+        updatePlayerCount();
+    }
+    
+    function updatePlayerCount() {
+        const visibleCards = document.querySelectorAll('.player-card-clean[style*="block"]').length;
+        const totalCards = document.querySelectorAll('.player-card-clean').length;
+        
+        // Create or update count display
+        let countElement = document.querySelector('.player-count');
+        if (!countElement) {
+            countElement = document.createElement('div');
+            countElement.className = 'player-count';
+            countElement.style.cssText = `
+                text-align: center;
+                margin: 1rem 0;
+                color: var(--text-light);
+                font-size: 0.9rem;
+            `;
+            document.querySelector('.players-grid').parentNode.appendChild(countElement);
+        }
+        
+        countElement.textContent = `Showing ${visibleCards} of ${totalCards} players`;
+    }
+}
+
+// ===== 3. IMAGE FALLBACKS =====
+function initImageFallbacks() {
+    const images = document.querySelectorAll('.player-image-clean');
+    
+    images.forEach(img => {
+        // Check if image loads
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            const wrapper = this.parentElement;
+            
+            // Create initials from player name
+            const playerName = this.alt || 'Player';
+            const initials = playerName
+                .split(' ')
+                .map(name => name.charAt(0))
+                .join('')
+                .toUpperCase()
+                .substring(0, 2);
+            
+            // Create fallback
+            const fallback = document.createElement('div');
+            fallback.className = 'image-fallback';
+            fallback.textContent = initials;
+            fallback.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                font-size: 2.5rem;
+                font-weight: bold;
+            `;
+            
+            wrapper.appendChild(fallback);
+        });
+    });
+}
+
+// ===== 4. PLAYER CARDS INTERACTIONS =====
+function initPlayerCards() {
+    const cards = document.querySelectorAll('.player-card-clean');
+    
+    cards.forEach(card => {
+        // Add hover effect
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        });
+        
+        // Click on card (for profile)
+        card.addEventListener('click', function(e) {
+            if (!e.target.closest('.action-btn')) {
+                const playerName = this.querySelector('.player-name-clean').textContent;
+                showPlayerProfile(playerName);
+            }
+        });
+    });
+}
+
+// ===== 5. LOAD MORE BUTTON =====
+function initLoadMore() {
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    
+    if (!loadMoreBtn) return;
+    
+    loadMoreBtn.addEventListener('click', function() {
+        const originalText = this.textContent;
+        this.textContent = 'Loading...';
+        this.disabled = true;
+        
+        // Simulate loading
+        setTimeout(() => {
+            showNotification('More players loaded successfully!');
+            this.textContent = originalText;
+            this.disabled = false;
+        }, 1500);
+    });
+}
+
+// ===== 6. PLAYER ACTION BUTTONS =====
+function initPlayerActions() {
+    // View Profile buttons
+    document.querySelectorAll('.view-profile-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const playerCard = this.closest('.player-card-clean');
+            const playerName = playerCard.querySelector('.player-name-clean').textContent;
+            showPlayerProfile(playerName);
+        });
+    });
+    
+    // Compare buttons
+    const comparisonPlayers = [];
+    
+    document.querySelectorAll('.compare-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const playerCard = this.closest('.player-card-clean');
+            const playerName = playerCard.querySelector('.player-name-clean').textContent;
+            
+            if (comparisonPlayers.length >= 4) {
+                showNotification('Maximum 4 players can be compared', 'warning');
+                return;
+            }
+            
+            if (!comparisonPlayers.includes(playerName)) {
+                comparisonPlayers.push(playerName);
+                updateComparisonCounter(comparisonPlayers.length);
+                showNotification(`${playerName} added to comparison`);
+                
+                // Highlight button
+                this.style.background = 'var(--primary-color)';
+                this.style.color = 'white';
+                setTimeout(() => {
+                    this.style.background = '';
+                    this.style.color = '';
+                }, 1000);
+            } else {
+                showNotification('Player already in comparison');
+            }
+        });
+    });
+    
+    // Scout Report buttons
+    document.querySelectorAll('.scout-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const playerCard = this.closest('.player-card-clean');
+            const playerName = playerCard.querySelector('.player-name-clean').textContent;
+            showScoutReport(playerName);
+        });
+    });
+    
+    function updateComparisonCounter(count) {
+        let counter = document.querySelector('.comparison-counter');
+        
+        if (!counter) {
+            counter = document.createElement('div');
+            counter.className = 'comparison-counter';
+            counter.innerHTML = 'Compare (0)';
+            counter.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--primary-color);
+                color: white;
+                padding: 0.8rem 1.2rem;
+                border-radius: 25px;
+                font-weight: 600;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                cursor: pointer;
+                z-index: 999;
+                transition: all 0.3s ease;
+            `;
+            document.body.appendChild(counter);
+            
+            counter.addEventListener('click', showComparisonModal);
+        }
+        
+        counter.textContent = `Compare (${count})`;
+        counter.style.display = count > 0 ? 'block' : 'none';
+        
+        function showComparisonModal() {
+            showNotification('Comparison feature would open modal', 'info');
+            // In full implementation, this would show comparison modal
+        }
+    }
+}
+
+// ===== 7. PLAYER PROFILE MODAL =====
+function showPlayerProfile(playerName) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('playerProfileModal');
+    
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'playerProfileModal';
+        modal.className = 'player-profile-modal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        `;
+        document.body.appendChild(modal);
+        
+        // Close on outside click
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    }
+    
+    // Create profile content
+    const profileContent = createProfileContent(playerName);
+    modal.innerHTML = profileContent;
+    
+    // Show modal
+    modal.style.display = 'flex';
+    
+    // Add close button functionality
+    const closeBtn = modal.querySelector('.close-profile');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+    
+    // Add compare button functionality
+    const compareBtn = modal.querySelector('.profile-compare-btn');
+    if (compareBtn) {
+        compareBtn.addEventListener('click', () => {
+            showNotification(`${playerName} added to comparison from profile`);
+            modal.style.display = 'none';
+        });
+    }
+}
+
+function createProfileContent(playerName) {
+    return `
+        <div class="profile-content" style="
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        ">
+            <button class="close-profile" style="
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-light);
+            ">×</button>
+            
+            <div class="profile-header" style="
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 2rem;
+                align-items: center;
+            ">
+                <div class="profile-image" style="
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                ">
+                    ${playerName.split(' ').map(n => n[0]).join('').substring(0, 2)}
+                </div>
+                
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 0.5rem;">${playerName}</h2>
+                    <div class="profile-info" style="color: var(--text-light);">
+                        <p>Position: <strong>${getPlayerPosition(playerName)}</strong></p>
+                        <p>Club: <strong>${getPlayerClub(playerName)}</strong></p>
+                        <p>Age: <strong>${getPlayerAge(playerName)}</strong></p>
+                        <p>Rating: <strong>${getPlayerRating(playerName)}/10</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-stats" style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin: 2rem 0;
+            ">
+                <div class="stat-card" style="
+                    background: var(--background-light);
+                    padding: 1rem;
+                    border-radius: 10px;
+                    text-align: center;
+                ">
+                    <div class="stat-value" style="
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                        color: var(--primary-color);
+                    ">${getRandomStat()}</div>
+                    <div class="stat-label" style="
+                        font-size: 0.9rem;
+                        color: var(--text-light);
+                    ">Appearances</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" style="
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                        color: var(--primary-color);
+                    ">${getRandomStat()}</div>
+                    <div class="stat-label" style="
+                        font-size: 0.9rem;
+                        color: var(--text-light);
+                    ">Goals</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value" style="
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                        color: var(--primary-color);
+                    ">${getRandomStat()}</div>
+                    <div class="stat-label" style="
+                        font-size: 0.9rem;
+                        color: var(--text-light);
+                    ">Assists</div>
+                </div>
+            </div>
+            
+            <div class="profile-description" style="
+                background: var(--background-light);
+                padding: 1.5rem;
+                border-radius: 10px;
+                margin: 1.5rem 0;
+            ">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Player Profile</h3>
+                <p style="color: var(--text-dark); line-height: 1.6;">
+                    ${getPlayerDescription(playerName)}
+                </p>
+            </div>
+            
+            <div class="profile-actions" style="
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+            ">
+                <button class="btn-secondary profile-compare-btn" style="
+                    padding: 0.8rem 1.5rem;
+                    background: var(--background-light);
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    flex: 1;
+                ">
+                    ⚖️ Compare Player
+                </button>
+                <button class="btn-primary" onclick="showScoutReport('${playerName}')" style="
+                    padding: 0.8rem 1.5rem;
+                    background: var(--primary-color);
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    flex: 1;
+                ">
+                    📋 Scout Report
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// ===== 8. SCOUT REPORT MODAL =====
+function showScoutReport(playerName) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('scoutModal');
+    
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'scoutModal';
+        modal.className = 'scout-modal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+        `;
+        document.body.appendChild(modal);
+        
+        // Close on outside click
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    }
+    
+    // Create scout report content
+    const scoutContent = createScoutReport(playerName);
+    modal.innerHTML = scoutContent;
+    
+    // Show modal
+    modal.style.display = 'flex';
+    
+    // Add close button functionality
+    const closeBtn = modal.querySelector('.close-scout');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+}
+
+function createScoutReport(playerName) {
+    return `
+        <div class="scout-content" style="
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        ">
+            <button class="close-scout" style="
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-light);
+            ">×</button>
+            
+            <div class="scout-header" style="
+                text-align: center;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+                border-bottom: 2px solid var(--border-color);
+            ">
+                <h2 style="color: var(--primary-color); margin-bottom: 0.5rem;">Scout Report</h2>
+                <h3 style="color: var(--text-dark);">${playerName}</h3>
+                <p style="color: var(--text-light);">
+                    ${getPlayerPosition(playerName)} • ${getPlayerClub(playerName)} • ${getPlayerAge(playerName)} years
+                </p>
+            </div>
+            
+            <div class="report-section" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">✅ Strengths</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="padding: 0.5rem 0; color: var(--text-dark);">✅ ${getStrength1(playerName)}</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-dark);">✅ ${getStrength2(playerName)}</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-dark);">✅ ${getStrength3(playerName)}</li>
+                </ul>
+            </div>
+            
+            <div class="report-section" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">⚠️ Areas for Improvement</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="padding: 0.5rem 0; color: var(--text-dark);">⚠️ ${getWeakness1(playerName)}</li>
+                    <li style="padding: 0.5rem 0; color: var(--text-dark);">⚠️ ${getWeakness2(playerName)}</li>
+                </ul>
+            </div>
+            
+            <div class="report-section" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">📈 Potential Assessment</h4>
+                <div style="
+                    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                    color: white;
+                    padding: 1.5rem;
+                    border-radius: 10px;
+                    text-align: center;
+                ">
+                    <div style="font-size: 2.5rem; font-weight: bold;">${getPotential(playerName)}/100</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">Potential Score</div>
+                </div>
+            </div>
+            
+            <div class="report-section" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">💼 Recommendation</h4>
+                <p style="color: var(--text-dark); line-height: 1.6; padding: 1rem; background: var(--background-light); border-radius: 8px;">
+                    ${getRecommendation(playerName)}
+                </p>
+            </div>
+            
+            <div class="report-actions" style="
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+            ">
+                <button class="btn-secondary" onclick="window.print()" style="
+                    padding: 0.8rem 1.5rem;
+                    background: var(--background-light);
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    flex: 1;
+                ">
+                    🖨️ Print Report
+                </button>
+                <button class="btn-primary" style="
+                    padding: 0.8rem 1.5rem;
+                    background: var(--primary-color);
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    flex: 1;
+                ">
+                    📥 Download PDF
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// ===== 9. MODAL MANAGEMENT =====
+function initModals() {
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
+    });
+}
+
+function closeAllModals() {
+    const modals = document.querySelectorAll('.player-profile-modal, .scout-modal');
+    modals.forEach(modal => {
+        modal.style.display = 'none';
+    });
+}
+
+// ===== 10. NOTIFICATION SYSTEM =====
+function showNotification(message, type = 'success') {
+    const colors = {
+        success: '#2ecc71',
+        error: '#e74c3c',
+        warning: '#f39c12',
+        info: '#3498db'
+    };
+    
+    // Remove existing notification
+    const existing = document.querySelector('.player-notification');
+    if (existing) existing.remove();
+    
+    // Create new notification
+    const notification = document.createElement('div');
+    notification.className = 'player-notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: ${colors[type] || colors.success};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+        max-width: 300px;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 3000);
+}
+
+// ===== 11. HELPER FUNCTIONS =====
+// These would come from a database in a real application
+function getPlayerPosition(name) {
+    const positions = {
+        'Steven Caulker': 'Defender',
+        'Mohamed N Kamara': 'Goalkeeper',
+        'Augustine Kargbo': 'Midfielder',
+        'Musa Noah Kamara': 'Striker',
+        'Quami Quee': 'Midfielder',
+        'Juma Bah': 'Defender',
+        'Buya Turay': 'Midfielder',
+        'Kai Kamara': 'Striker'
+    };
+    return positions[name] || 'Footballer';
+}
+
+function getPlayerClub(name) {
+    const clubs = {
+        'Steven Caulker': 'Bo Rangers',
+        'Mohamed N Kamara': 'East End Lions',
+        'Augustine Kargbo': 'East End Lions',
+        'Musa Noah Kamara': 'Bo Rangers',
+        'Quami Quee': 'Mighty Blackpool',
+        'Juma Bah': 'FC Kallon',
+        'Buya Turay': 'Bo Rangers',
+        'Kai Kamara': 'Retired'
+    };
+    return clubs[name] || 'Sierra Leone';
+}
+
+function getPlayerAge(name) {
+    const ages = {
+        'Steven Caulker': '28',
+        'Mohamed N Kamara': '25',
+        'Augustine Kargbo': '21',
+        'Musa Noah Kamara': '22',
+        'Quami Quee': '37',
+        'Juma Bah': '18',
+        'Buya Turay': '24',
+        'Kai Kamara': '38'
+    };
+    return ages[name] || '--';
+}
+
+function getPlayerRating(name) {
+    const ratings = {
+        'Steven Caulker': '8.5',
+        'Mohamed N Kamara': '8.2',
+        'Augustine Kargbo': '7.8',
+        'Musa Noah Kamara': '8.0',
+        'Quami Quee': '7.5',
+        'Juma Bah': '7.2',
+        'Buya Turay': '7.9',
+        'Kai Kamara': '9.0'
+    };
+    return ratings[name] || '7.5';
+}
+
+function getRandomStat() {
+    return Math.floor(Math.random() * 20) + 1;
+}
+
+function getPlayerDescription(name) {
+    const descriptions = {
+        'Steven Caulker': 'Experienced defender with leadership qualities and European experience. Strong in aerial duels and excellent game reading.',
+        'Mohamed N Kamara': 'Agile goalkeeper with excellent reflexes and shot-stopping ability. Quick off the line and good with distribution.',
+        'Augustine Kargbo': 'Young attacking midfielder with incredible dribbling skills and vision. High potential for future development.',
+        'Musa Noah Kamara': 'Clinical striker with excellent movement and finishing. Proven goal scorer with great potential.',
+        'Quami Quee': 'Veteran midfielder with exceptional leadership and game management. Vast experience in Sierra Leone football.',
+        'Juma Bah': 'Young defender with great recovery pace and tackling ability. High potential for future development.',
+        'Buya Turay': 'Box-to-box midfielder with incredible work rate and defensive contribution. Excellent ball recovery skills.',
+        'Kai Kamara': 'Legendary striker with proven goal scoring record across multiple leagues. Exceptional leadership and experience.'
+    };
+    return descriptions[name] || 'Talented footballer with great potential for development.';
+}
+
+function getStrength1(name) {
+    const strengths = {
+        'Steven Caulker': 'Excellent aerial ability and heading',
+        'Mohamed N Kamara': 'Quick reflexes and shot stopping',
+        'Augustine Kargbo': 'Exceptional dribbling in tight spaces',
+        'Musa Noah Kamara': 'Clinical finishing in the box',
+        'Quami Quee': 'Vast experience and game intelligence',
+        'Juma Bah': 'Great recovery pace and tackling',
+        'Buya Turay': 'Incredible work rate and stamina',
+        'Kai Kamara': 'Proven goal scoring record'
+    };
+    return strengths[name] || 'Strong technical ability';
+}
+
+function getStrength2(name) {
+    return 'Good positional awareness and game reading';
+}
+
+function getStrength3(name) {
+    return 'Strong physical presence on the pitch';
+}
+
+function getWeakness1(name) {
+    return 'Could improve consistency in final third';
+}
+
+function getWeakness2(name) {
+    return 'Needs to work on defensive positioning';
+}
+
+function getPotential(name) {
+    const potentials = {
+        'Steven Caulker': '86',
+        'Mohamed N Kamara': '88',
+        'Augustine Kargbo': '92',
+        'Musa Noah Kamara': '89',
+        'Quami Quee': '75',
+        'Juma Bah': '90',
+        'Buya Turay': '84',
+        'Kai Kamara': '95'
+    };
+    return potentials[name] || '85';
+}
+
+function getRecommendation(name) {
+    const recommendations = {
+        'Steven Caulker': 'Ready for top-tier football. Strong recommendation for clubs needing experienced defender.',
+        'Mohamed N Kamara': 'Excellent prospect with high potential. Recommended for clubs developing young keepers.',
+        'Augustine Kargbo': 'High-potential young talent. Strong recommendation for investment and development.',
+        'Musa Noah Kamara': 'Proven goal scorer ready for higher level. Recommended for clubs needing finishing quality.',
+        'Quami Quee': 'Veteran leader perfect for mentoring young players and providing experience.',
+        'Juma Bah': 'Young talent with excellent potential. Recommended for clubs with good youth development.',
+        'Buya Turay': 'Hard-working midfielder ready for competitive football. Good squad option.',
+        'Kai Kamara': 'Legendary experience perfect for leadership roles and commercial opportunities.'
+    };
+    return recommendations[name] || 'Talented player with good potential for development.';
+}
+
+// ===== 12. ADD CSS ANIMATIONS =====
+// Add CSS animations to the page
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+    
+    .player-card-clean {
+        animation: fadeIn 0.5s ease;
+    }
+`;
+document.head.appendChild(style);
+</script>
+  
 </body>
 </html>

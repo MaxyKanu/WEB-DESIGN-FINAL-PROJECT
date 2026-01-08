@@ -5,312 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fixtures, Results & Statistics - Football Agency Sierra Leone">
     <title>Matches & Statistics - Football Agency Sierra Leone</title>
-    <link rel="icon" type="image/x-icon" href="./IMAGES/logo.jpg">
-     <link rel="apple-touch-icon" href="./IMAGES/logo.jpg">
     <link rel="stylesheet" href="css/styles.css">
-   <style>
-     /* ===== ENHANCED MATCHES PAGE STYLES ===== */
-        
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9) 0%, rgba(30, 58, 138, 0.9) 100%),
-                        url('./IMAGES/HERO\ 3.jpg') center/cover no-repeat;
-            color: var(--white);
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-        
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-        }
-        
-        
-        /* Matches Container */
-        .matches-container {
-            display: none;
-        }
-        
-        .matches-container.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        /* SECTION STRUCTURES */
-        .fixtures-section, .results-section, .stats-section {
-            padding: 2rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .section-header h2 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 2.2rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        /* Matchweek and Results Groups */
-        .matchweek-group, .results-group {
-            margin-bottom: 3rem;
-            background: var(--background-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .matchweek-title, .results-period {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .matchweek-dates {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        
-        /* Match Cards */
-        .match-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--box-shadow);
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 1.5rem;
-            align-items: center;
-            border: 1px solid var(--border-color);
-        }
-        
-        .match-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .match-card.fixture {
-            border-left-color: var(--secondary-color);
-        }
-        
-        .match-card.result {
-            border-left-color: var(--primary-color);
-        }
-        
-        .team {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .team.home {
-            justify-content: flex-end;
-            text-align: right;
-        }
-        
-        .team.away {
-            justify-content: flex-start;
-            text-align: left;
-        }
-        
-        .team-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--background-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--text-light);
-            font-size: 0.8rem;
-        }
-        
-        .team-name {
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-        }
-        
-        /* Enhanced Team Info */
-        .team-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .team-form {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .team-scorers {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .scorer {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            background: var(--background-light);
-            padding: 0.2rem 0.5rem;
-            border-radius: 10px;
-            display: inline-block;
-        }
-        
-        .match-details {
-            text-align: center;
-        }
-        
-        .match-date {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .match-time {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Enhanced Match Score */
-        .match-score {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 0.5rem 0;
-            justify-content: center;
-        }
-
-        .score {
-            padding: 0.5rem 1rem;
-            background: var(--background-light);
-            border-radius: 5px;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .score-separator {
-            color: var(--text-light);
-        }
-        
-        .match-venue {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Enhanced Match Details */
-        .match-referee, .match-attendance {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 0.3rem;
-        }
-        
-        .match-status {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
-        
-        .status-upcoming {
-            background: var(--secondary-color);
-            color: var(--white);
-        }
-        
-        .status-live {
-            background: var(--accent-color);
-            color: var(--white);
-            animation: pulse 2s infinite;
-        }
-        
-        .status-completed {
-            background: var(--text-light);
-            color: var(--white);
-        }
-        
-        /* Match Filters */
-        .matches-filters {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .filter-select {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius);
-            background: var(--white);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
+    <link rel="stylesheet" href="./css/matches.css">
    
-        
-   </style>
-       
-    
 </head>
 <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="main-nav">
-        <div class="container nav-container">
-        <img class="agent-logo" src="./IMAGES/logo.jpg" alt="">
-            <a href="index.html" class="logo">Sierra Leone Football Agency </a>
-            <ul class="nav-links">
-                <li><a href="./home.html">HOME</a></li>
-                <li><a href="./players.html">PLAYERS</a></li>
-                <li><a href="./matches.html">MATCHES</a></li>
-                <li><a href="./about.html">ABOUT US</a></li>
-                <li><a href="./contact.html">CONTACT</a></li>
-            </ul>
+    <!-- ===== BBC-STYLE PROFESSIONAL NAVIGATION ===== -->
+<nav class="bbc-nav">
+    <!-- Top Strip -->
+    <div class="bbc-top-strip">
+        <div class="container bbc-top-container">
+            <div class="bbc-top-left">
+                <!-- Logo -->
+                <a href="home.html" class="bbc-logo-link">
+                    <img src="./IMAGES/logo.svg" alt="Sierra Leone Football Agency Logo" class="bbc-logo">
+                    <span class="bbc-brand">SIERRA LEONE FOOTBALL AGENCY</span>
+                </a>
+            </div>
+            <div class="bbc-top-right">
+                <!-- Desktop Auth Links -->
+                <a href="#" class="bbc-signin" id="nav-signin">Sign in</a>
+                <a href="#" class="bbc-signup" id="nav-signup">Register</a>
+                
+                <!-- Search Toggle -->
+                <button class="bbc-search-toggle" id="bbc-search-toggle" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                        <path d="M12.5 11H11.7L11.4 10.7C12.4 9.6 13 8.1 13 6.5C13 2.9 10.1 0 6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5 11z"/>
+                    </svg>
+                </button>
+                
+                <!-- Menu Toggle -->
+                <button class="bbc-menu-toggle" id="bbc-menu-toggle" aria-label="Menu">
+                    <span class="bbc-menu-icon">☰</span>
+                    <span class="bbc-menu-text">Menu</span>
+                </button>
+            </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="bbc-main-nav">
+        <div class="container bbc-main-container">
+            <!-- Left: Main Categories -->
+            <ul class="bbc-categories">
+                <li class="bbc-home">
+                    <a href="home.html">
+                        <span class="bbc-home-icon">🏠</span>
+                        HOME
+                    </a>
+                </li>
+                <li><a href="players.html">PLAYERS</a></li>
+                <li><a href="matches.html">MATCHES</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li class="bbc-more">
+                    <a href="#">
+                        SECTIONS <span class="bbc-dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="bbc-dropdown-menu">
+                        <li><a href="#video-highlights">🎬 VIDEO HIGHLIGHTS</a></li>
+                        <li><a href="#fixtures-results">📅 FIXTURES & RESULTS</a></li>
+                        <li><a href="#announcements">📢 ANNOUNCEMENTS</a></li>
+                        <li><a href="#latest-news">📰 LATEST NEWS</a></li>
+                        <li><a href="#highlights-section">⚡ HIGHLIGHTS</a></li>
+                        <li><a href="#international">🌍 INTERNATIONAL</a></li>
+                        <li><a href="#top-stories">🔥 TOP STORIES</a></li>
+                        <li><a href="#discovery">🌟 DISCOVERY</a></li>
+                        <li><a href="#all-sports">⚽ ALL SPORTS</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Right: Desktop Search -->
+            <div class="bbc-search-container">
+                <div class="bbc-search-box">
+                    <input type="text" id="bbc-search-input" 
+                           class="bbc-search-input" 
+                           placeholder="Search players, matches, news...">
+                    <button class="bbc-search-btn" id="bbc-search-btn">Search</button>
+                </div>
+                <div class="bbc-search-results" id="bbc-search-results"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Search (Hidden) -->
+    <div class="bbc-mobile-search-container" id="bbc-mobile-search">
+        <div class="container">
+            <div class="bbc-mobile-search-box">
+                <input type="text" id="bbc-mobile-search-input" 
+                       placeholder="Search players, matches, news...">
+                <button class="bbc-mobile-search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="bbc-mobile-overlay" id="bbc-mobile-overlay">
+    <div class="bbc-mobile-menu">
+        <div class="bbc-mobile-header">
+            <!-- Mobile Logo -->
+            <a href="home.html" class="bbc-mobile-logo">
+                <img src="./IMAGES/logo.svg" alt="SL Football Agency" class="bbc-mobile-logo-img">
+                <span class="bbc-mobile-brand">SL FA</span>
+            </a>
+            <button class="bbc-mobile-close" id="bbc-mobile-close">×</button>
+        </div>
+        
+        <div class="bbc-mobile-sections">
+            <!-- Main Pages -->
+            <div class="bbc-section-group">
+                <h4 class="bbc-section-title">MAIN PAGES</h4>
+                <ul class="bbc-mobile-categories">
+                    <li class="bbc-mobile-home">
+                        <a href="home.html">
+                            <span class="bbc-home-icon">🏠</span>
+                            HOME
+                        </a>
+                    </li>
+                    <li><a href="players.html">PLAYERS</a></li>
+                    <li><a href="matches.html">MATCHES</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            
+            <!-- Home Page Sections -->
+            <div class="bbc-section-group">
+                <h4 class="bbc-section-title">HOME SECTIONS</h4>
+                <ul class="bbc-mobile-categories">
+                    <li><a href="#video-highlights"><span>🎬</span> Video Highlights</a></li>
+                    <li><a href="#fixtures-results"><span>📅</span> Fixtures & Results</a></li>
+                    <li><a href="#announcements"><span>📢</span> Announcements</a></li>
+                    <li><a href="#latest-news"><span>📰</span> Latest News</a></li>
+                    <li><a href="#highlights-section"><span>⚡</span> Match Highlights</a></li>
+                    <li><a href="#international"><span>🌍</span> International News</a></li>
+                    <li><a href="#top-stories"><span>🔥</span> Top Stories</a></li>
+                    <li><a href="#discovery"><span>🌟</span> Discovery</a></li>
+                    <li><a href="#all-sports"><span>⚽</span> All Sports</a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Auth -->
+            <div class="bbc-mobile-auth">
+                <a href="#" class="bbc-mobile-signin" id="mobile-signin">Sign In</a>
+                <a href="#" class="bbc-mobile-signup" id="mobile-signup">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- ===== PAGE HEADER ===== -->
     <header class="page-header">
@@ -324,7 +168,13 @@
     <main>
         <section class="section">
             <div class="container">
-               
+                <!-- Matches Navigation -->
+                <div class="matches-nav">
+                    <button class="matches-tab active" data-tab="fixtures">📅 FIXTURES</button>
+                    <button class="matches-tab" data-tab="results">🏆 RESULTS</button>
+                    <button class="matches-tab" data-tab="standings">📊 STANDINGS</button>
+                    <button class="matches-tab" data-tab="stats">⭐ STATISTICS</button>
+                </div>
 
                 <!-- ===== FIXTURES SECTION ===== -->
                 <div class="matches-container active" id="fixtures-container">
@@ -586,16 +436,16 @@
                 </div>
 
                 <!-- ===== RESULTS SECTION ===== -->
-                <div class="matches-container active" id="results-container">
+                <div class="matches-container" id="results-container">
                     <section class="results-section">
                         <div class="section-header">
                             <h2>🏆 Recent Results</h2>
                             <p>Sierra Leone Premier League 2025/26 Season - Previous Matches</p>
                         </div>
 
-                        <!-- December Results -->
+                        <!-- October Results -->
                         <div class="results-group">
-                            <h3 class="results-period">December 2025</h3>
+                            <h3 class="results-period">October 2025</h3>
                             
                             <!-- Result 1 -->
                             <div class="match-card result">
@@ -704,12 +554,594 @@
                                 </div>
                             </div>
 
-                            
+                            <!-- Continue with more results for all 18 teams... -->
+                        </div>
                     </section>
+                </div>
 
+                <!-- ===== STANDINGS SECTION ===== -->
+                <div class="matches-container" id="standings-container">
+                    <section class="stats-section">
+                        <div class="section-header">
+                            <h2>📊 PREMIER LEAGUE STANDINGS</h2>
+                            <p>Sierra Leone Premier League 2025/26 Season - Complete Table</p>
+                        </div>
+
+                        <div class="standings-preview">
+                            <table class="standings-table">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th>Team</th>
+                                        <th>P</th>
+                                        <th>W</th>
+                                        <th>D</th>
+                                        <th>L</th>
+                                        <th>GF</th>
+                                        <th>GA</th>
+                                        <th>GD</th>
+                                        <th>Pts</th>
+                                        <th>Form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="champions-league">
+                                        <td class="team-position">1</td>
+                                        <td style="text-align: left; font-weight: 600;">Bo Rangers</td>
+                                        <td>10</td>
+                                        <td>8</td>
+                                        <td>2</td>
+                                        <td>0</td>
+                                        <td>22</td>
+                                        <td>5</td>
+                                        <td>+17</td>
+                                        <td>26</td>
+                                        <td>
+                                            <div class="form-guide">
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-draw"></div>
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-win"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="champions-league">
+                                        <td class="team-position">2</td>
+                                        <td style="text-align: left; font-weight: 600;">East End Lions</td>
+                                        <td>10</td>
+                                        <td>7</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td>18</td>
+                                        <td>8</td>
+                                        <td>+10</td>
+                                        <td>23</td>
+                                        <td>
+                                            <div class="form-guide">
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-draw"></div>
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-loss"></div>
+                                                <div class="form-indicator form-win"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="europa-league">
+                                        <td class="team-position">3</td>
+                                        <td style="text-align: left; font-weight: 600;">FC Kallon</td>
+                                        <td>10</td>
+                                        <td>6</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td>16</td>
+                                        <td>9</td>
+                                        <td>+7</td>
+                                        <td>21</td>
+                                        <td>
+                                            <div class="form-guide">
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-draw"></div>
+                                                <div class="form-indicator form-draw"></div>
+                                                <div class="form-indicator form-win"></div>
+                                                <div class="form-indicator form-win"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="europa-league">
+                                        <td>4</td>
+                                        <td style="text-align: left;">Mighty Blackpool</td>
+                                        <td>10</td>
+                                        <td>5</td>
+                                        <td>4</td>
+                                        <td>1</td>
+                                        <td>14</td>
+                                        <td>8</td>
+                                        <td>+6</td>
+                                        <td>19</td>
+                                        <td>DWWWD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td style="text-align: left;">Kamboi Eagles</td>
+                                        <td>10</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td>2</td>
+                                        <td>15</td>
+                                        <td>11</td>
+                                        <td>+4</td>
+                                        <td>18</td>
+                                        <td>WWLWD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td style="text-align: left;">Wusum Stars</td>
+                                        <td>10</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>2</td>
+                                        <td>12</td>
+                                        <td>9</td>
+                                        <td>+3</td>
+                                        <td>16</td>
+                                        <td>DDWLW</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td style="text-align: left;">Freetown City</td>
+                                        <td>10</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td>3</td>
+                                        <td>11</td>
+                                        <td>10</td>
+                                        <td>+1</td>
+                                        <td>15</td>
+                                        <td>LWDDW</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td style="text-align: left;">Diamond Stars</td>
+                                        <td>10</td>
+                                        <td>4</td>
+                                        <td>2</td>
+                                        <td>4</td>
+                                        <td>13</td>
+                                        <td>14</td>
+                                        <td>-1</td>
+                                        <td>14</td>
+                                        <td>WLDLW</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td style="text-align: left;">Bhantal FC</td>
+                                        <td>10</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>-1</td>
+                                        <td>13</td>
+                                        <td>DDLWW</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td style="text-align: left;">Abacha City</td>
+                                        <td>10</td>
+                                        <td>3</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>9</td>
+                                        <td>12</td>
+                                        <td>-3</td>
+                                        <td>12</td>
+                                        <td>LDWLD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td style="text-align: left;">Bai Bureh Warriors</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td>8</td>
+                                        <td>10</td>
+                                        <td>-2</td>
+                                        <td>11</td>
+                                        <td>DDLDD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td style="text-align: left;">Luawa FC</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>7</td>
+                                        <td>12</td>
+                                        <td>-5</td>
+                                        <td>10</td>
+                                        <td>LLWDD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td style="text-align: left;">Old Edwardians</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>13</td>
+                                        <td>-7</td>
+                                        <td>9</td>
+                                        <td>LDLWL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td style="text-align: left;">Bullom Stars</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>5</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>11</td>
+                                        <td>-6</td>
+                                        <td>8</td>
+                                        <td>DDLLD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td style="text-align: left;">Ports Authority</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>4</td>
+                                        <td>14</td>
+                                        <td>-10</td>
+                                        <td>7</td>
+                                        <td>LLDLD</td>
+                                    </tr>
+                                    <tr class="relegation">
+                                        <td>16</td>
+                                        <td style="text-align: left;">SLIFA Mount Aureol</td>
+                                        <td>10</td>
+                                        <td>1</td>
+                                        <td>3</td>
+                                        <td>6</td>
+                                        <td>3</td>
+                                        <td>15</td>
+                                        <td>-12</td>
+                                        <td>6</td>
+                                        <td>LLDLL</td>
+                                    </tr>
+                                    <tr class="relegation">
+                                        <td>17</td>
+                                        <td style="text-align: left;">Star Sport Academy</td>
+                                        <td>10</td>
+                                        <td>0</td>
+                                        <td>5</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td>16</td>
+                                        <td>-14</td>
+                                        <td>5</td>
+                                        <td>DDLLL</td>
+                                    </tr>
+                                    <tr class="relegation">
+                                        <td>18</td>
+                                        <td style="text-align: left;">Wilberforce Strikers</td>
+                                        <td>10</td>
+                                        <td>0</td>
+                                        <td>3</td>
+                                        <td>7</td>
+                                        <td>1</td>
+                                        <td>18</td>
+                                        <td>-17</td>
+                                        <td>3</td>
+                                        <td>LLLLD</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ===== STATISTICS SECTION ===== -->
+                <div class="matches-container" id="stats-container">
+                    <section class="stats-section">
+                        <div class="section-header">
+                            <h2>⭐ PLAYER STATISTICS</h2>
+                            <p>Top performers in Sierra Leone Premier League 2025/26</p>
+                        </div>
+
+                        <!-- Player Statistics Leaderboards -->
+                        <div class="stats-leaderboards">
+                            <!-- Top Scorers -->
+                            <div class="leaderboard-card">
+                                <div class="leaderboard-header">
+                                    <div class="leaderboard-icon">⚽</div>
+                                    <div>
+                                        <h3 class="leaderboard-title">Golden Boot</h3>
+                                        <p class="leaderboard-subtitle">Top 10 Goal Scorers</p>
+                                    </div>
+                                </div>
+                                <ul class="leaderboard-list">
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">1</span>
+                                        <div class="player-info">
+                                            <div class="player-name">John Bangura</div>
+                                            <div class="player-team">Bo Rangers</div>
+                                        </div>
+                                        <span class="player-stat">12</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">2</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Mohamed Kamara</div>
+                                            <div class="player-team">East End Lions</div>
+                                        </div>
+                                        <span class="player-stat">10</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">3</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Ibrahim Koroma</div>
+                                            <div class="player-team">Mighty Blackpool</div>
+                                        </div>
+                                        <span class="player-stat">9</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">4</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Samuel Conteh</div>
+                                            <div class="player-team">FC Kallon</div>
+                                        </div>
+                                        <span class="player-stat">8</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">5</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Alusine Turay</div>
+                                            <div class="player-team">Bo Rangers</div>
+                                        </div>
+                                        <span class="player-stat">7</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">6</span>
+                                        <div class="player-info">
+                                            <div class="player-name">David Sesay</div>
+                                            <div class="player-team">Kamboi Eagles</div>
+                                        </div>
+                                        <span class="player-stat">6</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">7</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Patrick Mansaray</div>
+                                            <div class="player-team">Wusum Stars</div>
+                                        </div>
+                                        <span class="player-stat">5</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">8</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Mohamed Bangura</div>
+                                            <div class="player-team">Freetown City</div>
+                                        </div>
+                                        <span class="player-stat">5</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">9</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Samuel Kargbo</div>
+                                            <div class="player-team">Diamond Stars</div>
+                                        </div>
+                                        <span class="player-stat">4</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">10</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Ibrahim Sesay</div>
+                                            <div class="player-team">Bhantal FC</div>
+                                        </div>
+                                        <span class="player-stat">4</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Top Assists -->
+                            <div class="leaderboard-card">
+                                <div class="leaderboard-header">
+                                    <div class="leaderboard-icon">🎯</div>
+                                    <div>
+                                        <h3 class="leaderboard-title">PLAYMAKERS</h3>
+                                        <p class="leaderboard-subtitle">Top 10 Assist Providers</p>
+                                    </div>
+                                </div>
+                                <ul class="leaderboard-list">
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">1</span>
+                                        <div class="player-info">
+                                            <div class="player-name">David Sesay</div>
+                                            <div class="player-team">Bo Rangers</div>
+                                        </div>
+                                        <span class="player-stat">8</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">2</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Mohamed Bangura</div>
+                                            <div class="player-team">East End Lions</div>
+                                        </div>
+                                        <span class="player-stat">7</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">3</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Samuel Conteh</div>
+                                            <div class="player-team">FC Kallon</div>
+                                        </div>
+                                        <span class="player-stat">6</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">4</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Ibrahim Koroma</div>
+                                            <div class="player-team">Mighty Blackpool</div>
+                                        </div>
+                                        <span class="player-stat">5</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">5</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Patrick Mansaray</div>
+                                            <div class="player-team">Wusum Stars</div>
+                                        </div>
+                                        <span class="player-stat">5</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">6</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Alusine Turay</div>
+                                            <div class="player-team">Bo Rangers</div>
+                                        </div>
+                                        <span class="player-stat">4</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">7</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Mohamed Kamara</div>
+                                            <div class="player-team">East End Lions</div>
+                                        </div>
+                                        <span class="player-stat">4</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">8</span>
+                                        <div class="player-info">
+                                            <div class="player-name">John Bangura</div>
+                                            <div class="player-team">Bo Rangers</div>
+                                        </div>
+                                        <span class="player-stat">3</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">9</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Samuel Kargbo</div>
+                                            <div class="player-team">Diamond Stars</div>
+                                        </div>
+                                        <span class="player-stat">3</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">10</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Ibrahim Sesay</div>
+                                            <div class="player-team">Bhantal FC</div>
+                                        </div>
+                                        <span class="player-stat">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Clean Sheets -->
+                            <div class="leaderboard-card">
+                                <div class="leaderboard-header">
+                                    <div class="leaderboard-icon">🧤</div>
+                                    <div>
+                                        <h3 class="leaderboard-title">BEST DEFENSIVE RECORD</h3>
+                                        <p class="leaderboard-subtitle">Top 10 Clean Sheets</p>
+                                    </div>
+                                </div>
+                                <ul class="leaderboard-list">
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">1</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Patrick Mansaray</div>
+                                            <div class="player-team">Bo Rangers</div>
+                                        </div>
+                                        <span class="player-stat">6</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">2</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Samuel Kargbo</div>
+                                            <div class="player-team">East End Lions</div>
+                                        </div>
+                                        <span class="player-stat">5</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">3</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Mohamed Conteh</div>
+                                            <div class="player-team">FC Kallon</div>
+                                        </div>
+                                        <span class="player-stat">4</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">4</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Ibrahim Turay</div>
+                                            <div class="player-team">Mighty Blackpool</div>
+                                        </div>
+                                        <span class="player-stat">4</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">5</span>
+                                        <div class="player-info">
+                                            <div class="player-name">David Koroma</div>
+                                            <div class="player-team">Kamboi Eagles</div>
+                                        </div>
+                                        <span class="player-stat">3</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">6</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Alusine Bangura</div>
+                                            <div class="player-team">Wusum Stars</div>
+                                        </div>
+                                        <span class="player-stat">3</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">7</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Mohamed Sesay</div>
+                                            <div class="player-team">Freetown City</div>
+                                        </div>
+                                        <span class="player-stat">2</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">8</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Samuel Mansaray</div>
+                                            <div class="player-team">Diamond Stars</div>
+                                        </div>
+                                        <span class="player-stat">2</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">9</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Patrick Koroma</div>
+                                            <div class="player-team">Bhantal FC</div>
+                                        </div>
+                                        <span class="player-stat">2</span>
+                                    </li>
+                                    <li class="leaderboard-item">
+                                        <span class="player-rank">10</span>
+                                        <div class="player-info">
+                                            <div class="player-name">Ibrahim Conteh</div>
+                                            <div class="player-team">Abacha City</div>
+                                        </div>
+                                        <span class="player-stat">1</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                     
     </main>
 
-    
     <!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="container">
@@ -770,7 +1202,917 @@
             </div>
         </div>
     </div>
+
+    
 </footer>
+
+<!-- SIGN IN AND OUT -->
+<div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+        <button class="auth-close-btn" id="authClose">&times;</button>
+        
+        <!-- Sign In Form -->
+        <div id="signinForm" class="auth-form active">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to access your dashboard</p>
+            </div>
+            
+            <form id="signinFormElement" class="auth-form-body">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="loginPassword">👁️</button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="rememberMe"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">Sign In</button>
+                
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="social-btn google-btn">
+                        <img src="./IMAGES/social/google.svg" alt="Google"> Google
+                    </button>
+                    <button type="button" class="social-btn facebook-btn">
+                        <img src="./IMAGES/social/facebook.svg" alt="Facebook"> Facebook
+                    </button>
+                </div>
+                
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" class="switch-link" data-form="signup">Sign up</a>
+                </p>
+            </form>
+        </div>
+        
+        <!-- Sign Up Form -->
+        <div id="signupForm" class="auth-form">
+            <div class="auth-header">
+                <h2>CREATE AN ACCOUNT</h2>
+                <p>Join Sierra Leone Football Agency today</p>
+            </div>
+            
+            <form id="signupFormElement" class="auth-form-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="signupPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="signupPassword">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Weak</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="confirmPassword">👁️</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userType">I am a</label>
+                    <select id="userType" required>
+                        <option value="">Select user type</option>
+                        <option value="player">Player</option>
+                        <option value="scout">Scout/Agent</option>
+                        <option value="coach">Coach</option>
+                        <option value="fan">Fan</option>
+                        <option value="media">Media</option>
+                    </select>
+                </div>
+                
+                <label class="checkbox terms">
+                    <input type="checkbox" id="agreeTerms" required>
+                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                </label>
+                
+                <button type="submit" class="auth-submit-btn">Create Account</button>
+                
+                <p class="auth-switch">
+                    Already have an account? <a href="#" class="switch-link" data-form="signin">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+// Match Tab Navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab Navigation for Matches Page
+    const matchTabs = document.querySelectorAll('.matches-tab');
+    const matchContainers = document.querySelectorAll('.matches-container');
+    
+    if (matchTabs.length > 0) {
+        matchTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs
+                matchTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all containers
+                matchContainers.forEach(container => {
+                    container.classList.remove('active');
+                });
+                
+                // Show target container
+                const targetContainer = document.getElementById(`${targetTab}-container`);
+                if (targetContainer) {
+                    targetContainer.classList.add('active');
+                }
+                
+                // Update URL hash without scrolling
+                history.pushState(null, null, `#${targetTab}`);
+            });
+        });
+        
+        // Check for hash on page load
+        const hash = window.location.hash.substring(1);
+        if (hash && ['fixtures', 'results', 'standings', 'stats'].includes(hash)) {
+            const tab = document.querySelector(`.matches-tab[data-tab="${hash}"]`);
+            if (tab) tab.click();
+        }
+    }
+    
+    // Form Guide Visualization (for standings)
+    const formIndicators = document.querySelectorAll('.form-indicator');
+    formIndicators.forEach(indicator => {
+        if (indicator.classList.contains('form-win')) {
+            indicator.style.backgroundColor = '#2ecc71';
+        } else if (indicator.classList.contains('form-draw')) {
+            indicator.style.backgroundColor = '#f39c12';
+        } else if (indicator.classList.contains('form-loss')) {
+            indicator.style.backgroundColor = '#e74c3c';
+        }
+    });
+    
+    // Match Cards Hover Effects
+    const matchCards = document.querySelectorAll('.match-card');
+    matchCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Live Match Simulation (for demo purposes)
+    function simulateLiveMatch() {
+        const liveMatches = document.querySelectorAll('.status-live');
+        if (liveMatches.length > 0) {
+            liveMatches.forEach(match => {
+                const scoreContainer = match.closest('.match-details').querySelector('.match-score');
+                if (scoreContainer) {
+                    const scores = scoreContainer.querySelectorAll('.score');
+                    // Simulate random score updates
+                    if (Math.random() > 0.7) {
+                        scores[Math.floor(Math.random() * scores.length)].textContent = 
+                            parseInt(scores[Math.floor(Math.random() * scores.length)].textContent) + 1;
+                    }
+                }
+            });
+        }
+    }
+    
+    // Run live simulation every 10 seconds (for demo)
+    setInterval(simulateLiveMatch, 10000);
+});
+</script>
+
+<script>
+    // ===== CORE FUNCTIONALITY =====
+// Shared across all pages
+
+// Utility Functions
+const CoreUtils = {
+    // Debounce function for performance
+    debounce: function(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    },
+
+    // Throttle function
+    throttle: function(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    },
+
+    // Format date
+    formatDate: function(date) {
+        return new Date(date).toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    },
+
+    // Validate email
+    isValidEmail: function(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+};
+
+// Scroll Progress Bar
+class ScrollProgress {
+    constructor() {
+        this.progressBar = null;
+        this.init();
+    }
+
+    init() {
+        this.progressBar = document.createElement('div');
+        this.progressBar.className = 'scroll-progress';
+        document.body.appendChild(this.progressBar);
+        
+        window.addEventListener('scroll', () => this.updateProgress());
+        this.updateProgress();
+    }
+
+    updateProgress() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        this.progressBar.style.width = scrolled + '%';
+    }
+}
+
+// Back to Top Button
+class BackToTop {
+    constructor() {
+        this.button = null;
+        this.init();
+    }
+
+    init() {
+        this.button = document.createElement('button');
+        this.button.className = 'back-to-top';
+        this.button.id = 'backToTop';
+        this.button.innerHTML = '↑';
+        this.button.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(this.button);
+
+        window.addEventListener('scroll', () => this.toggleVisibility());
+        this.button.addEventListener('click', () => this.scrollToTop());
+        this.toggleVisibility();
+    }
+
+    toggleVisibility() {
+        if (window.scrollY > 500) {
+            this.button.classList.add('visible');
+        } else {
+            this.button.classList.remove('visible');
+        }
+    }
+
+    scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+// Lazy Load Images
+class LazyLoader {
+    constructor() {
+        this.observer = null;
+        this.init();
+    }
+
+    init() {
+        if ('IntersectionObserver' in window) {
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                        img.classList.add('loaded');
+                        this.observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                this.observer.observe(img);
+            });
+        } else {
+            // Fallback for older browsers
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+            });
+        }
+    }
+}
+
+// Initialize Core Features
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize core components
+    new ScrollProgress();
+    new BackToTop();
+    new LazyLoader();
+    
+    // Animate sections on scroll
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(section => {
+        sectionObserver.observe(section);
+    });
+});
+
+// ===== BBC NAVIGATION SYSTEM =====
+class BBCNavigation {
+    constructor() {
+        this.nav = document.querySelector('.bbc-nav');
+        this.menuToggle = document.getElementById('bbc-menu-toggle');
+        this.searchToggle = document.getElementById('bbc-search-toggle');
+        this.mobileOverlay = document.getElementById('bbc-mobile-overlay');
+        this.mobileClose = document.getElementById('bbc-mobile-close');
+        this.mobileSearch = document.getElementById('bbc-mobile-search');
+        this.searchInput = document.getElementById('bbc-search-input');
+        this.searchBtn = document.getElementById('bbc-search-btn');
+        this.authButtons = [
+            document.getElementById('nav-signin'),
+            document.getElementById('nav-signup'),
+            document.getElementById('mobile-signin'),
+            document.getElementById('mobile-signup')
+        ];
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.setupActiveLinks();
+        this.setupStickyNav();
+    }
+
+    setupEventListeners() {
+        // Mobile Menu Toggle
+        if (this.menuToggle && this.mobileOverlay) {
+            this.menuToggle.addEventListener('click', () => this.openMobileMenu());
+        }
+
+        // Close Mobile Menu
+        if (this.mobileClose) {
+            this.mobileClose.addEventListener('click', () => this.closeMobileMenu());
+        }
+
+        // Mobile Search Toggle
+        if (this.searchToggle && this.mobileSearch) {
+            this.searchToggle.addEventListener('click', (e) => this.toggleMobileSearch(e));
+        }
+
+        // Search Functionality
+        if (this.searchInput && this.searchBtn) {
+            this.searchBtn.addEventListener('click', () => this.performSearch());
+            this.searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') this.performSearch();
+            });
+        }
+
+        // Auth Modal Integration
+        this.authButtons.forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.openAuthModal();
+                });
+            }
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => this.handleOutsideClick(e));
+
+        // Escape key to close everything
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.closeEverything();
+        });
+
+        // Responsive adjustments
+        window.addEventListener('resize', () => this.handleResize());
+    }
+
+    openMobileMenu() {
+        if (this.mobileOverlay) {
+            this.mobileOverlay.classList.add('active');
+            document.body.classList.add('bbc-menu-open');
+        }
+    }
+
+    closeMobileMenu() {
+        if (this.mobileOverlay) {
+            this.mobileOverlay.classList.remove('active');
+            document.body.classList.remove('bbc-menu-open');
+        }
+    }
+
+    toggleMobileSearch(e) {
+        if (window.innerWidth <= 992) {
+            e.preventDefault();
+            if (this.mobileSearch) {
+                this.mobileSearch.classList.toggle('active');
+                if (this.mobileSearch.classList.contains('active')) {
+                    document.getElementById('bbc-mobile-search-input')?.focus();
+                }
+            }
+        } else if (this.searchInput) {
+            this.searchInput.focus();
+        }
+    }
+
+    performSearch() {
+        const query = this.searchInput?.value.trim();
+        if (query) {
+            const results = document.getElementById('bbc-search-results');
+            console.log('Searching for:', query);
+            if (results) results.classList.add('active');
+            // Add actual search logic here
+        }
+    }
+
+    openAuthModal() {
+        const authModal = document.getElementById('authModal');
+        if (authModal) {
+            authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            this.closeMobileMenu();
+        }
+    }
+
+    handleOutsideClick(e) {
+        if (this.mobileSearch && this.mobileSearch.classList.contains('active')) {
+            if (!this.mobileSearch.contains(e.target) && 
+                !this.searchToggle.contains(e.target)) {
+                this.mobileSearch.classList.remove('active');
+            }
+        }
+    }
+
+    closeEverything() {
+        this.closeMobileMenu();
+        if (this.mobileSearch) this.mobileSearch.classList.remove('active');
+        const searchResults = document.getElementById('bbc-search-results');
+        if (searchResults) searchResults.classList.remove('active');
+    }
+
+    setupActiveLinks() {
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.bbc-categories a, .bbc-mobile-categories a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    setupStickyNav() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                this.nav.classList.add('scrolled');
+            } else {
+                this.nav.classList.remove('scrolled');
+            }
+        });
+    }
+
+    handleResize() {
+        if (window.innerWidth > 992) {
+            this.closeMobileMenu();
+            if (this.mobileSearch) this.mobileSearch.classList.remove('active');
+        }
+    }
+}
+
+// Initialize Navigation
+document.addEventListener('DOMContentLoaded', function() {
+    new BBCNavigation();
+});
+
+
+// ===== AUTHENTICATION SYSTEM =====
+class AuthSystem {
+    constructor() {
+        this.authModal = document.getElementById('authModal');
+        this.authCloseBtn = document.getElementById('authClose');
+        this.switchLinks = document.querySelectorAll('.switch-link');
+        this.toggleButtons = document.querySelectorAll('.toggle-password');
+        this.passwordInput = document.getElementById('signupPassword');
+        this.strengthFill = document.querySelector('.strength-fill');
+        this.strengthText = document.querySelector('.strength-text');
+        this.signinForm = document.getElementById('signinFormElement');
+        this.signupForm = document.getElementById('signupFormElement');
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.setupPasswordStrength();
+    }
+
+    setupEventListeners() {
+        // Close Modal
+        if (this.authCloseBtn) {
+            this.authCloseBtn.addEventListener('click', () => this.closeAuthModal());
+        }
+
+        // Close modal when clicking outside
+        this.authModal.addEventListener('click', (e) => {
+            if (e.target === this.authModal) {
+                this.closeAuthModal();
+            }
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.authModal.classList.contains('active')) {
+                this.closeAuthModal();
+            }
+        });
+
+        // Form Switching
+        this.switchLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetForm = link.getAttribute('data-form');
+                this.switchAuthForm(targetForm);
+            });
+        });
+
+        // Password Toggle
+        this.toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    btn.textContent = '🙈';
+                } else {
+                    input.type = 'password';
+                    btn.textContent = '👁️';
+                }
+            });
+        });
+
+        // Form Submission
+        if (this.signinForm) {
+            this.signinForm.addEventListener('submit', (e) => this.handleSignIn(e));
+        }
+
+        if (this.signupForm) {
+            this.signupForm.addEventListener('submit', (e) => this.handleSignUp(e));
+        }
+
+        // Social Auth Buttons (demo)
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Social authentication would be implemented here');
+            });
+        });
+    }
+
+    setupPasswordStrength() {
+        if (this.passwordInput && this.strengthFill && this.strengthText) {
+            this.passwordInput.addEventListener('input', () => {
+                const password = this.passwordInput.value;
+                const strength = this.calculatePasswordStrength(password);
+                this.updateStrengthIndicator(strength);
+            });
+        }
+    }
+
+    openAuthModal(formType = 'signin') {
+        this.authModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        this.switchAuthForm(formType);
+    }
+
+    closeAuthModal() {
+        this.authModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    switchAuthForm(formType) {
+        // Hide all forms
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.classList.remove('active');
+        });
+        
+        // Show target form
+        const targetForm = document.getElementById(formType + 'Form');
+        if (targetForm) {
+            targetForm.classList.add('active');
+        }
+    }
+
+    calculatePasswordStrength(password) {
+        let strength = 0;
+        
+        // Length check
+        if (password.length >= 8) strength++;
+        if (password.length >= 12) strength++;
+        
+        // Complexity checks
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        return Math.min(strength, 5);
+    }
+
+    updateStrengthIndicator(strength) {
+        const percentage = (strength / 5) * 100;
+        this.strengthFill.style.width = percentage + '%';
+        
+        // Update color and text
+        const colors = {
+            1: { color: '#ff4757', text: 'Very Weak' },
+            2: { color: '#ff6b81', text: 'Weak' },
+            3: { color: '#ffa502', text: 'Fair' },
+            4: { color: '#2ed573', text: 'Strong' },
+            5: { color: '#1dd1a1', text: 'Very Strong' }
+        };
+        
+        const level = Math.ceil(strength);
+        this.strengthFill.style.backgroundColor = colors[level]?.color || '#ff4757';
+        this.strengthText.textContent = colors[level]?.text || 'Very Weak';
+    }
+
+    handleSignIn(e) {
+        e.preventDefault();
+        if (this.validateSignInForm()) {
+            alert('Sign in successful!');
+            this.closeAuthModal();
+        }
+    }
+
+    handleSignUp(e) {
+        e.preventDefault();
+        if (this.validateSignUpForm()) {
+            alert('Account created successfully!');
+            this.closeAuthModal();
+        }
+    }
+
+    validateSignInForm() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        if (!email || !password) {
+            alert('Please fill in all fields');
+            return false;
+        }
+        
+        if (!this.isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        return true;
+    }
+
+    validateSignUpForm() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const userType = document.getElementById('userType').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        // Check required fields
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !userType) {
+            alert('Please fill in all required fields');
+            return false;
+        }
+        
+        // Validate email
+        if (!this.isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        // Check password match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return false;
+        }
+        
+        // Check password strength
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters long');
+            return false;
+        }
+        
+        // Check terms agreement
+        if (!agreeTerms) {
+            alert('You must agree to the terms and conditions');
+            return false;
+        }
+        
+        return true;
+    }
+
+    isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+}
+
+// Initialize Auth System
+document.addEventListener('DOMContentLoaded', function() {
+    new AuthSystem();
+});
+
+</script>
+
+<script>
+    // ===== MATCHES PAGE FUNCTIONALITY =====
+class MatchesPage {
+    constructor() {
+        this.matchTabs = document.querySelectorAll('.matches-tab');
+        this.matchContainers = document.querySelectorAll('.matches-container');
+        this.matchCards = document.querySelectorAll('.match-card');
+        this.formIndicators = document.querySelectorAll('.form-indicator');
+        
+        this.init();
+    }
+
+    init() {
+        if (this.matchTabs.length > 0) {
+            this.setupTabNavigation();
+            this.setupFormIndicators();
+            this.setupMatchCards();
+            this.setupLiveMatchSimulation();
+        }
+    }
+
+    setupTabNavigation() {
+        this.matchTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+                this.switchTab(targetTab, tab);
+            });
+        });
+
+        // Check for hash on page load
+        const hash = window.location.hash.substring(1);
+        if (hash && ['fixtures', 'results', 'standings', 'stats'].includes(hash)) {
+            const tab = document.querySelector(`.matches-tab[data-tab="${hash}"]`);
+            if (tab) tab.click();
+        }
+    }
+
+    switchTab(targetTab, clickedTab) {
+        // Update active tab
+        this.matchTabs.forEach(t => t.classList.remove('active'));
+        clickedTab.classList.add('active');
+        
+        // Update active container
+        this.matchContainers.forEach(container => {
+            container.classList.remove('active');
+        });
+        
+        const targetContainer = document.getElementById(`${targetTab}-container`);
+        if (targetContainer) {
+            targetContainer.classList.add('active');
+        }
+        
+        // Update URL hash
+        history.pushState(null, null, `#${targetTab}`);
+    }
+
+    setupFormIndicators() {
+        this.formIndicators.forEach(indicator => {
+            if (indicator.classList.contains('form-win')) {
+                indicator.style.backgroundColor = '#2ecc71';
+            } else if (indicator.classList.contains('form-draw')) {
+                indicator.style.backgroundColor = '#f39c12';
+            } else if (indicator.classList.contains('form-loss')) {
+                indicator.style.backgroundColor = '#e74c3c';
+            }
+        });
+    }
+
+    setupMatchCards() {
+        this.matchCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    setupLiveMatchSimulation() {
+        // Demo: Simulate live score updates
+        setInterval(() => {
+            const liveMatches = document.querySelectorAll('.status-live');
+            liveMatches.forEach(match => {
+                const scoreContainer = match.closest('.match-details')?.querySelector('.match-score');
+                if (scoreContainer && Math.random() > 0.7) {
+                    const scores = scoreContainer.querySelectorAll('.score');
+                    const randomScoreIndex = Math.floor(Math.random() * scores.length);
+                    const currentScore = parseInt(scores[randomScoreIndex].textContent);
+                    scores[randomScoreIndex].textContent = currentScore + 1;
+                    
+                    // Add animation
+                    scores[randomScoreIndex].style.animation = 'pulse 0.5s';
+                    setTimeout(() => {
+                        scores[randomScoreIndex].style.animation = '';
+                    }, 500);
+                }
+            });
+        }, 10000);
+    }
+
+    // Additional features can be added here:
+    // - Filter matches by date/team
+    // - Sort standings table
+    // - Update player statistics
+    // - Export data functionality
+}
+
+// Initialize Matches Page
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.matches-nav')) {
+        new MatchesPage();
+    }
+});
+</script>
+
+
+<!-- Add before closing body tag -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+</button> 
 
 
 </body>

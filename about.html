@@ -3,481 +3,2013 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Football Agency Sierra Leone - Our history, mission, vision and partner clubs">
+    <meta name="description" content="Sierra Leone Football Agency - West Africa's Premier Football Talent Management Organization. Discover our mission, team, achievements, and partner clubs.">
     <title>About Us - Football Agency Sierra Leone</title>
-    <link rel="icon" type="image/x-icon" href="./IMAGES/logo.jpg">
-    <link rel="apple-touch-icon" href="./IMAGES/logo.jpg">
+    <link rel="icon" type="image/svg+xml" href="./IMAGES/logo.svg">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        /* ===== ABOUT PAGE SPECIFIC STYLES ===== */
-        
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9) 0%, rgba(30, 58, 138, 0.9) 100%),
-                        url('./IMAGES/hero.jpg') center/cover no-repeat;
-            color: var(--white);
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-        
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-        }
-        
-        /* Mission Vision Grid */
-        .mv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .mv-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            border-top: 4px solid var(--primary-color);
-            transition: transform 0.3s ease;
-        }
-        
-        .mv-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .mv-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .mv-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        
-       /* ===== SINGLE LEARN MORE BUTTON ===== */
-.learn-more-single {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    background: var(--primary-color);
-    color: var(--white);
-    border: 2px solid var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.learn-more-single:hover {
-    background: transparent;
-    color: var(--primary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3);
-}
-        
-       
-     /* Club Cards Styles */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .team-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-        
-        .team-image {
-            width: 100%;
-            height: 180px;
-            background: var(--background-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            padding: 1rem;
-        }
-        
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
-        
-        .team-info {
-            padding: 1.5rem;
-        }
-        
-        .team-role {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        /* ===== TEAM SECTION STYLES ===== */
-
-/* Grid layout for team members */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-/* Team card container */
-.team-card {
-    background: var(--white);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    border: 2px solid transparent;
-}
-
-/* Hover effect */
-.team-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--primary-color);
-}
-
-/* Image container */
-.team-image {
-    width: 100%;
-    height: 220px;
-    background: var(--background-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-/* Team image properties */
-.team-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* looks more realistic for staff images */
-    border-bottom: 2px solid var(--primary-color);
-}
-
-/* Info container */
-.team-info {
-    padding: 1.5rem;
-}
-
-/* Name */
-.team-info h4 {
-    font-size: 1.3rem;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-/* Role label */
-.team-role {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-bottom: 0.7rem;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-}
-
-/* Description text */
-.team-info p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.5;
-}s
-
-        /* Footer social links */
-.footer-social .social-logo {
-    width: 28px; /* Bigger in footer too */
-    height: 28px;
-    filter: none; /* Visible by default */
-}
-
-.footer-social .social-link {
-    width: 60px; /* Bigger circle */
-    height: 60px;
-}
-
-.footer-social .social-link:hover .social-logo {
-    transform: scale(1.4);
-}
-
-/* for SVG */
-.social-link svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-    </style>
-
-        
+    <link rel="stylesheet" href="./css/about.css">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./IMAGES/logo.svg" as="image">
+    
+    
 </head>
 <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="main-nav">
-        <div class="container nav-container">
-        <img class="agent-logo" src="./IMAGES/logo.jpg" alt="">   
-            <a href="index.html" class="logo">Sierra Leone Football Agency</a>
-            <ul class="nav-links">
-                <li><a href="./home.html">HOME</a></li>
-                <li><a href="./players.html">PLAYERS</a></li>
-                <li><a href="./matches.html">MATCHES</a></li>
-                <li><a href="./about.html">ABOUT US</a></li>
-                <li><a href="./contact.html">CONTACT</a></li>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+   <!-- ===== BBC-STYLE PROFESSIONAL NAVIGATION ===== -->
+<nav class="bbc-nav">
+    <!-- Top Strip -->
+    <div class="bbc-top-strip">
+        <div class="container bbc-top-container">
+            <div class="bbc-top-left">
+                <!-- Logo -->
+                <a href="home.html" class="bbc-logo-link">
+                    <img src="./IMAGES/logo.svg" alt="Sierra Leone Football Agency Logo" class="bbc-logo">
+                    <span class="bbc-brand">SIERRA LEONE FOOTBALL AGENCY</span>
+                </a>
+            </div>
+            <div class="bbc-top-right">
+                <!-- Desktop Auth Links -->
+                <a href="#" class="bbc-signin" id="nav-signin">Sign in</a>
+                <a href="#" class="bbc-signup" id="nav-signup">Register</a>
+                
+                <!-- Search Toggle -->
+                <button class="bbc-search-toggle" id="bbc-search-toggle" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                        <path d="M12.5 11H11.7L11.4 10.7C12.4 9.6 13 8.1 13 6.5C13 2.9 10.1 0 6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5 11z"/>
+                    </svg>
+                </button>
+                
+                <!-- Menu Toggle -->
+                <button class="bbc-menu-toggle" id="bbc-menu-toggle" aria-label="Menu">
+                    <span class="bbc-menu-icon">☰</span>
+                    <span class="bbc-menu-text">Menu</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="bbc-main-nav">
+        <div class="container bbc-main-container">
+            <!-- Left: Main Categories -->
+            <ul class="bbc-categories">
+                <li class="bbc-home">
+                    <a href="home.html">
+                        <span class="bbc-home-icon">🏠</span>
+                        HOME
+                    </a>
+                </li>
+                <li><a href="players.html">PLAYERS</a></li>
+                <li><a href="matches.html">MATCHES</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li class="bbc-more">
+                    <a href="#">
+                        SECTIONS <span class="bbc-dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="bbc-dropdown-menu">
+                        <li><a href="#video-highlights">🎬 VIDEO HIGHLIGHTS</a></li>
+                        <li><a href="#fixtures-results">📅 FIXTURES & RESULTS</a></li>
+                        <li><a href="#announcements">📢 ANNOUNCEMENTS</a></li>
+                        <li><a href="#latest-news">📰 LATEST NEWS</a></li>
+                        <li><a href="#highlights-section">⚡ HIGHLIGHTS</a></li>
+                        <li><a href="#international">🌍 INTERNATIONAL</a></li>
+                        <li><a href="#top-stories">🔥 TOP STORIES</a></li>
+                        <li><a href="#discovery">🌟 DISCOVERY</a></li>
+                        <li><a href="#all-sports">⚽ ALL SPORTS</a></li>
+                    </ul>
+                </li>
             </ul>
-        </div>
-    </nav>
-
-    <!-- ===== PAGE HEADER ===== -->
-    <header class="page-header">
-        <div class="container">
-            <h1>ABOUT SIERRA LEONE FOOTBALL AGENCY </h1>
-            <p>Pioneering football talent management and player development in Sierra Leone since 2015</p>
-        </div>
-    </header>
-
-    <!-- ===== MAIN CONTENT ===== -->
-    <main>
-        <!-- Introduction Section -->
-        <section class="section">
-            <div class="container">
-                <div class="text-center">
-                    <h2>Leading the Future of Sierra Leone Football</h2>
-                    <p class="container" style="max-width: 800px; margin: 1rem auto 3rem;">
-                        Football Agency Sierra Leone is the premier talent management organization dedicated to 
-                        discovering, nurturing, and promoting exceptional football talent from across Sierra Leone. 
-                        We bridge the gap between local potential and global opportunities.
-                    </p>
+            
+            <!-- Right: Desktop Search -->
+            <div class="bbc-search-container">
+                <div class="bbc-search-box">
+                    <input type="text" id="bbc-search-input" 
+                           class="bbc-search-input" 
+                           placeholder="Search players, matches, news...">
+                    <button class="bbc-search-btn" id="bbc-search-btn">Search</button>
                 </div>
+                <div class="bbc-search-results" id="bbc-search-results"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Search (Hidden) -->
+    <div class="bbc-mobile-search-container" id="bbc-mobile-search">
+        <div class="container">
+            <div class="bbc-mobile-search-box">
+                <input type="text" id="bbc-mobile-search-input" 
+                       placeholder="Search players, matches, news...">
+                <button class="bbc-mobile-search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+</nav>
 
-                <!-- History, Mission, Vision Section -->
-<section class="section">
+<!-- Mobile Menu Overlay -->
+<div class="bbc-mobile-overlay" id="bbc-mobile-overlay">
+    <div class="bbc-mobile-menu">
+        <div class="bbc-mobile-header">
+            <!-- Mobile Logo -->
+            <a href="home.html" class="bbc-mobile-logo">
+                <img src="./IMAGES/logo.svg" alt="SL Football Agency" class="bbc-mobile-logo-img">
+                <span class="bbc-mobile-brand">SL FA</span>
+            </a>
+            <button class="bbc-mobile-close" id="bbc-mobile-close">×</button>
+        </div>
+        
+        <div class="bbc-mobile-sections">
+            <!-- Main Pages -->
+            <div class="bbc-section-group">
+                <h4 class="bbc-section-title">MAIN PAGES</h4>
+                <ul class="bbc-mobile-categories">
+                    <li class="bbc-mobile-home">
+                        <a href="home.html">
+                            <span class="bbc-home-icon">🏠</span>
+                            HOME
+                        </a>
+                    </li>
+                    <li><a href="players.html">PLAYERS</a></li>
+                    <li><a href="matches.html">MATCHES</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            
+            <!-- Home Page Sections -->
+            <div class="bbc-section-group">
+                <h4 class="bbc-section-title">HOME SECTIONS</h4>
+                <ul class="bbc-mobile-categories">
+                    <li><a href="#video-highlights"><span>🎬</span> Video Highlights</a></li>
+                    <li><a href="#fixtures-results"><span>📅</span> Fixtures & Results</a></li>
+                    <li><a href="#announcements"><span>📢</span> Announcements</a></li>
+                    <li><a href="#latest-news"><span>📰</span> Latest News</a></li>
+                    <li><a href="#highlights-section"><span>⚡</span> Match Highlights</a></li>
+                    <li><a href="#international"><span>🌍</span> International News</a></li>
+                    <li><a href="#top-stories"><span>🔥</span> Top Stories</a></li>
+                    <li><a href="#discovery"><span>🌟</span> Discovery</a></li>
+                    <li><a href="#all-sports"><span>⚽</span> All Sports</a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Auth -->
+            <div class="bbc-mobile-auth">
+                <a href="#" class="bbc-mobile-signin" id="mobile-signin">Sign In</a>
+                <a href="#" class="bbc-mobile-signup" id="mobile-signup">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+        <!-- ===== MODERN HERO SECTION ===== -->
+    <section class="about-hero" id="hero">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-crown"></i> Sierra Leone Football Agency Since 2015</span>
+            <h1 class="hero-title">Shaping Sierra Leone's Football Future</h1>
+            <p class="hero-subtitle">
+                We are the bridge between raw African talent and global football opportunities. 
+                Through professional management, strategic development, and international partnerships, 
+                we're revolutionizing football talent management in West Africa.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-label">Players Managed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">International Transfers</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="12">0</span>
+                    <span class="stat-label">Partner Clubs</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="8">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MISSION, VISION & VALUES ===== -->
+    <section class="mvv-section" id="mission">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Our Foundation</span>
+                <h2 class="section-title">Mission, Vision & Values</h2>
+                <p class="section-subtitle">The principles that guide our journey in transforming Sierra Leone football</p>
+            </div>
+            
+            <div class="mvv-grid">
+                <div class="mvv-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To identify, develop, and position Sierra Leonean football talent for successful professional careers through comprehensive management and strategic international partnerships.</p>
+                    <ul class="mvv-features">
+                        <li>Talent identification nationwide</li>
+                        <li>Professional development programs</li>
+                        <li>International exposure opportunities</li>
+                        <li>Career-long support and guidance</li>
+                    </ul>
+                </div>
+                
+                <div class="mvv-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become West Africa's leading football agency, transforming raw talent into world-class professionals and elevating Sierra Leone's presence in global football.</p>
+                    <ul class="mvv-features">
+                        <li>Regional football hub establishment</li>
+                        <li>Youth academy development</li>
+                        <li>International scouting network</li>
+                        <li>Football infrastructure investment</li>
+                    </ul>
+                </div>
+                
+                <div class="mvv-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mvv-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Integrity, Excellence, Innovation, and Community Development guide every decision we make in building sustainable football careers.</p>
+                    <ul class="mvv-features">
+                        <li>Ethical player representation</li>
+                        <li>Transparent operations</li>
+                        <li>Community engagement</li>
+                        <li>Sustainable development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR JOURNEY TIMELINE ===== -->
+    <section class="timeline-section" id="journey">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Our Journey</span>
+                <h2 class="section-title">Milestones & Achievements</h2>
+                <p class="section-subtitle">From humble beginnings to becoming Sierra Leone's premier football agency</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h4>The Beginning</h4>
+                        <p>Founded with a vision to professionalize football talent management in Sierra Leone. Started operations from a small office in Freetown with our first 5 players.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <h4>First International Transfer</h4>
+                        <p>Successfully negotiated our first international transfer, moving a promising young talent to a European academy. This marked our entry into international football.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h4>Regional Expansion</h4>
+                        <p>Expanded operations across West Africa, establishing scouting networks in neighboring countries and forming partnerships with 5 additional clubs.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h4>Youth Academy Launch</h4>
+                        <p>Launched the "Future Stars" youth development program, focusing on identifying and nurturing talent from grassroots level across Sierra Leone.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h4>Digital Transformation</h4>
+                        <p>Implemented advanced scouting technology and launched our digital platform, revolutionizing how we identify and track talent across Africa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTNER CLUBS SECTION ===== -->
+    <section class="clubs-section" id="partners">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Strategic Partnerships</span>
+                <h2 class="section-title">Our Partner Clubs</h2>
+                <p class="section-subtitle">Collaborating with Sierra Leone's most promising football institutions</p>
+            </div>
+            
+            <div class="clubs-grid">
+                <div class="club-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="club-badge">Premier League</div>
+                    <div class="club-image">
+                        <img src="./IMAGES/kallon.webp" alt="FC Kallon Stadium" loading="lazy">
+                    </div>
+                    <div class="club-info">
+                        <h4>FC KALLON</h4>
+                        <div class="club-role">Strategic Development Partner</div>
+                        <p>One of Sierra Leone's most successful clubs with multiple league titles and continental experience. Our partnership focuses on youth development and international exposure.</p>
+                        <div class="club-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">15</span>
+                                <span class="stat-label">Players</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Transfers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">Titles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="club-badge">Premier League</div>
+                    <div class="club-image">
+                        <img src="./IMAGES/eastern.webp" alt="East End Lions Training" loading="lazy">
+                    </div>
+                    <div class="club-info">
+                        <h4>EAST END LIONS</h4>
+                        <div class="club-role">Youth Development Partner</div>
+                        <p>Historic club with strong youth development program and passionate fan base. We collaborate on talent identification and professional pathway development.</p>
+                        <div class="club-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Players</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">6</span>
+                                <span class="stat-label">Transfers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">4</span>
+                                <span class="stat-label">Academies</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="club-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="club-badge">Premier League</div>
+                    <div class="club-image">
+                        <img src="./IMAGES/bo.webp" alt="Bo Rangers Celebration" loading="lazy">
+                    </div>
+                    <div class="club-info">
+                        <h4>BO RANGERS</h4>
+                        <div class="club-role">Community Engagement Partner</div>
+                        <p>Recent champions known for their attacking style and strong community roots. Our partnership emphasizes community development through football.</p>
+                        <div class="club-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">10</span>
+                                <span class="stat-label">Players</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">5</span>
+                                <span class="stat-label">Transfers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">6</span>
+                                <span class="stat-label">Communities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Leadership Team</span>
+                <h2 class="section-title">Meet Our Experts</h2>
+                <p class="section-subtitle">Seasoned professionals dedicated to developing Sierra Leone's football talent</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-image">
+                        <img src="./IMAGES/Director.jpeg" alt="Mohamed Kallon - Agency Director" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Mohamed Kallon</h4>
+                        <div class="member-role">Agency Director & Founder</div>
+                        <p>Former professional footballer with 15+ years of international experience. Oversees all operations, international partnerships, and strategic development.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">International Transfers</span>
+                            <span class="expertise-tag">Player Development</span>
+                            <span class="expertise-tag">Strategic Planning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-image">
+                        <img src="./IMAGES/scout.jpeg" alt="Abu Kamara - Head Scout" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Abu Kamara</h4>
+                        <div class="member-role">Head of Scouting</div>
+                        <p>10+ years scouting experience across West Africa. Leads nationwide talent identification missions and manages our scouting network across 5 countries.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Talent Identification</span>
+                            <span class="expertise-tag">Performance Analysis</span>
+                            <span class="expertise-tag">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-image">
+                        <img src="./IMAGES/technical coach.jpeg" alt="John Keister - Technical Director" loading="lazy">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>John Keister</h4>
+                        <div class="member-role">Technical Director</div>
+                        <p>Former national team coach with UEFA Pro License. Designs and implements player development programs focusing on technical and tactical growth.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Technical Development</span>
+                            <span class="expertise-tag">Tactical Analysis</span>
+                            <span class="expertise-tag">Coaching Education</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS SECTION ===== -->
+    <section class="achievements-section" id="achievements">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span style="align-items: center; justify-content: center;" class="section-tag">OUR IMPACT</span>
+                <h2 style="color: blue; font-weight: bold;" >BY THE NUMBERS</h2 >
+                <p class="section-subtitle">Quantifying our impact on Sierra Leone football development</p>
+            </div>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="achievement-number" data-target="150">0</div>
+                    <div class="achievement-text">Professional Players Managed</div>
+                </div>
+                
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <div class="achievement-number" data-target="25">0</div>
+                    <div class="achievement-text">Successful International Transfers</div>
+                </div>
+                
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-number" data-target="15">0</div>
+                    <div class="achievement-text">League Titles Won by Our Players</div>
+                </div>
+                
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="achievement-number" data-target="50">0</span>
+                    <div class="achievement-text">Youth Players in Development Programs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SIERRA LEONE FOOTBALL MAP ===== -->
+   <!-- ===== SIERRA LEONE FOOTBALL TALENT MAP ===== -->
+<section class="map-section" id="coverage">
     <div class="container">
-        <div class="text-center">
-           
+        <div class="map-header">
+            <span class="map-tag">
+                <i class="fas fa-map-marked-alt"></i> National Coverage
+            </span>
+            <h2 class="map-title">Football Talent Across Sierra Leone</h2>
+            <p class="map-subtitle">
+                Our comprehensive scouting network covers every region of Sierra Leone. 
+                Click on any region to explore talent distribution and statistics.
+            </p>
         </div>
-
-        <!-- History, Mission, Vision Grid -->
-        <div class="mv-grid">
-            <!-- History -->
-            <div class="mv-card">
-                <div class="mv-icon">📜</div>
-                <h3>HISTORY</h3>
-                <p>Founded in 2015, we started with a vision to professionalize football talent management in Sierra Leone. From our first office in Freetown to becoming the nation's leading agency...</p>
+        
+        <!-- Interactive Map Container -->
+        <div class="map-container" id="sierraLeoneMap">
+            <!-- Map will be generated by JavaScript -->
+        </div>
+        
+        <!-- Map Statistics -->
+        <div class="map-stats">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <div class="stat-number">240+</div>
+                <div class="stat-text">Players Actively Scouted Nationwide</div>
             </div>
             
-            <!-- Mission -->
-            <div class="mv-card">
-                <div class="mv-icon">🎯</div>
-                <h3>MISSION</h3>
-                <p>To identify, develop, and position Sierra Leonean football talent for successful professional careers through comprehensive management and strategic international partnerships.</p>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number">76</div>
+                <div class="stat-text">Partner Clubs Across All Regions</div>
             </div>
             
-            <!-- Vision -->
-            <div class="mv-card">
-                <div class="mv-icon">🔭</div>
-                <h3>VISION</h3>
-                <p>To become West Africa's leading football agency, transforming raw talent into world-class professionals and elevating Sierra Leone's presence in global football.</p>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-number">38</div>
+                <div class="stat-text">Youth Development Academies</div>
             </div>
-        </div>
-
-        <!-- Single Learn More Button -->
-        <div class="text-center" style="margin-top: 3rem;">
-            <button class="btn learn-more-single">LEARN MORE ABOUT US</button>
+            
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-number">95%</div>
+                <div class="stat-text">National Coverage - All 5 Regions</div>
+            </div>
         </div>
     </div>
 </section>
 
-        
-        <!-- Partner Clubs Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="text-center">FIND OUT ABOUT TEAMS</h2>
-                <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem;">
-                    We partner with and manage some of Sierra Leone's most promising football clubs, 
-                    providing professional management and development opportunities.
-                </p>
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section" id="join">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 class="cta-title">Ready to Start Your Football Journey?</h2>
+                <p>Whether you're a talented player seeking representation, a club looking for partnership opportunities, or an investor interested in African football, we're here to help you achieve your goals.</p>
                 
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="./IMAGES/kallon.webp" alt="FC Kallon Logo">
-                        </div>
-                        <div class="team-info">
-                            <h4>FC KALLON</h4>
-                            <div class="team-role">Premier League Club</div>
-                            <p>One of Sierra Leone's most successful clubs with multiple league titles and continental experience.</p>
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="./IMAGES/eastern.webp" alt="East End Lions Logo">
-                        </div>
-                        <div class="team-info">
-                            <h4>EAST END LIONS</h4>
-                            <div class="team-role">Premier League Club</div>
-                            <p>Historic club with strong youth development program and passionate fan base.</p>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="team-card">
-                        <div class="team-image">
-                            <img src="./IMAGES/bo.webp" alt="Bo Rangers Logo">
-                        </div>
-                        <div class="team-info">
-                            <h4>BO RANGERS</h4>
-                            <div class="team-role">Premier League Club</div>
-                            <p>Recent champions known for their attacking style and strong community roots.</p>
-                           
-                        </div>
-                    </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <button class="btn-secondary" id="statsCalculatorBtn">
+                        <i class="fas fa-calculator"></i> Player Value Calculator
+                    </button>
                 </div>
                 
-                <div class="text-center" style="margin-top: 3rem;">
-                    <a href="#" class="btn btn-secondary">LEARN MORE ABOUT TEAMS</a>
-                </div>
-                <br>
-                <br>
-                <!-- ===== TEAM / STAFF SECTION ===== -->
-<section class="section">
-    <div class="container">
-        <h2 class="text-center">MEET OUR TEAM</h2>
-        <p class="text-center" style="max-width: 650px; margin: 0 auto 3rem;">
-            Our dedicated leadership team works tirelessly to develop young football talent, 
-            build strategic partnerships, and push Sierra Leone football forward.
-        </p>
-
-        <div class="team-grid">
-            <!-- Team Member 1 -->
-            <div class="team-card">
-                <div class="team-image">
-                    <img src="./IMAGES/Director.jpeg" alt="Agency Director">
-                </div>
-                <div class="team-info">
-                    <h4>Mohamed Kallon</h4>
-                    <div class="team-role">Agency Director</div>
-                    <p>Oversees operations, partnerships, and international player transfers.</p>
+                <div class="cta-features" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Professional Representation</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Career Development Plans</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-handshake"></i>
+                        <span>International Partnerships</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Team Member 2 -->
-            <div class="team-card">
-                <div class="team-image">
-                    <img src="./IMAGES/scout.jpeg" alt="Head Scout">
-                </div>
-                <div class="team-info">
-                    <h4>Abu Kamara</h4>
-                    <div class="team-role">Head Scout</div>
-                    <p>Leads nationwide scouting missions to discover exceptional talent.</p>
-                </div>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="team-card">
-                <div class="team-image">
-                    <img src="./IMAGES/technical coach.jpeg" alt="Technical Coach">
-                </div>
-                <div class="team-info">
-                    <h4>John Keister</h4>
-                    <div class="team-role">Technical Coach</div>
-                    <p>Trains players in tactical development and professional discipline.</p>
-                </div>
-            </div>
-
-            </div>
-        </section>
+        </div>
+    </section>
     </main>
 
-   
     <!-- ===== FOOTER ===== -->
-<footer class="footer">
-    <div class="container">
-        <!-- Footer Links (Optional) -->
-        <div class="footer-links">
-            <a href="home.html">HOME</a>
-            <a href="players.html">PAYERS</a>
-            <a href="matches.html">MATCHES</a>
-            <a href="about.html">ABOUT US</a>
-            <a href="contact.html">CONTACT</a>
-            
-        </div>
-        
-        <!-- Social Media Links -->
-        <div class="footer-social">
-            <h4>FOLLOW US</h4>
-            <div class="footer-social-links">
-                <a href="https://facebook.com/footballagencySL" class="footer-social-link facebook" target="_blank" title="Facebook">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                </a>
-                
-                <a href="https://instagram.com/footballagencySL" class="footer-social-link instagram" target="_blank" title="Instagram">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                
-                <a href="https://twitter.com/footballagencySL" class="footer-social-link twitter" target="_blank" title="Twitter/X">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                    </svg>
-                </a>
-                
-                <a href="https://linkedin.com/company/footballagencySL" class="footer-social-link linkedin" target="_blank" title="LinkedIn">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
-                
-                <a href="https://youtube.com/footballagencySL" class="footer-social-link youtube" target="_blank" title="YouTube">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                </a>
-                
-                <a href="https://wa.me/23278801801" class="footer-social-link whatsapp" target="_blank" title="WhatsApp">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .164 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.886-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
-                    </svg>
-                </a>
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer Links -->
+            <div class="footer-links">
+                <a href="home.html">HOME</a>
+                <a href="players.html">PLAYERS</a>
+                <a href="matches.html">MATCHES</a>
+                <a href="about.html">ABOUT US</a>
+                <a href="contact.html">CONTACT</a>
             </div>
             
-            <div class="footer-copyright">
-                <p>&copy; 2025 SIERRA LEONE FOOTBALL AGENCY. ALL RIGHT RESERVED</p>
-                <p style="margin-top: 0.5rem; font-size: 0.85rem;">Freetown, Sierra Leone | Email: info@footballagency.sl | Phone: +232 78 801 801: 077924453 : 090205402</p>
+            <!-- Social Media Links -->
+            <div class="footer-social">
+                <h4>FOLLOW US</h4>
+                <div class="footer-social-links">
+                    <a href="https://facebook.com/footballagencySL" class="footer-social-link facebook" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://instagram.com/footballagencySL" class="footer-social-link instagram" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://twitter.com/footballagencySL" class="footer-social-link twitter" target="_blank" rel="noopener noreferrer" title="Twitter/X">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://linkedin.com/company/footballagencySL" class="footer-social-link linkedin" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://youtube.com/footballagencySL" class="footer-social-link youtube" target="_blank" rel="noopener noreferrer" title="YouTube">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    
+                    <a href="https://wa.me/23278801801" class="footer-social-link whatsapp" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .164 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.886-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>&copy; 2025 SIERRA LEONE FOOTBALL AGENCY. ALL RIGHT RESERVED</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem;">Freetown, Sierra Leone | Email: info@footballagency.sl | Phone: +232 78 801 801: 077924453 : 090205402</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SIGN IN AND OUT MODAL -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <button class="auth-close-btn" id="authClose">&times;</button>
+            
+            <!-- Sign In Form -->
+            <div id="signinForm" class="auth-form active">
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your dashboard</p>
+                </div>
+                
+                <form id="signinFormElement" class="auth-form-body">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" data-target="loginPassword">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit-btn">Sign In</button>
+                    
+                    <div class="auth-divider">
+                        <span>or continue with</span>
+                    </div>
+                    
+                    <div class="social-auth">
+                        <button type="button" class="social-btn google-btn">
+                            <img src="./IMAGES/social/google.svg" alt="Google"> Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <img src="./IMAGES/social/facebook.svg" alt="Facebook"> Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="auth-switch">
+                        Don't have an account? <a href="#" class="switch-link" data-form="signup">Sign up</a>
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="auth-form">
+                <div class="auth-header">
+                    <h2>CREATE AN ACCOUNT</h2>
+                    <p>Join Sierra Leone Football Agency today</p>
+                </div>
+                
+                <form id="signupFormElement" class="auth-form-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="password-input">
+                            <input type="password" id="signupPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" data-target="signupPassword">👁️</button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Weak</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password" data-target="confirmPassword">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userType">I am a</label>
+                        <select id="userType" required>
+                            <option value="">Select user type</option>
+                            <option value="player">Player</option>
+                            <option value="scout">Scout/Agent</option>
+                            <option value="coach">Coach</option>
+                            <option value="fan">Fan</option>
+                            <option value="media">Media</option>
+                        </select>
+                    </div>
+                    
+                    <label class="checkbox terms">
+                        <input type="checkbox" id="agreeTerms" required>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                    
+                    <button type="submit" class="auth-submit-btn">Create Account</button>
+                    
+                    <p class="auth-switch">
+                        Already have an account? <a href="#" class="switch-link" data-form="signin">Sign in</a>
+                    </p>
+                </form>
             </div>
         </div>
     </div>
-</footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+
+    <script>
+        /**
+ * Sierra Leone Football Agency - About Page JavaScript
+ * Optimized and consolidated from original about.html
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ===== GLOBAL VARIABLES =====
+    const DOM = {
+        nav: document.querySelector('.bbc-nav'),
+        menuToggle: document.getElementById('bbc-menu-toggle'),
+        searchToggle: document.getElementById('bbc-search-toggle'),
+        mobileOverlay: document.getElementById('bbc-mobile-overlay'),
+        mobileClose: document.getElementById('bbc-mobile-close'),
+        mobileSearch: document.getElementById('bbc-mobile-search'),
+        searchInput: document.getElementById('bbc-search-input'),
+        searchBtn: document.getElementById('bbc-search-btn'),
+        authModal: document.getElementById('authModal'),
+        authCloseBtn: document.getElementById('authClose'),
+        backToTopBtn: document.getElementById('backToTop') || createBackToTopButton()
+    };
+
+    // ===== AUTH BUTTONS =====
+    const authButtons = [
+        document.getElementById('nav-signin'),
+        document.getElementById('nav-signup'),
+        document.getElementById('mobile-signin'),
+        document.getElementById('mobile-signup')
+    ];
+
+    // ===== INITIALIZATION =====
+    init();
+
+    // ===== CORE FUNCTIONS =====
+
+    function init() {
+        setupNavigation();
+        setupAuthModal();
+        setupScrollEffects();
+        setupSectionAnimations();
+        setupSmoothScrolling();
+        setupImageLoading();
+        setupFormValidation();
+        
+        console.log('About page initialized successfully');
+    }
+
+    // ===== NAVIGATION FUNCTIONS =====
+    function setupNavigation() {
+        // Mobile Menu Toggle
+        if (DOM.menuToggle && DOM.mobileOverlay) {
+            DOM.menuToggle.addEventListener('click', openMobileMenu);
+        }
+
+        // Mobile Menu Close
+        if (DOM.mobileClose) {
+            DOM.mobileClose.addEventListener('click', closeMobileMenu);
+        }
+
+        // Mobile Search Toggle
+        if (DOM.searchToggle && DOM.mobileSearch) {
+            DOM.searchToggle.addEventListener('click', toggleMobileSearch);
+        }
+
+        // Desktop Search
+        if (DOM.searchInput && DOM.searchBtn) {
+            DOM.searchBtn.addEventListener('click', performSearch);
+            DOM.searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') performSearch();
+            });
+        }
+
+        // Active Link Highlighting
+        highlightActiveLink();
+        
+        // Close everything with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+                if (DOM.mobileSearch) DOM.mobileSearch.classList.remove('active');
+            }
+        });
+
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                closeMobileMenu();
+                if (DOM.mobileSearch) DOM.mobileSearch.classList.remove('active');
+            }
+        });
+    }
+
+    function openMobileMenu() {
+        if (DOM.mobileOverlay) {
+            DOM.mobileOverlay.classList.add('active');
+            document.body.classList.add('bbc-menu-open');
+        }
+    }
+
+    function closeMobileMenu() {
+        if (DOM.mobileOverlay) {
+            DOM.mobileOverlay.classList.remove('active');
+            document.body.classList.remove('bbc-menu-open');
+        }
+    }
+
+    function toggleMobileSearch() {
+        if (window.innerWidth <= 992 && DOM.mobileSearch) {
+            DOM.mobileSearch.classList.toggle('active');
+            if (DOM.mobileSearch.classList.contains('active')) {
+                const mobileSearchInput = document.getElementById('bbc-mobile-search-input');
+                if (mobileSearchInput) mobileSearchInput.focus();
+            }
+        } else if (DOM.searchInput) {
+            DOM.searchInput.focus();
+        }
+    }
+
+    function performSearch() {
+        const query = DOM.searchInput ? DOM.searchInput.value.trim() : '';
+        if (query) {
+            console.log('Searching for:', query);
+            // Implement actual search functionality here
+            // Example: window.location.href = `/search?q=${encodeURIComponent(query)}`;
+        }
+    }
+
+    function highlightActiveLink() {
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.bbc-categories a, .bbc-mobile-categories a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // ===== AUTH MODAL FUNCTIONS =====
+    function setupAuthModal() {
+        // Auth button event listeners
+        authButtons.forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openAuthModal(this.id.includes('signup') ? 'signup' : 'signin');
+                });
+            }
+        });
+
+        // Close modal
+        if (DOM.authCloseBtn) {
+            DOM.authCloseBtn.addEventListener('click', closeAuthModal);
+        }
+
+        // Close modal when clicking outside
+        if (DOM.authModal) {
+            DOM.authModal.addEventListener('click', function(e) {
+                if (e.target === DOM.authModal) {
+                    closeAuthModal();
+                }
+            });
+        }
+
+        // Form switching
+        document.querySelectorAll('.switch-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetForm = this.getAttribute('data-form');
+                switchAuthForm(targetForm);
+            });
+        });
+
+        // Password toggle
+        document.querySelectorAll('.toggle-password').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                if (input) {
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        this.textContent = '🙈';
+                    } else {
+                        input.type = 'password';
+                        this.textContent = '👁️';
+                    }
+                }
+            });
+        });
+
+        // Password strength indicator
+        const passwordInput = document.getElementById('signupPassword');
+        if (passwordInput) {
+            passwordInput.addEventListener('input', updatePasswordStrength);
+        }
+
+        // Form submission
+        const signinForm = document.getElementById('signinFormElement');
+        const signupForm = document.getElementById('signupFormElement');
+        
+        if (signinForm) {
+            signinForm.addEventListener('submit', handleSignIn);
+        }
+        
+        if (signupForm) {
+            signupForm.addEventListener('submit', handleSignUp);
+        }
+    }
+
+    function openAuthModal(formType) {
+        if (DOM.authModal) {
+            DOM.authModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            closeMobileMenu();
+            switchAuthForm(formType);
+        }
+    }
+
+    function closeAuthModal() {
+        if (DOM.authModal) {
+            DOM.authModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function switchAuthForm(formType) {
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.classList.remove('active');
+        });
+        
+        const targetForm = document.getElementById(formType + 'Form');
+        if (targetForm) {
+            targetForm.classList.add('active');
+        }
+    }
+
+    function updatePasswordStrength() {
+        const password = this.value;
+        const strength = calculatePasswordStrength(password);
+        const strengthFill = document.querySelector('.strength-fill');
+        const strengthText = document.querySelector('.strength-text');
+        
+        if (strengthFill && strengthText) {
+            const percentage = (strength / 5) * 100;
+            strengthFill.style.width = percentage + '%';
+            
+            // Update color and text
+            const colors = {
+                1: { color: '#ff4757', text: 'Very Weak' },
+                2: { color: '#ff6b81', text: 'Weak' },
+                3: { color: '#ffa502', text: 'Fair' },
+                4: { color: '#2ed573', text: 'Strong' },
+                5: { color: '#1dd1a1', text: 'Very Strong' }
+            };
+            
+            const strengthLevel = Math.min(Math.max(strength, 1), 5);
+            strengthFill.style.backgroundColor = colors[strengthLevel].color;
+            strengthText.textContent = colors[strengthLevel].text;
+        }
+    }
+
+    function calculatePasswordStrength(password) {
+        let strength = 0;
+        
+        if (password.length >= 8) strength++;
+        if (password.length >= 12) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        return Math.min(strength, 5);
+    }
+
+    function handleSignIn(e) {
+        e.preventDefault();
+        if (validateSignInForm()) {
+            // Simulate successful sign in
+            alert('Sign in successful!');
+            closeAuthModal();
+        }
+    }
+
+    function handleSignUp(e) {
+        e.preventDefault();
+        if (validateSignUpForm()) {
+            // Simulate successful sign up
+            alert('Account created successfully!');
+            closeAuthModal();
+        }
+    }
+
+    function validateSignInForm() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        if (!email || !password) {
+            alert('Please fill in all fields');
+            return false;
+        }
+        
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        return true;
+    }
+
+    function validateSignUpForm() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const userType = document.getElementById('userType').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        // Check required fields
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !userType) {
+            alert('Please fill in all required fields');
+            return false;
+        }
+        
+        // Validate email
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        // Check password match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return false;
+        }
+        
+        // Check password strength
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters long');
+            return false;
+        }
+        
+        // Check terms agreement
+        if (!agreeTerms) {
+            alert('You must agree to the terms and conditions');
+            return false;
+        }
+        
+        return true;
+    }
+
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // ===== SCROLL EFFECTS =====
+    function setupScrollEffects() {
+        // Sticky Navigation
+        if (DOM.nav) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    DOM.nav.classList.add('scrolled');
+                } else {
+                    DOM.nav.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Scroll Progress Bar
+        createScrollProgressBar();
+
+        // Back to Top Button
+        if (DOM.backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    DOM.backToTopBtn.classList.add('visible');
+                } else {
+                    DOM.backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            DOM.backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    }
+
+    function createScrollProgressBar() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+
+    function createBackToTopButton() {
+        const backToTop = document.createElement('button');
+        backToTop.className = 'back-to-top';
+        backToTop.id = 'backToTop';
+        backToTop.innerHTML = '↑';
+        backToTop.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTop);
+        return backToTop;
+    }
+
+    // ===== SECTION ANIMATIONS =====
+    function setupSectionAnimations() {
+        const sections = document.querySelectorAll('.section');
+        
+        if (sections.length > 0) {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => sectionObserver.observe(section));
+        }
+    }
+
+    // ===== SMOOTH SCROLLING =====
+    function setupSmoothScrolling() {
+        // Mobile section links
+        document.querySelectorAll('.bbc-mobile-categories a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    closeMobileMenu();
+                    setTimeout(() => {
+                        const offset = 100;
+                        const elementPosition = targetElement.offsetTop - offset;
+                        window.scrollTo({
+                            top: elementPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            });
+        });
+
+        // Desktop section links
+        document.querySelectorAll('.bbc-dropdown-menu a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offset = 120;
+                    const elementPosition = targetElement.offsetTop - offset;
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // "Learn More" buttons
+        document.querySelectorAll('.learn-more-single, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add smooth scroll or modal functionality here
+                console.log('Learn more clicked - implement specific action');
+            });
+        });
+    }
+
+    // ===== IMAGE LOADING =====
+    function setupImageLoading() {
+        const images = document.querySelectorAll('img');
+        
+        images.forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                img.addEventListener('error', function() {
+                    console.error('Failed to load image:', this.src);
+                    this.classList.add('error');
+                });
+            }
+        });
+
+        // Lazy load images with data-src attribute
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        if (lazyImages.length > 0) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    }
+
+    // ===== FORM VALIDATION =====
+    function setupFormValidation() {
+        // Contact form validation (if exists on page)
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (validateContactForm(this)) {
+                    // Simulate form submission
+                    console.log('Contact form submitted');
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                }
+            });
+        }
+    }
+
+    function validateContactForm(form) {
+        const name = form.querySelector('#name');
+        const email = form.querySelector('#email');
+        const subject = form.querySelector('#subject');
+        const message = form.querySelector('#message');
+        
+        if (!name || !name.value.trim()) {
+            alert('Please enter your name');
+            name.focus();
+            return false;
+        }
+        
+        if (!email || !email.value.trim() || !isValidEmail(email.value)) {
+            alert('Please enter a valid email address');
+            email.focus();
+            return false;
+        }
+        
+        if (!subject || !subject.value) {
+            alert('Please select a subject');
+            subject.focus();
+            return false;
+        }
+        
+        if (!message || !message.value.trim()) {
+            alert('Please enter your message');
+            message.focus();
+            return false;
+        }
+        
+        return true;
+    }
+
+    // ===== HELPER FUNCTIONS =====
+    
+    // Debounce function for performance
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Throttle function for scroll events
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    // ===== ERROR HANDLING =====
+    window.addEventListener('error', function(e) {
+        console.error('JavaScript Error:', e.message, e.filename, e.lineno);
+    });
+
+    // ===== PERFORMANCE MONITORING =====
+    if ('performance' in window) {
+        setTimeout(function() {
+            const perfEntries = performance.getEntriesByType('navigation');
+            if (perfEntries.length > 0) {
+                const navTiming = perfEntries[0];
+                console.log('Page loaded in:', navTiming.domContentLoadedEventEnd - navTiming.fetchStart, 'ms');
+            }
+        }, 0);
+    }
+});
+
+// ===== GLOBAL EXPORTS (if needed for module system) =====
+// Note: This is a standalone script, but we can add exports if needed
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {};
+}
+    </script>
+
+
+    
+
+    <script>
+        // UPGRAGE JS FOR THE ABOUT SECTION
+        /**
+ * Enhanced About Page with Interactive Features
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all features
+    initHeroParallax();
+    initCountUpAnimations();
+    initTimelineAnimation();
+    initTeamHoverEffects();
+    initAchievementCards();
+    initScrollAnimations();
+    initInteractiveMaps();
+    initStatsCalculator();
+});
+
+// ===== HERO PARALLAX EFFECT =====
+function initHeroParallax() {
+    const hero = document.querySelector('.about-hero');
+    if (!hero) return;
+
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+    });
+}
+
+// ===== ANIMATED COUNTERS =====
+function initCountUpAnimations() {
+    const counters = document.querySelectorAll('.stat-number, .achievement-number');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const count = parseInt(counter.innerText.replace('+', ''));
+            const increment = Math.ceil(target / speed);
+
+            if (count < target) {
+                counter.innerText = (count + increment).toLocaleString() + '+';
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target.toLocaleString() + '+';
+            }
+        };
+
+        // Start counting when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(counter);
+    });
+}
+
+// ===== TIMELINE ANIMATION =====
+function initTimelineAnimation() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.6s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, index * 200);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(item);
+    });
+}
+
+// ===== TEAM HOVER EFFECTS =====
+function initTeamHoverEffects() {
+    const teamMembers = document.querySelectorAll('.team-member');
+    
+    teamMembers.forEach(member => {
+        const image = member.querySelector('.member-image img');
+        const overlay = member.querySelector('.member-overlay');
+        
+        member.addEventListener('mouseenter', () => {
+            if (image) image.style.transform = 'scale(1.1)';
+            if (overlay) overlay.style.transform = 'translateY(0)';
+        });
+        
+        member.addEventListener('mouseleave', () => {
+            if (image) image.style.transform = 'scale(1)';
+            if (overlay) overlay.style.transform = 'translateY(100%)';
+        });
+    });
+}
+
+// ===== ACHIEVEMENT CARDS ANIMATION =====
+function initAchievementCards() {
+    const achievements = document.querySelectorAll('.achievement-card');
+    
+    achievements.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.6s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(card);
+    });
+}
+
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.mvv-card, .club-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// ===== INTERACTIVE SIERRA LEONE MAP =====
+function initInteractiveMaps() {
+    const sierraLeoneMap = document.getElementById('sierraLeoneMap');
+    if (!sierraLeoneMap) return;
+
+    const regions = [
+        { id: 'freetown', name: 'Freetown', clubs: 15, players: 250, color: '#2E8B57' },
+        { id: 'bo', name: 'Bo', clubs: 8, players: 120, color: '#1E3A8A' },
+        { id: 'kenema', name: 'Kenema', clubs: 6, players: 90, color: '#FF6B35' },
+        { id: 'makeni', name: 'Makeni', clubs: 5, players: 75, color: '#FFD700' },
+        { id: 'kono', name: 'Kono', clubs: 4, players: 60, color: '#4CAF50' }
+    ];
+
+    // Create map visualization (simplified version)
+    const mapContainer = document.createElement('div');
+    mapContainer.className = 'map-container';
+    mapContainer.innerHTML = `
+        <div class="map-visual">
+            <div class="map-region" data-region="freetown" style="top: 20%; left: 30%; background: #2E8B57;"></div>
+            <div class="map-region" data-region="bo" style="top: 60%; left: 40%; background: #1E3A8A;"></div>
+            <div class="map-region" data-region="kenema" style="top: 70%; left: 50%; background: #FF6B35;"></div>
+            <div class="map-region" data-region="makeni" style="top: 40%; left: 50%; background: #FFD700;"></div>
+            <div class="map-region" data-region="kono" style="top: 50%; left: 60%; background: #4CAF50;"></div>
+        </div>
+        <div class="map-legend">
+            ${regions.map(region => `
+                <div class="legend-item" data-region="${region.id}">
+                    <span class="legend-color" style="background: ${region.color}"></span>
+                    <span class="legend-name">${region.name}</span>
+                    <span class="legend-stats">${region.clubs} Clubs • ${region.players} Players</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+
+    sierraLeoneMap.appendChild(mapContainer);
+
+    // Add interactivity
+    const regionElements = mapContainer.querySelectorAll('.map-region, .legend-item');
+    regionElements.forEach(el => {
+        el.addEventListener('mouseenter', (e) => {
+            const region = e.currentTarget.dataset.region;
+            highlightRegion(region);
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            resetRegions();
+        });
+    });
+}
+
+function highlightRegion(regionId) {
+    const regions = document.querySelectorAll('.map-region');
+    regions.forEach(region => {
+        if (region.dataset.region === regionId) {
+            region.style.transform = 'scale(1.2)';
+            region.style.zIndex = '10';
+            region.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
+        } else {
+            region.style.opacity = '0.5';
+        }
+    });
+}
+
+function resetRegions() {
+    const regions = document.querySelectorAll('.map-region');
+    regions.forEach(region => {
+        region.style.transform = 'scale(1)';
+        region.style.opacity = '1';
+        region.style.zIndex = '1';
+        region.style.boxShadow = 'none';
+    });
+}
+
+
+
+    </script>
+
+    <Script>
+        /**
+ * Additional Interactive Features for About Page
+ */
+
+
+// Add styles to document
+document.addEventListener('DOMContentLoaded', function() {
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = interactiveStyles;
+    document.head.appendChild(styleSheet);
+    
+    // Initialize all features
+    initSuccessStories();
+    initTransferTimeline();
+    initDevelopmentPath();
+    initNewsTicker();
+});
+
+// Export functions
+window.SLFootballAgency = window.SLFootballAgency || {};
+window.SLFootballAgency.InteractiveFeatures = {
+    initSuccessStories,
+    initTransferTimeline,
+    initDevelopmentPath,
+    initNewsTicker
+};
+    </Script>
+
+    <script>
+        // MAP SECTION
+        /**
+ * SIERRA LEONE FOOTBALL MAP - Add this function to your existing JS
+ */
+function initSierraLeoneMap() {
+    const mapContainer = document.getElementById('sierraLeoneMap');
+    if (!mapContainer) return;
+    
+    console.log('Initializing Sierra Leone Football Map...');
+    
+    // Regions data
+    const regions = [
+        {
+            id: 'western',
+            name: 'Western Area',
+            color: '#2E8B57',
+            players: 85,
+            clubs: 25,
+            academies: 12,
+            population: '1.5M',
+            topClubs: ['FC Kallon', 'East End Lions', 'Mighty Blackpool'],
+            description: 'Highest concentration of football talent with multiple professional clubs.'
+        },
+        {
+            id: 'southern',
+            name: 'Southern Province',
+            color: '#1E3A8A',
+            players: 45,
+            clubs: 15,
+            academies: 8,
+            population: '1.2M',
+            topClubs: ['Bo Rangers', 'Kamboi Eagles', 'Central Parade'],
+            description: 'Known for producing technical players with excellent ball control.'
+        },
+        {
+            id: 'eastern',
+            name: 'Eastern Province',
+            color: '#FF6B35',
+            players: 38,
+            clubs: 12,
+            academies: 6,
+            population: '1.4M',
+            topClubs: ['Kailahun United', 'Kono Diamond', 'Kenema City'],
+            description: 'Rich football culture with emphasis on physical strength.'
+        },
+        {
+            id: 'northern',
+            name: 'Northern Province',
+            color: '#FFD700',
+            players: 42,
+            clubs: 14,
+            academies: 7,
+            population: '2.1M',
+            topClubs: ['Makeni Heroes', 'Kabala Warriors', 'Port Loko FC'],
+            description: 'Largest province producing versatile players.'
+        },
+        {
+            id: 'northwest',
+            name: 'North West Province',
+            color: '#4CAF50',
+            players: 28,
+            clubs: 10,
+            academies: 5,
+            population: '0.8M',
+            topClubs: ['Kambia Stars', 'Tonkolili United'],
+            description: 'Emerging football region with growing investment.'
+        }
+    ];
+    
+    // Create map HTML
+    mapContainer.innerHTML = `
+        <div class="map-visual">
+            <!-- Sierra Leone Outline -->
+            <svg class="sierra-leone-outline" viewBox="0 0 100 100">
+                <path d="M20,30 Q25,20 30,25 Q35,30 40,25 Q45,20 50,25 Q55,30 60,25 Q65,20 70,30 
+                         Q75,40 70,50 Q65,60 60,55 Q55,50 50,55 Q45,60 40,55 Q35,50 30,55 
+                         Q25,60 20,50 Q15,40 20,30 Z" 
+                      fill="rgba(46, 139, 87, 0.1)" 
+                      stroke="#2E8B57" 
+                      stroke-width="1.5"/>
+            </svg>
+            
+            <!-- Regions -->
+            ${regions.map(region => `
+                <div class="map-region region-${region.id}" data-region="${region.id}">
+                    <div class="region-marker" style="background: ${region.color}; border-color: ${region.color};">
+                        ${region.players}
+                    </div>
+                </div>
+            `).join('')}
+            
+            <!-- Map Controls -->
+            <div class="map-controls">
+                <button class="map-control-btn" id="zoomIn">+</button>
+                <button class="map-control-btn" id="zoomOut">−</button>
+                <button class="map-control-btn" id="resetMap">↺</button>
+            </div>
+            
+            <!-- Map Legend -->
+            <div class="map-legend">
+                <div class="legend-title">Football Talent by Region</div>
+                <div class="legend-items" id="mapLegend">
+                    ${regions.map(region => `
+                        <div class="legend-item" data-region="${region.id}">
+                            <div class="legend-color" style="background: ${region.color};"></div>
+                            <div class="legend-info">
+                                <div class="legend-name">${region.name}</div>
+                                <div class="legend-stats">${region.players} Players</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Region Details Panel -->
+        <div class="region-details" id="regionDetails">
+            <div class="details-header">
+                <h3 class="details-title" id="regionName">Select a Region</h3>
+                <button class="details-close" id="closeDetails">×</button>
+            </div>
+            <div class="details-content" id="regionContent">
+                <!-- Will be populated when region is clicked -->
+            </div>
+        </div>
+    `;
+    
+    // Add event listeners
+    setupMapInteractions();
+    
+    function setupMapInteractions() {
+        // Region click events
+        document.querySelectorAll('.map-region, .legend-item').forEach(element => {
+            element.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const regionId = this.dataset.region;
+                const region = regions.find(r => r.id === regionId);
+                if (region) {
+                    showRegionDetails(region);
+                }
+            });
+        });
+        
+        // Close details
+        document.getElementById('closeDetails')?.addEventListener('click', hideRegionDetails);
+        
+        // Map controls
+        const mapVisual = document.querySelector('.map-visual');
+        let scale = 1;
+        
+        document.getElementById('zoomIn')?.addEventListener('click', () => {
+            scale = Math.min(scale + 0.1, 1.5);
+            mapVisual.style.transform = `scale(${scale})`;
+        });
+        
+        document.getElementById('zoomOut')?.addEventListener('click', () => {
+            scale = Math.max(scale - 0.1, 0.8);
+            mapVisual.style.transform = `scale(${scale})`;
+        });
+        
+        document.getElementById('resetMap')?.addEventListener('click', () => {
+            scale = 1;
+            mapVisual.style.transform = 'scale(1)';
+            hideRegionDetails();
+        });
+        
+        // Close details when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.map-region') && 
+                !e.target.closest('.legend-item') && 
+                !e.target.closest('.region-details')) {
+                hideRegionDetails();
+            }
+        });
+    }
+    
+    function showRegionDetails(region) {
+        const detailsPanel = document.getElementById('regionDetails');
+        const regionName = document.getElementById('regionName');
+        const regionContent = document.getElementById('regionContent');
+        
+        // Update content
+        regionName.textContent = region.name;
+        regionContent.innerHTML = `
+            <div class="detail-card">
+                <div class="detail-value">${region.players}</div>
+                <div class="detail-label">Players Scouted</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-value">${region.clubs}</div>
+                <div class="detail-label">Partner Clubs</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-value">${region.academies}</div>
+                <div class="detail-label">Youth Academies</div>
+            </div>
+            <div class="detail-card">
+                <div class="detail-value">${region.population}</div>
+                <div class="detail-label">Population</div>
+            </div>
+            
+            <div style="grid-column: 1 / -1;">
+                <p style="color: #6B7280; line-height: 1.6; margin-bottom: 1.5rem;">
+                    ${region.description}
+                </p>
+                
+                <div class="details-clubs">
+                    <div style="font-weight: 600; color: #1A1A1A; margin-bottom: 1rem;">
+                        Top Clubs in ${region.name}
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                        ${region.topClubs.map(club => 
+                            `<span style="background: #F3F4F6; color: #6B7280; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.9rem;">
+                                ${club}
+                            </span>`
+                        ).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Show panel
+        detailsPanel.classList.add('active');
+        
+        // Highlight region
+        highlightRegion(region.id);
+    }
+    
+    function hideRegionDetails() {
+        const detailsPanel = document.getElementById('regionDetails');
+        detailsPanel.classList.remove('active');
+        resetHighlights();
+    }
+    
+    function highlightRegion(regionId) {
+        resetHighlights();
+        const regionElement = document.querySelector(`.region-${regionId}`);
+        const legendElement = document.querySelector(`.legend-item[data-region="${regionId}"]`);
+        
+        if (regionElement) {
+            regionElement.style.boxShadow = '0 0 0 3px rgba(46, 139, 87, 0.3)';
+            regionElement.style.zIndex = '20';
+        }
+        
+        if (legendElement) {
+            legendElement.style.background = 'rgba(46, 139, 87, 0.1)';
+        }
+    }
+    
+    function resetHighlights() {
+        document.querySelectorAll('.map-region').forEach(region => {
+            region.style.boxShadow = 'none';
+            region.style.zIndex = '2';
+        });
+        
+        document.querySelectorAll('.legend-item').forEach(item => {
+            item.style.background = 'transparent';
+        });
+    }
+}
+
+// Call this function in your main initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // ... your existing initialization code ...
+    
+    // Add this line to initialize the map
+    initSierraLeoneMap();
+    
+    // ... rest of your code ...
+});
+    </script>
+
+   <!-- FIXED THE SLOW LOADING OF THE PAGE -->
+<script>
+    // Remove preloader when DOM is ready, not window load
+    document.addEventListener('DOMContentLoaded', function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        }
+        
+        // Initialize AOS
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        }
+        
+        // Initialize enhanced features
+        if (window.SLFootballAgency && window.SLFootballAgency.AboutPage) {
+            Object.values(window.SLFootballAgency.AboutPage).forEach(initFunction => {
+                if (typeof initFunction === 'function') {
+                    try {
+                        initFunction();
+                    } catch (error) {
+                        console.warn('Feature initialization failed:', error);
+                    }
+                }
+            });
+        }
+    });
+
+    // Performance monitoring - only run after page fully loads
+    window.addEventListener('load', function() {
+        if ('performance' in window) {
+            try {
+                const timing = performance.getEntriesByType('navigation')[0];
+                console.log('Page loaded in:', timing.domContentLoadedEventEnd - timing.fetchStart, 'ms');
+            } catch (e) {
+                console.log('Performance timing not available');
+            }
+        }
+    });
+</script>
 </body>
 </html>

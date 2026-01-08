@@ -6,562 +6,201 @@
     <meta name="description" content="Football Agency Sierra Leone - Managing and promoting Sierra Leone's finest football talent">
     <title>Football Agency Sierra Leone - Home</title>
     <!-- Favicon using your team logo -->
-<link rel="icon" type="image/x-icon" href="./IMAGES/logo.jpg">
-<link rel="apple-touch-icon" href="./IMAGES/logo.jpg">
+     <link rel="icon" type="image/svg+xml" href="./IMAGES/logo.svg">
     <!-- EXTERNAL CSS - For all pages -->
     <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- INTERNAL CSS - Home page specific styles only -->
-    <style>
-        /* ===== CRISP HERO SECTION ===== */
-        .hero {
-            background: 
-                linear-gradient(135deg, rgba(46, 139, 87, 0.85) 0%, rgba(30, 58, 138, 0.85) 100%),
-                url('./IMAGES/hero.jpg') center/cover no-repeat;
-            color: var(--white);
-            padding: 6rem 1rem;
-            text-align: center;
-            position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            line-height: 1.2;
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* ===== SECTION SPACING ===== */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-dark {
-            background: #f8f9fa;
-        }
-
-        /* ==ADDITONAL ABOUT SECTION ===== */
-        .about-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-        }
-
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .about-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #2e8b57, #1e3a8a);
-            border-radius: 2px;
-        }
-
-        .about-heading {
-            font-size: 2.8rem;
-            color: #1e3a8a;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            position: relative;
-        }
-
-        .about-text {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 1rem;
-            text-align: left;
-            
-        }
-
-        .about-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .highlight-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .highlight-icon {
-            font-size: 2.5rem;
-            color: #2e8b57;
-            margin-bottom: 1rem;
-        }
-
-        .highlight-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #1e3a8a;
-            display: block;
-        }
-
-        .highlight-label {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-learn-more {
-            display: inline-block;
-            background: linear-gradient(135deg, #2e8b57, #1e3a8a);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
-        }
-
-        .btn-learn-more:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(46, 139, 87, 0.4);
-        }
-
-        /* ===== NEWS SECTION -  ===== */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #1e3a8a;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #2e8b57;
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        .news-image {
-            width: 100%;
-            height: 200px;
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-style: italic;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-        }
-
-        .news-category {
-            display: inline-block;
-            background: #2e8b57;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 0.8rem;
-        }
-
-        .news-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .news-title {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #1e3a8a;
-            line-height: 1.4;
-        }
-
-        .news-excerpt {
-            color: #555;
-            line-height: 1.6;
-        }
-
+    <link rel="stylesheet" href="css/home.css">
      
-
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-@media (max-width: 768px) {
-    .scores-header {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .team-logo {
-        width: 35px;
-        height: 35px;
-    }
-}
-        /* ===== HIGHLIGHTS SECTION ===== */
-.highlights-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.featured-highlight {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-}
-
-/* ===== FIXED IMAGE CONTAINMENT ===== */
-.featured-video, 
-.highlight-video {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-.featured-video img, 
-.highlight-video img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-.featured-video {
-    height: 300px;
-    background: linear-gradient(45deg, #1e3a8a, #2e8b57);
-}
-
-.highlight-video {
-    height: 160px;
-    background: #333;
-}
-
-.featured-content {
-    padding: 2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.featured-badge {
-    background: #dc2626;
-    color: white;
-    padding: 0.3rem 1rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    display: inline-block;
-}
-
-.featured-title {
-    font-size: 1.5rem;
-    color: #1e3a8a;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.featured-meta {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1rem;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-/* ===== ADDITIONAL HIGHLIGHTS GRID ===== */
-.highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.highlight-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.highlight-card:hover {
-    transform: translateY(-3px);
-}
-
-.highlight-content {
-    padding: 1.2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.highlight-badge {
-    background: #2e8b57;
-    color: white;
-    padding: 0.2rem 0.8rem;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.highlight-title {
-    font-size: 1rem;
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-}
-
-.highlight-meta {
-    color: #666;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.highlight-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.sidebar-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    border-left: 4px solid #2e8b57;
-}
-
-.sidebar-title {
-    font-size: 1.1rem;
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.sidebar-meta {
-    color: #666;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.sidebar-desc {
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.interview-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    border-left: 4px solid #1e3a8a;
-    margin-bottom: 1rem;
-}
-
-.interview-title {
-    font-size: 1.1rem;
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.interview-meta {
-    color: #666;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-@media (max-width: 768px) {
-    .highlights-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .featured-video {
-        height: 250px;
-    }
-    
-    .highlight-video {
-        height: 140px;
-    }
-}
-
-        /* ===== BUTTON STYLES ===== */
-        .btn-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: #1e3a8a;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: #2e8b57;
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 768px) {
-            .highlights-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-heading {
-                font-size: 2.2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .scores-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-.announcement-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 1rem 0;
-    padding: 0.5rem;
-    background: var(--background-light);
-    border-radius: var(--border-radius);
-}
-
-.detail-item {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-        
-    </style>
-
-    
 </head>
+
 <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="main-nav">
-        <div class="container nav-container">
-             <img class="agent-logo" src="./IMAGES/logo.jpg" alt="">
-            <a href="index.html" class="logo">Sierra Leone Football Agency</a>
-            <ul class="nav-links">
-                <li><a href="./home.html">HOME</a></li>
-                <li><a href="./players.html">PLAYERS</a></li>
-                <li><a href="./matches.html">MATCHES</a></li>
-                <li><a href="./about.html">ABOUT US</a></li>
-                <li><a href="./contact.html">CONTACT</a></li>
+   <!-- ===== NAVIGATION ===== -->
+<!-- ===== BBC-STYLE PROFESSIONAL NAVIGATION ===== -->
+<nav class="bbc-nav">
+    <!-- Top Strip -->
+    <div class="bbc-top-strip">
+        <div class="container bbc-top-container">
+            <div class="bbc-top-left">
+                <!-- Logo -->
+                <a href="home.html" class="bbc-logo-link">
+                    <img src="./IMAGES/logo.svg" alt="Sierra Leone Football Agency Logo" class="bbc-logo">
+                    <span class="bbc-brand">SIERRA LEONE FOOTBALL AGENCY</span>
+                </a>
+            </div>
+            <div class="bbc-top-right">
+                <!-- Desktop Auth Links -->
+                <a href="#" class="bbc-signin" id="nav-signin">Sign in</a>
+                <a href="#" class="bbc-signup" id="nav-signup">Register</a>
+                
+                <!-- Search Toggle -->
+                <button class="bbc-search-toggle" id="bbc-search-toggle" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                        <path d="M12.5 11H11.7L11.4 10.7C12.4 9.6 13 8.1 13 6.5C13 2.9 10.1 0 6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5 11z"/>
+                    </svg>
+                </button>
+                
+                <!-- Menu Toggle -->
+                <button class="bbc-menu-toggle" id="bbc-menu-toggle" aria-label="Menu">
+                    <span class="bbc-menu-icon">☰</span>
+                    <span class="bbc-menu-text">Menu</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="bbc-main-nav">
+        <div class="container bbc-main-container">
+            <!-- Left: Main Categories -->
+            <ul class="bbc-categories">
+                <li class="bbc-home">
+                    <a href="home.html">
+                        <span class="bbc-home-icon">🏠</span>
+                        HOME
+                    </a>
+                </li>
+                <li><a href="players.html">PLAYERS</a></li>
+                <li><a href="matches.html">MATCHES</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li class="bbc-more">
+                    <a href="#">
+                        SECTIONS <span class="bbc-dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="bbc-dropdown-menu">
+                        <li><a href="#video-highlights">🎬 VIDEO HIGHLIGHTS</a></li>
+                        <li><a href="#fixtures-results">📅 FIXTURES & RESULTS</a></li>
+                        <li><a href="#announcements">📢 ANNOUNCEMENTS</a></li>
+                        <li><a href="#latest-news">📰 LATEST NEWS</a></li>
+                        <li><a href="#highlights-section">⚡ HIGHLIGHTS</a></li>
+                        <li><a href="#international">🌍 INTERNATIONAL</a></li>
+                        <li><a href="#top-stories">🔥 TOP STORIES</a></li>
+                        <li><a href="#discovery">🌟 DISCOVERY</a></li>
+                        <li><a href="#all-sports">⚽ ALL SPORTS</a></li>
+                    </ul>
+                </li>
             </ul>
+            
+            <!-- Right: Desktop Search -->
+            <div class="bbc-search-container">
+                <div class="bbc-search-box">
+                    <input type="text" id="bbc-search-input" 
+                           class="bbc-search-input" 
+                           placeholder="Search players, matches, news...">
+                    <button class="bbc-search-btn" id="bbc-search-btn">Search</button>
+                </div>
+                <div class="bbc-search-results" id="bbc-search-results"></div>
+            </div>
         </div>
-    </nav>
-
-    <!-- ===== HERO SECTION ===== -->
-    <header class="hero">
+    </div>
+    
+    <!-- Mobile Search (Hidden) -->
+    <div class="bbc-mobile-search-container" id="bbc-mobile-search">
         <div class="container">
-            <h1>CONNECTING AND DISCOVERING SIERRA LEONE BEST TALENT</h1>
-            <p>Sierra Leone football agency dedicated to nurturing, developing, and promoting Sierra Leone's exceptional football talent to global platforms.</p>
+            <div class="bbc-mobile-search-box">
+                <input type="text" id="bbc-mobile-search-input" 
+                       placeholder="Search players, matches, news...">
+                <button class="bbc-mobile-search-btn">Search</button>
+            </div>
         </div>
-    </header>
+    </div>
+</nav>
 
+<!-- Mobile Menu Overlay -->
+<div class="bbc-mobile-overlay" id="bbc-mobile-overlay">
+    <div class="bbc-mobile-menu">
+        <div class="bbc-mobile-header">
+            <!-- Mobile Logo -->
+            <a href="home.html" class="bbc-mobile-logo">
+                <img src="./IMAGES/logo.svg" alt="SL Football Agency" class="bbc-mobile-logo-img">
+                <span class="bbc-mobile-brand">SL FA</span>
+            </a>
+            <button class="bbc-mobile-close" id="bbc-mobile-close">×</button>
+        </div>
+        
+        <div class="bbc-mobile-sections">
+            <!-- Main Pages -->
+            <div class="bbc-section-group">
+                <h4 class="bbc-section-title">MAIN PAGES</h4>
+                <ul class="bbc-mobile-categories">
+                    <li class="bbc-mobile-home">
+                        <a href="home.html">
+                            <span class="bbc-home-icon">🏠</span>
+                            HOME
+                        </a>
+                    </li>
+                    <li><a href="players.html">PLAYERS</a></li>
+                    <li><a href="matches.html">MATCHES</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            
+            <!-- Home Page Sections -->
+            <div class="bbc-section-group">
+                <h4 class="bbc-section-title">HOME SECTIONS</h4>
+                <ul class="bbc-mobile-categories">
+                    <li><a href="#video-highlights"><span>🎬</span> Video Highlights</a></li>
+                    <li><a href="#fixtures-results"><span>📅</span> Fixtures & Results</a></li>
+                    <li><a href="#announcements"><span>📢</span> Announcements</a></li>
+                    <li><a href="#latest-news"><span>📰</span> Latest News</a></li>
+                    <li><a href="#highlights-section"><span>⚡</span> Match Highlights</a></li>
+                    <li><a href="#international"><span>🌍</span> International News</a></li>
+                    <li><a href="#top-stories"><span>🔥</span> Top Stories</a></li>
+                    <li><a href="#discovery"><span>🌟</span> Discovery</a></li>
+                    <li><a href="#all-sports"><span>⚽</span> All Sports</a></li>
+                </ul>
+            </div>
+            
+            <!-- Mobile Auth -->
+            <div class="bbc-mobile-auth">
+                <a href="#" class="bbc-mobile-signin" id="mobile-signin">Sign In</a>
+                <a href="#" class="bbc-mobile-signup" id="mobile-signup">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HERO SECTION -->
+<header class="hero">
+    <div class="container">
+        <h1>UNLEASHING SIERRA LEONE'S FOOTBALL POTENTIAL</h1>
+        <p>Connecting local talent with global opportunities. Your premier football agency for scouting, development, and professional placement across Africa and Europe.</p>
+        
+        <div class="hero-buttons">
+            <a href="#discovery" class="hero-btn hero-btn-primary">
+                <span>🌟</span> DISCOVER TALENT
+            </a>
+            <a href="players.html" class="hero-btn hero-btn-secondary">
+                <span>⚽</span> VIEW PLAYERS
+            </a>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">250+</span>
+                <span class="stat-label">Players Scouted</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Professional Contracts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">European Clubs</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+        </div>
+    </div>
+</header>
     <!-- ===== ABOUT SECTION ===== -->
     <section class="section about-section">
         <div class="container about-container">
             <div class="about-content">
-                <h2 class="about-heading">ABOUT </h2>
+                <h2 class="about-heading">ABOUT US </h2>
                 
                 <p class="about-text">
                     Sierra Leone Football Agency stands as the nation's premier talent management organization, committed to revolutionizing football development in West Africa. We serve as the crucial bridge connecting Sierra Leone's exceptional football talent with international opportunities.
@@ -578,8 +217,340 @@
         </div>
     </section>
 
+    <!-- ===== VIDEO HIGHLIGHTS SECTION ===== -->
+<section class="section video-section" id="video-highlights"">
+    <div class="container">
+        <h2 class="section-title">🎬 VIDEO HIGHLIGHTS</h2>
+        <p class="section-subtitle" style="text-align: center; color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
+            Watch the best moments from local and international football
+        </p>
+        
+        <!-- Video Tabs -->
+        <div class="video-tabs">
+            <button class="video-tab active" data-video-category="local">🇸🇱 LOCAL HIGHLIGHTS</button>
+            <button class="video-tab" data-video-category="international">🌍 INTERNATIONAL</button>
+            <button class="video-tab" data-video-category="interviews">🎤 INTERVIEWS</button>
+        </div>
+        
+        <!-- Featured Video -->
+        <div class="featured-video-container">
+            <div class="featured-video-card">
+                <div class="featured-video-thumbnail">
+                    <img src="./IMAGES/videos/featured-highlight.jpg" alt="Sierra Leone vs Egypt Highlights">
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">8:45</div>
+                </div>
+                <div class="featured-video-content">
+                    <span class="video-badge featured-video-badge">FEATURED HIGHLIGHT</span>
+                    <h3 class="video-title featured-video-title">Sierra Leone vs Egypt: AFCON Qualifier Full Highlights</h3>
+                    <div class="video-meta">
+                        <span>⚽ AFCON Qualifiers</span>
+                        <span>📅 Dec 14, 2024</span>
+                    </div>
+                    <p class="video-description featured-video-description">
+                        Relive the thrilling encounter between Leone Stars and Pharaohs. 
+                        Missed chances, brilliant saves, and tactical masterclass from both sides.
+                    </p>
+                    <div class="video-views">
+                        <span>👁️ 125,432 views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Grid -->
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="./IMAGES/videos/bo-rangers-highlight.jpg" alt="Bo Rangers vs East End Lions">
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">5:30</div>
+                </div>
+                <div class="video-content">
+                    <span class="video-badge">MATCH HIGHLIGHTS</span>
+                    <h3 class="video-title">Bo Rangers 3-1 East End Lions: Title Race Heats Up</h3>
+                    <div class="video-meta">
+                        <span>🇸🇱 Sierra Leone PL</span>
+                        <span>📅 Dec 12, 2024</span>
+                    </div>
+                    <p class="video-description">
+                        Champions extend lead with dominant display. John Bangura brace seals crucial victory.
+                    </p>
+                    <div class="video-views">
+                        <span>👁️ 45,230 views</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="./IMAGES/videos/champions-league-highlight.jpg" alt="Champions League Highlights">
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">7:15</div>
+                </div>
+                <div class="video-content">
+                    <span class="video-badge">CHAMPIONS LEAGUE</span>
+                    <h3 class="video-title">UCL Round of 16: Best Goals & Saves</h3>
+                    <div class="video-meta">
+                        <span>🌍 International</span>
+                        <span>📅 Dec 11, 2024</span>
+                    </div>
+                    <p class="video-description">
+                        Stunning goals, miraculous saves, and unforgettable moments from Europe's elite.
+                    </p>
+                    <div class="video-views">
+                        <span>👁️ 892,451 views</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 3 (Interview) -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="./IMAGES/videos/coach-interview.jpg" alt="Coach John Keister Interview">
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">12:40</div>
+                </div>
+                <div class="video-content">
+                    <span class="video-badge">EXCLUSIVE INTERVIEW</span>
+                    <h3 class="video-title">Coach John Keister: Building for AFCON 2025</h3>
+                    <div class="video-meta">
+                        <span>🎤 Sierra Leone NT</span>
+                        <span>📅 Dec 10, 2024</span>
+                    </div>
+                    <p class="video-description">
+                        Leone Stars coach discusses team preparation, youth development, and future prospects.
+                    </p>
+                    <div class="video-views">
+                        <span>👁️ 32,567 views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <a href="#" class="btn btn-glow" style="background: #FFD700; color: #0c1933; font-weight: 600;">
+                VIEW VIDEO ARCHIVE →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FIXTURES & RESULTS WIDGET ===== -->
+<section class="section results-fixtures-section" id="fixtures-results">
+    <div class="container">
+        <h2 class="section-title">📅 RECENT RESULTS & UPCOMING FIXTURES</h2>
+        <p class="section-subtitle" style="text-align: center; color: #666; margin-bottom: 3rem;">
+            Stay updated with Sierra Leone Premier League matches
+        </p>
+        
+        <div class="fixtures-widget">
+            <!-- Recent Results -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <h3 class="widget-title"><span class="widget-icon">🏆</span> RECENT RESULTS</h3>
+                    <span class="widget-date">December 14-16, 2024</span>
+                </div>
+                
+                <!-- Result 1 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">BR</div>
+                        <span class="team-name">Bo Rangers</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-score">3 - 1</div>
+                        <span class="match-status status-completed">FT</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">East End Lions</span>
+                        <div class="team-logo-small">EEL</div>
+                    </div>
+                </div>
+                
+                <!-- Result 2 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">FCK</div>
+                        <span class="team-name">FC Kallon</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-score">2 - 0</div>
+                        <span class="match-status status-completed">FT</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Mighty Blackpool</span>
+                        <div class="team-logo-small">MB</div>
+                    </div>
+                </div>
+                
+                <!-- Result 3 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">KE</div>
+                        <span class="team-name">Kamboi Eagles</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-score">1 - 1</div>
+                        <span class="match-status status-completed">FT</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Wusum Stars</span>
+                        <div class="team-logo-small">WUS</div>
+                    </div>
+                </div>
+                
+                <!-- Result 4 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">PA</div>
+                        <span class="team-name">Ports Authority</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-score">2 - 0</div>
+                        <span class="match-status status-completed">FT</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Diamond Stars</span>
+                        <div class="team-logo-small">DS</div>
+                    </div>
+                </div>
+                
+                <!-- Result 5 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">SSA</div>
+                        <span class="team-name">Star Sport Academy</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-score">4 - 1</div>
+                        <span class="match-status status-completed">FT</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Wilberforce Strikers</span>
+                        <div class="team-logo-small">WS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Upcoming Fixtures -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <h3 class="widget-title"><span class="widget-icon">📅</span> UPCOMING FIXTURES</h3>
+                    <span class="widget-date">December 18-20, 2024</span>
+                </div>
+                
+                <!-- Fixture 1 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">MB</div>
+                        <span class="team-name">Mighty Blackpool</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-details">
+                            <div class="match-time">16:00</div>
+                            <div class="match-venue">Brookfields</div>
+                        </div>
+                        <span class="match-status status-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">FC Kallon</span>
+                        <div class="team-logo-small">FCK</div>
+                    </div>
+                </div>
+                
+                <!-- Fixture 2 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">EEL</div>
+                        <span class="team-name">East End Lions</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-details">
+                            <div class="match-time">15:30</div>
+                            <div class="match-venue">National Stadium</div>
+                        </div>
+                        <span class="match-status status-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Bo Rangers</span>
+                        <div class="team-logo-small">BR</div>
+                    </div>
+                </div>
+                
+                <!-- Fixture 3 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">WUS</div>
+                        <span class="team-name">Wusum Stars</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-details">
+                            <div class="match-time">15:30</div>
+                            <div class="match-venue">Makeni</div>
+                        </div>
+                        <span class="match-status status-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Kamboi Eagles</span>
+                        <div class="team-logo-small">KE</div>
+                    </div>
+                </div>
+                
+                <!-- Fixture 4 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">OLD</div>
+                        <span class="team-name">Old Edwardians</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-details">
+                            <div class="match-time">16:00</div>
+                            <div class="match-venue">Freetown</div>
+                        </div>
+                        <span class="match-status status-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Diamond Stars</span>
+                        <div class="team-logo-small">DS</div>
+                    </div>
+                </div>
+                
+                <!-- Fixture 5 -->
+                <div class="match-item">
+                    <div class="team-info">
+                        <div class="team-logo-small">AC</div>
+                        <span class="team-name">Abacha City</span>
+                    </div>
+                    <div class="match-center">
+                        <div class="match-details">
+                            <div class="match-time">17:00</div>
+                            <div class="match-venue">Abacha Stadium</div>
+                        </div>
+                        <span class="match-status status-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="team-info" style="justify-content: flex-end;">
+                        <span class="team-name">Bhantal FC</span>
+                        <div class="team-logo-small">BFC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View More Button -->
+        <div class="widget-footer">
+            <a href="matches.html" class="view-all-btn">
+                VIEW FULL MATCH SCHEDULE & RESULTS
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
  <!-- ===== PROFESSIONAL ANNOUNCEMENTS SECTION ===== -->
-<section class="section section-light">
+<section class="section section-light" id="announcements">
     <div class="container">
         <h2 class="section-title">📢 LATEST ANNOUNCEMENTS</h2>
         
@@ -711,12 +682,42 @@
     </div>
 </section>
     <!-- ===== NEWS SECTION ===== -->
-    <section class="section section-dark">
+    <section class="section section-dark" id="latest-news">
         <div class="container">
             <h2 class="section-title">LATEST NEWS</h2>
             <div class="news-grid">
                 
                 <article class="news-card">
+                    <div class="news-image"><img src="./IMAGES/training.jpeg" alt=""></div>
+                    <div class="news-content">
+                        <span class="news-category">NATIONAL TEAM</span>
+                        <div class="news-date">December 15, 2024</div>
+                        <h3 class="news-title">Leone Stars Begin Intensive Preparations for AFCON Qualifiers</h3>
+                        <p class="news-excerpt">Sierra Leone national team commences two-week training camp with focus on tactical development.</p>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image"><img src="./IMAGES/acamedy.jpeg" alt=""></div>
+                    <div class="news-content">
+                        <span class="news-category">DEVELOPMENT</span>
+                        <div class="news-date">December 12, 2024</div>
+                        <h3 class="news-title">New Football Academy Launched in Freetown</h3>
+                        <p class="news-excerpt">State-of-the-art youth development facility opens in the capital.</p>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image"><img src="./IMAGES/contract sign.jpeg" alt=""></div>
+                    <div class="news-content">
+                        <span class="news-category">TRANSFERS</span>
+                        <div class="news-date">December 10, 2024</div>
+                        <h3 class="news-title">Sierra Leone Midfielder Secures European Contract</h3>
+                        <p class="news-excerpt">Promising central midfielder signs three-year deal with Portuguese club.</p>
+                    </div>
+                </article>
+
+                 <article class="news-card">
                     <div class="news-image"><img src="./IMAGES/training.jpeg" alt=""></div>
                     <div class="news-content">
                         <span class="news-category">NATIONAL TEAM</span>
@@ -753,7 +754,7 @@
     </section>
 
     <!-- =====  HIGHLIGHTS SECTION ===== -->
-    <section class="section">
+    <section class="section" id="highlights-section">
         <div class="container">
             <h2 class="section-title">LATEST HIGHLIGHTS </h2>
             
@@ -806,7 +807,7 @@
                             </div>
                         </div>
 
-                        <!-- Highlight 3 -->
+                        <!-- Highlight 4 -->
                         <div class="highlight-card">
                             <div class="highlight-video"><img src="./IMAGES/egypt vs sl.jpeg" alt=""></div>
                             <div class="highlight-content">
@@ -861,8 +862,618 @@
                 <a href="highlights.html" class="btn-primary">VIEW MORE HIGHLIGHTS</a>
             </div>
         </div>
-    </section>
+    </section><br><br>
     
+
+<!-- ===== INTERNATIONAL FOOTBALL NEWS (NEW ENHANCED SECTION) ===== -->
+<section class="section international-section" id="international">
+    <div class="container">
+        <div class="section-header">
+            <h2 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🌍 INTERNATIONAL FOOTBALL NEWS</h2>
+            <p style="color: rgba(255,255,255,0.9);">Latest updates from global football leagues and tournaments</p>
+        </div>
+        
+        <div class="international-grid">
+            <!-- Featured International Story -->
+            <article class="international-card featured-international">
+                <div class="international-image">
+                    <img src="./IMAGES/egypt vs sl.jpeg" alt="Champions League Final">
+                    <img src="./IMAGES/flags/europe.png" alt="Europe" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">UEFA CHAMPIONS LEAGUE</span>
+                    <div class="international-date">📅 December 16, 2024</div>
+                    <h3 class="international-title">Champions League Quarterfinal Draw Sets Up Classic European Showdowns</h3>
+                    <p class="international-excerpt">Manchester City vs Bayern Munich, Real Madrid vs PSG headline the quarterfinal matchups. Defending champions face tough test against German giants.</p>
+                    <div class="international-meta">
+                        <span class="international-source">UEFA Official</span>
+                        <a href="#" class="international-link">READ FULL STORY →</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- International Story 1 -->
+            <article class="international-card">
+                <div class="international-image">
+                    <img src="./IMAGES/international/premier-league.jpg" alt="Premier League">
+                    <img src="./IMAGES/flags/england.png" alt="England" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">PREMIER LEAGUE</span>
+                    <div class="international-date">📅 December 15, 2024</div>
+                    <h3 class="international-title">Arsenal Extend Lead at Top with Derby Victory Over Tottenham</h3>
+                    <p class="international-excerpt">Gunners maintain 5-point gap at Premier League summit after 3-1 win in North London derby. Saka stars with brace.</p>
+                    <div class="international-meta">
+                        <span class="international-source">Premier League</span>
+                        <a href="#" class="international-link">READ STORY →</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- International Story 2 -->
+            <article class="international-card">
+                <div class="international-image">
+                    <img src="./IMAGES/international/la-liga.jpg" alt="La Liga">
+                    <img src="./IMAGES/flags/spain.png" alt="Spain" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">LA LIGA</span>
+                    <div class="international-date">📅 December 14, 2024</div>
+                    <h3 class="international-title">Barcelona's Young Star Sets New La Liga Record at 17</h3>
+                    <p class="international-excerpt">Teenage sensation becomes youngest player to score 10 goals in La Liga season. Comparisons to Messi begin.</p>
+                    <div class="international-meta">
+                        <span class="international-source">La Liga</span>
+                        <a href="#" class="international-link">READ STORY →</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- International Story 3 -->
+            <article class="international-card">
+                <div class="international-image">
+                    <img src="./IMAGES/international/serie-a.jpg" alt="Serie A">
+                    <img src="./IMAGES/flags/italy.png" alt="Italy" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">SERIE A</span>
+                    <div class="international-date">📅 December 13, 2024</div>
+                    <h3 class="international-title">Inter Milan's Unbeaten Run Reaches Historic 25 Matches</h3>
+                    <p class="international-excerpt">Nerazzurri continue dominant form with win over Juventus. Inzaghi's side eyeing record-breaking season.</p>
+                    <div class="international-meta">
+                        <span class="international-source">Serie A</span>
+                        <a href="#" class="international-link">READ STORY →</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- International Story 4 -->
+            <article class="international-card">
+                <div class="international-image">
+                    <img src="./IMAGES/international/bundesliga.jpg" alt="Bundesliga">
+                    <img src="./IMAGES/flags/germany.png" alt="Germany" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">BUNDESLIGA</span>
+                    <div class="international-date">📅 December 12, 2024</div>
+                    <h3 class="international-title">Leverkusen's Surprise Title Charge Continues with Bayern Upset</h3>
+                    <p class="international-excerpt">Xabi Alonso's side defeat Bayern Munich 2-1 to stay top of Bundesliga. First defeat for Bayern under new coach.</p>
+                    <div class="international-meta">
+                        <span class="international-source">Bundesliga</span>
+                        <a href="#" class="international-link">READ STORY →</a>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- International Story 5 -->
+            <article class="international-card">
+                <div class="international-image">
+                    <img src="./IMAGES/international/african-football.jpg" alt="African Football">
+                    <img src="./IMAGES/flags/africa.png" alt="Africa" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">AFRICAN FOOTBALL</span>
+                    <div class="international-date">📅 December 11, 2024</div>
+                    <h3 class="international-title">Morocco and Senegal Lead CAF Rankings Ahead of AFCON</h3>
+                    <p class="international-excerpt">North African giants top latest continental rankings. Defending champions Senegal remain strong contenders.</p>
+                    <div class="international-meta">
+                        <span class="international-source">CAF</span>
+                        <a href="#" class="international-link">READ STORY →</a>
+                    </div>
+                </div>
+            </article>
+
+             <!-- International Story 5 -->
+            <article class="international-card">
+                <div class="international-image">
+                    <img src="./IMAGES/international/african-football.jpg" alt="African Football">
+                    <img src="./IMAGES/flags/africa.png" alt="Africa" class="international-flag">
+                </div>
+                <div class="international-content">
+                    <span class="international-league">AFRICAN FOOTBALL</span>
+                    <div class="international-date">📅 December 11, 2024</div>
+                    <h3 class="international-title">Morocco and Senegal Lead CAF Rankings Ahead of AFCON</h3>
+                    <p class="international-excerpt">North African giants top latest continental rankings. Defending champions Senegal remain strong contenders.</p>
+                    <div class="international-meta">
+                        <span class="international-source">CAF</span>
+                        <a href="#" class="international-link">READ STORY →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="btn-container" style="margin-top: 3rem;">
+            <a href="#" class="btn" style="background: white; color: #1e3a8a; border: 2px solid white;">
+                VIEW ALL INTERNATIONAL NEWS
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TOP STORIES (MIXED LOCAL & INTERNATIONAL) ===== -->
+<section class="section top-stories-section" id="top-stories">
+    <div class="container">
+        <div class="section-header">
+            <h2>🔥 TOP STORIES</h2>
+            <p>Must-read football stories from Sierra Leone and around the world</p>
+        </div>
+        
+        <div class="top-stories-grid">
+            <!-- Story 1 (Local) -->
+            <article class="story-card">
+                <div class="story-image">
+                    <img src="./IMAGES/contract sign.jpeg" alt="Sierra Leone Transfer">
+                    <span class="story-tag local-tag">SIERRA LEONE</span>
+                </div>
+                <div class="story-content">
+                    <span class="story-category">TRANSFER NEWS</span>
+                    <h3 class="story-title">Record Transfer Fee for Sierra Leonean Midfielder to Europe</h3>
+                    <p class="story-excerpt">Portuguese club Sporting CP signs 19-year-old Sierra Leone talent for €5 million - highest ever for a local player.</p>
+                    <div class="story-meta">
+                        <span>📅 Dec 16, 2024</span>
+                        <span>⏱️ 5 min read</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Story 2 (International) -->
+            <article class="story-card">
+                <div class="story-image">
+                    <img src="./IMAGES/international/world-cup.jpg" alt="2026 World Cup">
+                    <span class="story-tag international-tag">WORLD CUP</span>
+                </div>
+                <div class="story-content">
+                    <span class="story-category">2026 WORLD CUP</span>
+                    <h3 class="story-title">North American Stadiums Unveiled for 2026 World Cup</h3>
+                    <p class="story-excerpt">FIFA announces final list of 16 stadiums across USA, Canada and Mexico for expanded 48-team tournament.</p>
+                    <div class="story-meta">
+                        <span>📅 Dec 15, 2024</span>
+                        <span>⏱️ 4 min read</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Story 3 (Local) -->
+            <article class="story-card">
+                <div class="story-image">
+                    <img src="./IMAGES/acamedy.jpeg" alt="SLFA Academy">
+                    <span class="story-tag local-tag">SIERRA LEONE</span>
+                </div>
+                <div class="story-content">
+                    <span class="story-category">YOUTH DEVELOPMENT</span>
+                    <h3 class="story-title">SLFA Launches Nationwide Talent Identification Program</h3>
+                    <p class="story-excerpt">New scouting network to cover all 16 districts, aiming to discover next generation of Leone Stars.</p>
+                    <div class="story-meta">
+                        <span>📅 Dec 14, 2024</span>
+                        <span>⏱️ 3 min read</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Story 4 (International) -->
+            <article class="story-card">
+                <div class="story-image">
+                    <img src="./IMAGES/international/womens-football.jpg" alt="Women's Football">
+                    <span class="story-tag international-tag">WOMEN'S FOOTBALL</span>
+                </div>
+                <div class="story-content">
+                    <span class="story-category">WOMEN'S WORLD CUP</span>
+                    <h3 class="story-title">Record TV Audience for Women's Champions League Final</h3>
+                    <p class="story-excerpt">Barcelona vs Lyon clash attracts 500 million viewers worldwide, signaling growing popularity of women's game.</p>
+                    <div class="story-meta">
+                        <span>📅 Dec 13, 2024</span>
+                        <span>⏱️ 4 min read</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Story 5 (Local) -->
+            <article class="story-card">
+                <div class="story-image">
+                    <img src="./IMAGES/training.jpeg" alt="Stadium Renovation">
+                    <span class="story-tag local-tag">SIERRA LEONE</span>
+                </div>
+                <div class="story-content">
+                    <span class="story-category">INFRASTRUCTURE</span>
+                    <h3 class="story-title">Bo Stadium Receives CAF Approval After Major Renovation</h3>
+                    <p class="story-excerpt">$2 million upgrade brings stadium to international standards, eligible for continental competitions.</p>
+                    <div class="story-meta">
+                        <span>📅 Dec 12, 2024</span>
+                        <span>⏱️ 3 min read</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Story 6 (International) -->
+            <article class="story-card">
+                <div class="story-image">
+                    <img src="./IMAGES/international/technology.jpg" alt="Football Tech">
+                    <span class="story-tag international-tag">TECHNOLOGY</span>
+                </div>
+                <div class="story-content">
+                    <span class="story-category">INNOVATION</span>
+                    <h3 class="story-title">AI Technology Revolutionizing Football Scouting in Europe</h3>
+                    <p class="story-excerpt">Clubs using artificial intelligence to analyze player performance, predict injuries, and identify transfer targets.</p>
+                    <div class="story-meta">
+                        <span>📅 Dec 11, 2024</span>
+                        <span>⏱️ 6 min read</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="btn-container" style="margin-top: 3rem;">
+            <a href="#" class="btn-primary">EXPLORE MORE TOP STORIES</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DISCOVERY & PODCAST SECTION ===== -->
+<section class="section discovery-podcast-section" id="discovery">
+    <div class="container">
+        <div class="section-header">
+            <h2 style="color: white;">🌟 DISCOVERY & PODCAST</h2>
+            <p style="color: rgba(255,255,255,0.9);">Uncover hidden talents and listen to exclusive football conversations</p>
+        </div>
+        
+        <div class="discovery-container">
+            <!-- Discovery Side -->
+            <div class="discovery-side">
+                <h3 class="discovery-title">Talent Discovery Hub</h3>
+                <p class="discovery-subtitle">
+                    We're revolutionizing football scouting in Sierra Leone with our comprehensive talent identification system. 
+                    Discover the next generation of football stars before anyone else.
+                </p>
+                
+                <div class="discovery-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-content">
+                            <h4>Advanced Scouting Network</h4>
+                            <p>Our scouts cover all 16 districts with state-of-the-art assessment tools</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-content">
+                            <h4>Performance Analytics</h4>
+                            <p>Data-driven player evaluation with AI-powered performance tracking</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-content">
+                            <h4>Global Connection</h4>
+                            <p>Direct links to European, Asian, and African football clubs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🎓</div>
+                        <div class="feature-content">
+                            <h4>Youth Development</h4>
+                            <p>Comprehensive training programs for players aged 14-21</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <a href="#" class="btn" style="background: #FFD700; color: #0c1933; font-weight: 600;">
+                        EXPLORE TALENT DATABASE
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Podcast Side -->
+            <div class="podcast-side">
+                <div class="podcast-header">
+                    <h3 class="podcast-title">🎙️ FOOTBALL TALK PODCAST</h3>
+                    <div class="live-indicator">
+                        <span class="live-pulse"></span>
+                        LIVE NOW
+                    </div>
+                </div>
+                
+                <div class="podcast-player">
+                    <div class="player-artwork">
+                        <img src="./IMAGES/podcasts/episode-cover.jpg" alt="Podcast Episode Cover">
+                    </div>
+                    
+                    <div class="player-controls">
+                        <button class="control-btn prev-btn">⏮️</button>
+                        <button class="control-btn play-btn">▶️</button>
+                        <button class="control-btn next-btn">⏭️</button>
+                    </div>
+                    
+                    <div class="player-info">
+                        <h4>Episode 24: The Future of Sierra Leone Football</h4>
+                        <p>Featuring Coach John Keister & Star Player Mohamed Kamara</p>
+                    </div>
+                </div>
+                
+                <div class="podcast-episodes">
+                    <div class="episode-item">
+                        <div class="episode-thumb"></div>
+                        <div class="episode-content">
+                            <h5>Youth Development Strategies</h5>
+                            <div class="episode-meta">
+                                <span>Coach Samuel B. Johnson</span>
+                                <span class="episode-duration">45 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="episode-item">
+                        <div class="episode-thumb"></div>
+                        <div class="episode-content">
+                            <h5>Women's Football Rising</h5>
+                            <div class="episode-meta">
+                                <span>Sarah Conteh & Team</span>
+                                <span class="episode-duration">38 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="episode-item">
+                        <div class="episode-thumb"></div>
+                        <div class="episode-content">
+                            <h5>European Scouting Insights</h5>
+                            <div class="episode-meta">
+                                <span>Agent David Williams</span>
+                                <span class="episode-duration">52 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="btn-container" style="margin-top: 1.5rem;">
+                    <a href="#" class="btn" style="background: #1e3a8a; color: white;">
+                        VIEW ALL EPISODES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ALL SPORTS NEWS SECTION ===== -->
+<section class="section all-sports-section" id="all-sports">
+    <div class="container">
+        <div class="section-header">
+            <h2>⚽🏀🎾 ALL SPORTS NEWS</h2>
+            <p>Comprehensive coverage across all major sports disciplines</p>
+        </div>
+        
+        <!-- Sports Tabs -->
+        <div class="sports-tabs">
+            <button class="sport-tab active" data-sport="all">All Sports</button>
+            <button class="sport-tab" data-sport="football">Football</button>
+            <button class="sport-tab" data-sport="basketball">Basketball</button>
+            <button class="sport-tab" data-sport="tennis">Tennis</button>
+            <button class="sport-tab" data-sport="athletics">Athletics</button>
+            <button class="sport-tab" data-sport="olympics">Olympics</button>
+        </div>
+        
+        <div class="sports-grid">
+            <!-- Featured Sports Story -->
+            <article class="sports-card featured-sports">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/featured-sports.jpg" alt="Sierra Leone Athletics Team">
+                    <span class="sports-badge olympics-badge">OLYMPICS 2024</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Sierra Leone Qualifies 8 Athletes for Paris 2024 Olympics</h3>
+                    <p class="sports-excerpt">
+                        Historic achievement as Sierra Leone secures record number of Olympic qualifications across 
+                        athletics, swimming, and judo. Team includes two teenage prodigies in track events.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 18, 2024</span>
+                        <span class="sports-source">National Olympic Committee</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Football News 1 -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/football-1.jpg" alt="AFCON Preparation">
+                    <span class="sports-badge football-badge">FOOTBALL</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Leone Stars Finalize AFCON Preparations in Morocco</h3>
+                    <p class="sports-excerpt">
+                        National team completes intensive training camp with two friendly wins. Coach announces 
+                        final 23-man squad for tournament in Ivory Coast.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 17, 2024</span>
+                        <span class="sports-source">SLFA Official</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Basketball News -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/basketball-1.jpg" alt="Basketball Championship">
+                    <span class="sports-badge basketball-badge">BASKETBALL</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Freetown Defenders Win National Basketball Championship</h3>
+                    <p class="sports-excerpt">
+                        Dramatic overtime victory secures back-to-back titles for the Defenders. MVP award goes to 
+                        19-year-old point guard Samuel Koroma.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 16, 2024</span>
+                        <span class="sports-source">Basketball Federation</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Tennis News -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/tennis-1.jpg" alt="Tennis Tournament">
+                    <span class="sports-badge tennis-badge">TENNIS</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Sierra Leone Tennis Star Reaches ITF Semifinals</h3>
+                    <p class="sports-excerpt">
+                        17-year-old Aminata Bangura becomes first Sierra Leonean to reach ITF tournament semifinals 
+                        in Lagos, defeating two seeded players.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 15, 2024</span>
+                        <span class="sports-source">Tennis Association</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Athletics News -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/athletics-1.jpg" alt="Athletics Meet">
+                    <span class="sports-badge athletics-badge">ATHLETICS</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">New National Record in 100m at Inter-School Championships</h3>
+                    <p class="sports-excerpt">
+                        Secondary school student sets new national U-18 record of 10.45 seconds, drawing attention 
+                        from international scouts and college recruiters.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 14, 2024</span>
+                        <span class="sports-source">Athletics Association</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Football News 2 -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/football-2.jpg" alt="Women's Football">
+                    <span class="sports-badge football-badge">WOMEN'S FOOTBALL</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Sierra Leone Women's Team Qualifies for AWCON 2024</h3>
+                    <p class="sports-excerpt">
+                        Historic qualification secured with dramatic penalty shootout victory. Team to make first 
+                        appearance in Africa Women Cup of Nations.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 13, 2024</span>
+                        <span class="sports-source">Women's Football Desk</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Olympics News -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/olympics-1.jpg" alt="Olympic Training">
+                    <span class="sports-badge olympics-badge">OLYMPICS</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Paris 2024: Sierra Leone's Medal Prospects Analyzed</h3>
+                    <p class="sports-excerpt">
+                        Sports analysts identify three potential medal events for Sierra Leone based on recent 
+                        international performances and athlete development.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 12, 2024</span>
+                        <span class="sports-source">Olympic Analysis</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Basketball News 2 -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/basketball-2.jpg" alt="Basketball Development">
+                    <span class="sports-badge basketball-badge">DEVELOPMENT</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">NBA Africa Launches Talent Camp in Sierra Leone</h3>
+                    <p class="sports-excerpt">
+                        First-ever NBA Africa talent identification camp to be held in Freetown, offering 50 young 
+                        players chance to train with NBA coaches.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 11, 2024</span>
+                        <span class="sports-source">NBA Africa</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Tennis News 2 -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/tennis-2.jpg" alt="Tennis Development">
+                    <span class="sports-badge tennis-badge">DEVELOPMENT</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">New Tennis Complex Opens in Bo City</h3>
+                    <p class="sports-excerpt">
+                        $500,000 facility features four professional courts, training center, and athlete 
+                        accommodation. Expected to boost tennis development in Southern Province.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 10, 2024</span>
+                        <span class="sports-source">Sports Ministry</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Athletics News 2 -->
+            <article class="sports-card">
+                <div class="sports-image">
+                    <img src="./IMAGES/sports/athletics-2.jpg" alt="Marathon Event">
+                    <span class="sports-badge athletics-badge">MARATHON</span>
+                </div>
+                <div class="sports-content">
+                    <h3 class="sports-title">Freetown Marathon Attracts International Runners</h3>
+                    <p class="sports-excerpt">
+                        Record 5,000 participants from 25 countries registered for annual marathon. Event designated 
+                        as qualifying race for World Athletics Championships.
+                    </p>
+                    <div class="sports-meta">
+                        <span class="sports-date">📅 December 9, 2024</span>
+                        <span class="sports-source">Marathon Committee</span>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+        
+        <div class="btn-container" style="margin-top: 3rem;">
+            <a href="#" class="btn-primary">VIEW MORE SPORTS NEWS</a>
+        </div>
+    </div>
+</section>
+    <br><br>
 
     <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -924,7 +1535,764 @@
             </div>
         </div>
     </div>
-</footer>
+
     
+</footer>
+
+<!-- SIGN IN AND OUT -->
+<div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+        <button class="auth-close-btn" id="authClose">&times;</button>
+        
+        <!-- Sign In Form -->
+        <div id="signinForm" class="auth-form active">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to access your dashboard</p>
+            </div>
+            
+            <form id="signinFormElement" class="auth-form-body">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="loginPassword">👁️</button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="rememberMe"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">Sign In</button>
+                
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="social-btn google-btn">
+                        <img src="./IMAGES/social/google.svg" alt="Google"> Google
+                    </button>
+                    <button type="button" class="social-btn facebook-btn">
+                        <img src="./IMAGES/social/facebook.svg" alt="Facebook"> Facebook
+                    </button>
+                </div>
+                
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" class="switch-link" data-form="signup">Sign up</a>
+                </p>
+            </form>
+        </div>
+        
+        <!-- Sign Up Form -->
+        <div id="signupForm" class="auth-form">
+            <div class="auth-header">
+                <h2>CREATE AN ACCOUNT</h2>
+                <p>Join Sierra Leone Football Agency today</p>
+            </div>
+            
+            <form id="signupFormElement" class="auth-form-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="signupPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="signupPassword">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Weak</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" data-target="confirmPassword">👁️</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userType">I am a</label>
+                    <select id="userType" required>
+                        <option value="">Select user type</option>
+                        <option value="player">Player</option>
+                        <option value="scout">Scout/Agent</option>
+                        <option value="coach">Coach</option>
+                        <option value="fan">Fan</option>
+                        <option value="media">Media</option>
+                    </select>
+                </div>
+                
+                <label class="checkbox terms">
+                    <input type="checkbox" id="agreeTerms" required>
+                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                </label>
+                
+                <button type="submit" class="auth-submit-btn">Create Account</button>
+                
+                <p class="auth-switch">
+                    Already have an account? <a href="#" class="switch-link" data-form="signin">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+// BBC Navigation JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // ===== ELEMENTS =====
+    const nav = document.querySelector('.bbc-nav');
+    const menuToggle = document.getElementById('bbc-menu-toggle');
+    const searchToggle = document.getElementById('bbc-search-toggle');
+    const mobileOverlay = document.getElementById('bbc-mobile-overlay');
+    const mobileClose = document.getElementById('bbc-mobile-close');
+    const backdrop = document.getElementById('bbc-mobile-backdrop');
+    const mobileSearch = document.getElementById('bbc-mobile-search');
+    const searchInput = document.getElementById('bbc-search-input');
+    const searchBtn = document.getElementById('bbc-search-btn');
+    
+    // ===== AUTH BUTTONS =====
+    const authButtons = [
+        document.getElementById('nav-signin'),
+        document.getElementById('nav-signup'),
+        document.getElementById('mobile-signin'),
+        document.getElementById('mobile-signup')
+    ];
+
+    // ===== MOBILE MENU TOGGLE =====
+    if (menuToggle && mobileOverlay) {
+        menuToggle.addEventListener('click', function() {
+            mobileOverlay.classList.add('active');
+            backdrop.classList.add('active');
+            document.body.classList.add('bbc-menu-open');
+        });
+    }
+
+    // ===== CLOSE MOBILE MENU =====
+    function closeMobileMenu() {
+        if (mobileOverlay) mobileOverlay.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
+        document.body.classList.remove('bbc-menu-open');
+    }
+
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (backdrop) backdrop.addEventListener('click', closeMobileMenu);
+
+    // ===== MOBILE SEARCH TOGGLE =====
+    if (searchToggle && mobileSearch) {
+        searchToggle.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+                mobileSearch.classList.toggle('active');
+                if (mobileSearch.classList.contains('active')) {
+                    document.getElementById('bbc-mobile-search-input').focus();
+                }
+            } else if (searchInput) {
+                searchInput.focus();
+            }
+        });
+    }
+
+    // ===== CLOSE MOBILE SEARCH WHEN CLICKING OUTSIDE =====
+    document.addEventListener('click', function(e) {
+        if (mobileSearch && mobileSearch.classList.contains('active')) {
+            if (!mobileSearch.contains(e.target) && 
+                !searchToggle.contains(e.target)) {
+                mobileSearch.classList.remove('active');
+            }
+        }
+    });
+
+    // ===== SEARCH FUNCTIONALITY =====
+    if (searchInput && searchBtn) {
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+    }
+
+    function performSearch() {
+        const query = searchInput.value.trim();
+        if (query) {
+            const results = document.getElementById('bbc-search-results');
+            // Add your search logic here
+            console.log('Searching for:', query);
+            if (results) results.classList.add('active');
+        }
+    }
+
+    // ===== AUTH MODAL INTEGRATION =====
+    authButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const authModal = document.getElementById('authModal');
+                if (authModal) {
+                    authModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    closeMobileMenu();
+                }
+            });
+        }
+    });
+
+    // ===== ACTIVE LINK HIGHLIGHTING =====
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.bbc-categories a, .bbc-mobile-categories a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+
+    // ===== STICKY NAVIGATION ON SCROLL =====
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // ===== SCROLL PROGRESS BAR =====
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+
+    // ===== BACK TO TOP BUTTON =====
+    const backToTop = document.getElementById('backToTop') || document.createElement('button');
+    if (!backToTop.id) {
+        backToTop.id = 'backToTop';
+        backToTop.className = 'back-to-top';
+        backToTop.innerHTML = '↑';
+        backToTop.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTop);
+    }
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== LAZY LOAD IMAGES =====
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+            img.addEventListener('error', function() {
+                console.error('Failed to load image:', this.src);
+            });
+        }
+    });
+
+    // ===== SECTION VISIBILITY ANIMATION =====
+    const sections = document.querySelectorAll('.section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // ===== MOBILE SECTION LINKS SMOOTH SCROLL =====
+    document.querySelectorAll('.bbc-mobile-categories a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu
+                closeMobileMenu();
+                
+                // Smooth scroll to section
+                setTimeout(() => {
+                    const offset = 100; // Account for fixed header
+                    const elementPosition = targetElement.offsetTop - offset;
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }, 300);
+            }
+        });
+    });
+
+    // ===== DESKTOP SECTION LINKS =====
+    document.querySelectorAll('.bbc-dropdown-menu a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = 120;
+                const elementPosition = targetElement.offsetTop - offset;
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ===== CLOSE EVERYTHING WITH ESCAPE KEY =====
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+            if (mobileSearch) mobileSearch.classList.remove('active');
+            const searchResults = document.getElementById('bbc-search-results');
+            if (searchResults) searchResults.classList.remove('active');
+        }
+    });
+
+    // ===== RESPONSIVE ADJUSTMENTS =====
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            closeMobileMenu();
+            if (mobileSearch) mobileSearch.classList.remove('active');
+        }
+    });
+});
+</script>
+
+<!-- IMPROVED JAVASCRIPT -->
+
+<script>
+    // Add to your existing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Back to Top Button
+    const backToTop = document.createElement('button');
+    backToTop.className = 'back-to-top';
+    backToTop.id = 'backToTop';
+    backToTop.innerHTML = '↑';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Lazy load images
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+
+    // Section visibility animation
+    const sections = document.querySelectorAll('.section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Update image loading
+    document.querySelectorAll('img').forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+        }
+    });
+
+    // Mobile section links smooth scroll
+    document.querySelectorAll('.bbc-mobile-categories a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu
+                closeMobileMenu();
+                
+                // Smooth scroll to section
+                setTimeout(() => {
+                    const offset = 100; // Account for fixed header
+                    const elementPosition = targetElement.offsetTop - offset;
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }, 300);
+            }
+        });
+    });
+
+    // Desktop section links
+    document.querySelectorAll('.bbc-dropdown-menu a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = 120;
+                const elementPosition = targetElement.offsetTop - offset;
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // ===== MOBILE MENU =====
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.getElementById('nav-list');
+    
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    }
+    
+    // ===== AUTH MODAL FUNCTIONALITY =====
+    const authModal = document.getElementById('authModal');
+    const authCloseBtn = document.getElementById('authClose');
+    const navSigninBtn = document.getElementById('nav-signin');
+    const navSignupBtn = document.getElementById('nav-signup');
+    
+    // Open Sign In Modal
+    if (navSigninBtn) {
+        navSigninBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openAuthModal('signin');
+            closeMobileMenu();
+        });
+    }
+    
+    // Open Sign Up Modal
+    if (navSignupBtn) {
+        navSignupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openAuthModal('signup');
+            closeMobileMenu();
+        });
+    }
+    
+    // Close Modal
+    if (authCloseBtn) {
+        authCloseBtn.addEventListener('click', closeAuthModal);
+    }
+    
+    // Close modal when clicking outside
+    authModal.addEventListener('click', function(e) {
+        if (e.target === authModal) {
+            closeAuthModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && authModal.classList.contains('active')) {
+            closeAuthModal();
+        }
+    });
+    
+    // ===== FORM SWITCHING =====
+    const switchLinks = document.querySelectorAll('.switch-link');
+    switchLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetForm = this.getAttribute('data-form');
+            switchAuthForm(targetForm);
+        });
+    });
+    
+    // ===== PASSWORD TOGGLE =====
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+    toggleButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const input = document.getElementById(targetId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                this.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                this.textContent = '👁️';
+            }
+        });
+    });
+    
+    // ===== PASSWORD STRENGTH =====
+    const passwordInput = document.getElementById('signupPassword');
+    const strengthFill = document.querySelector('.strength-fill');
+    const strengthText = document.querySelector('.strength-text');
+    
+    if (passwordInput && strengthFill && strengthText) {
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const strength = calculatePasswordStrength(password);
+            updateStrengthIndicator(strength);
+        });
+    }
+    
+    // ===== FORM VALIDATION =====
+    const signinForm = document.getElementById('signinFormElement');
+    const signupForm = document.getElementById('signupFormElement');
+    
+    if (signinForm) {
+        signinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateSignInForm()) {
+                alert('Sign in successful!');
+                closeAuthModal();
+            }
+        });
+    }
+    
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateSignUpForm()) {
+                alert('Account created successfully!');
+                closeAuthModal();
+            }
+        });
+    }
+    
+    // ===== HELPER FUNCTIONS =====
+    
+    function openAuthModal(formType) {
+        authModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        switchAuthForm(formType);
+    }
+    
+    function closeAuthModal() {
+        authModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    function switchAuthForm(formType) {
+        // Hide all forms
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.classList.remove('active');
+        });
+        
+        // Show target form
+        const targetForm = document.getElementById(formType + 'Form');
+        if (targetForm) {
+            targetForm.classList.add('active');
+        }
+    }
+    
+    function closeMobileMenu() {
+        if (navList.classList.contains('active')) {
+            navList.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    }
+    
+    function calculatePasswordStrength(password) {
+        let strength = 0;
+        
+        // Length check
+        if (password.length >= 8) strength++;
+        if (password.length >= 12) strength++;
+        
+        // Complexity checks
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        return Math.min(strength, 5); // Max 5
+    }
+    
+    function updateStrengthIndicator(strength) {
+        const percentage = (strength / 5) * 100;
+        strengthFill.style.width = percentage + '%';
+        
+        // Update color and text
+        if (strength <= 1) {
+            strengthFill.style.backgroundColor = '#ff4757';
+            strengthText.textContent = 'Very Weak';
+        } else if (strength <= 2) {
+            strengthFill.style.backgroundColor = '#ff6b81';
+            strengthText.textContent = 'Weak';
+        } else if (strength <= 3) {
+            strengthFill.style.backgroundColor = '#ffa502';
+            strengthText.textContent = 'Fair';
+        } else if (strength <= 4) {
+            strengthFill.style.backgroundColor = '#2ed573';
+            strengthText.textContent = 'Strong';
+        } else {
+            strengthFill.style.backgroundColor = '#1dd1a1';
+            strengthText.textContent = 'Very Strong';
+        }
+    }
+    
+    function validateSignInForm() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        if (!email || !password) {
+            alert('Please fill in all fields');
+            return false;
+        }
+        
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function validateSignUpForm() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const userType = document.getElementById('userType').value;
+        const agreeTerms = document.getElementById('agreeTerms').checked;
+        
+        // Check required fields
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !userType) {
+            alert('Please fill in all required fields');
+            return false;
+        }
+        
+        // Validate email
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        
+        // Check password match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return false;
+        }
+        
+        // Check password strength
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters long');
+            return false;
+        }
+        
+        // Check terms agreement
+        if (!agreeTerms) {
+            alert('You must agree to the terms and conditions');
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    // ===== SCROLL PROGRESS =====
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+    
+    // ===== STICKY NAVIGATION =====
+    const nav = document.querySelector('.main-nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+});
+</script>
+
+
+
+<!-- Add before closing body tag -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    ↑
+</button>
 </body>
 </html>

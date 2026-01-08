@@ -43,7 +43,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     margin-bottom: 1rem;
     line-height: 1.3;
-    
 }
 
 h1 { font-size: 2.5rem; }
@@ -78,12 +77,14 @@ p {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn:hover {
     background-color: #1E6B47;
     transform: translateY(-2px);
-    box-shadow: var(--box-shadow-hover);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {
@@ -94,200 +95,914 @@ p {
     background-color: #152C6B;
 }
 
-/* ===== NAVIGATION STYLES ===== */
-.main-nav {
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* ===== BBC-STYLE PROFESSIONAL NAVIGATION ===== */
+
+/* 1. BBC Top Strip */
+.bbc-top-strip {
+    background: #000000;
+    color: #ffffff;
+    padding: 8px 0;
+    font-size: 13px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    border-bottom: 1px solid #333333;
+    position: relative;
+    z-index: 1002;
+    width: 100%;
 }
 
-.nav-container {
+.bbc-top-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 40px;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
+.bbc-brand {
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.bbc-top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 2. Top Right Auth Links */
+.bbc-signin,
+.bbc-signup {
+    color: #ffffff;
     text-decoration: none;
-    transition: all 0.3s ease;
+    padding: 6px 14px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo:hover {
-    color: var(--secondary-color);
+.bbc-signin {
+    border: 1px solid #666666;
+    background: transparent;
+}
+
+.bbc-signin:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #999999;
+}
+
+.bbc-signup {
+    background: #2E8B57;
+    border: 1px solid #2E8B57;
+}
+
+.bbc-signup:hover {
+    background: #1E6B47;
+    border-color: #1E6B47;
+    transform: translateY(-1px);
+}
+
+/* 3. Search Toggle Button */
+.bbc-search-toggle {
+    background: transparent;
+    border: 1px solid #666666;
+    color: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.bbc-search-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #999999;
     transform: scale(1.05);
 }
 
-.nav-links {
+.bbc-search-toggle svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* 4. Menu Toggle Button */
+.bbc-menu-toggle {
+    background: transparent;
+    border: 1px solid #666666;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
     display: flex;
-    list-style: none;
-    gap: 2rem;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: bold;
-    transition: color 0.3s ease;
+.bbc-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #999999;
 }
 
-.nav-links a:hover {
-    color: var(--primary-color);
+.bbc-menu-icon {
+    font-size: 16px;
+    line-height: 1;
 }
 
-/* ===== ENHANCED PROFESSIONAL NAVIGATION ===== */
-.main-nav {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 0.5rem 0;
+.bbc-menu-text {
+    font-weight: 500;
 }
 
-.nav-container {
+/* 5. Main Navigation Bar */
+.bbc-main-nav {
+    background: #1a1a1a;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1001;
+    width: 100%;
+}
+
+.bbc-main-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 56px;
 }
 
-.agent-logo {
-    width: 60px;
-    height: 60px;
+/* 6. Categories List */
+.bbc-categories {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.bbc-categories li {
+    position: relative;
+    height: 100%;
+}
+
+.bbc-categories > li {
+    border-right: 1px solid #333333;
+}
+
+.bbc-categories > li:last-child {
+    border-right: none;
+}
+
+.bbc-categories a {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 22px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.bbc-categories a:hover {
+    background: #2a2a2a;
+    color: #2E8B57;
+}
+
+/* 7. Home Special Styling */
+.bbc-home a {
+    background: #2E8B57;
+    font-weight: 700;
+    color: white !important;
+}
+
+.bbc-home a:hover {
+    background: #1E6B47;
+    color: white !important;
+}
+
+.bbc-home-icon {
+    margin-right: 8px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* 8. Active State */
+.bbc-categories a.active {
+    background: #2a2a2a;
+    border-bottom: 3px solid #2E8B57;
+    color: #ffffff;
+}
+
+/* 9. More Dropdown */
+.bbc-more {
+    position: relative;
+}
+
+.bbc-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1a1a1a;
+    min-width: 200px;
+    padding: 10px 0;
+    border: 1px solid #333333;
+    border-top: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    list-style: none;
+    margin: 0;
+}
+
+.bbc-more:hover .bbc-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.bbc-dropdown-menu li {
+    border-bottom: 1px solid #333333;
+}
+
+.bbc-dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.bbc-dropdown-menu a {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    height: auto;
+}
+
+.bbc-dropdown-menu a:hover {
+    background: #2E8B57;
+    color: white !important;
+}
+
+.bbc-dropdown-arrow {
+    font-size: 10px;
+    margin-left: 4px;
+    line-height: 1;
+}
+
+/* 10. Search Container */
+.bbc-search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.bbc-search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bbc-search-input {
+    padding: 10px 15px;
+    border: 1px solid #666666;
+    background: #2a2a2a;
+    color: #ffffff;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.bbc-search-input:focus {
+    outline: none;
+    border-color: #2E8B57;
+    background: #333333;
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+}
+
+.bbc-search-input::placeholder {
+    color: #999999;
+}
+
+.bbc-search-btn {
+    background: #2E8B57;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.bbc-search-btn:hover {
+    background: #1E6B47;
+}
+
+/* 11. Search Results */
+.bbc-search-results {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    width: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 1003;
+}
+
+.bbc-search-results.active {
+    display: block;
+}
+
+.bbc-search-results .search-result-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bbc-search-results .search-result-item:hover {
+    background: #f8f9fa;
+}
+
+.bbc-search-results .search-result-item:last-child {
+    border-bottom: none;
+}
+
+.bbc-search-results .result-title {
+    font-weight: 600;
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.bbc-search-results .result-type {
+    font-size: 12px;
+    color: #2E8B57;
+    font-weight: 500;
+}
+
+.bbc-search-results .no-results {
+    padding: 20px;
+    text-align: center;
+    color: #666666;
+}
+
+.bbc-search-results .no-results p {
+    margin: 5px 0;
+}
+
+/* 12. Mobile Search Container */
+.bbc-mobile-search-container {
+    display: none;
+    background: #2a2a2a;
+    padding: 15px 0;
+    border-top: 1px solid #333333;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+.bbc-mobile-search-container.active {
+    display: block;
+}
+
+.bbc-mobile-search-box {
+    display: flex;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.bbc-mobile-search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #666666;
+    background: #333333;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.bbc-mobile-search-box input:focus {
+    outline: none;
+    border-color: #2E8B57;
+}
+
+.bbc-mobile-search-box input::placeholder {
+    color: #999999;
+}
+
+.bbc-mobile-search-btn {
+    background: #2E8B57;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.bbc-mobile-search-btn:hover {
+    background: #1E6B47;
+}
+
+/* 13. Mobile Menu Overlay */
+.bbc-mobile-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: #1a1a1a;
+    z-index: 1004;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.bbc-mobile-overlay.active {
+    right: 0;
+}
+
+.bbc-mobile-menu {
+    padding: 20px;
+    min-height: 100%;
+}
+
+.bbc-mobile-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+.bbc-mobile-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    border: 3px solid var(--white);
+    transition: background 0.2s ease;
+}
+
+.bbc-mobile-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.bbc-mobile-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bbc-mobile-categories li {
+    border-bottom: 1px solid #333333;
+}
+
+.bbc-mobile-categories li:last-child {
+    border-bottom: none;
+}
+
+.bbc-mobile-categories a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.bbc-mobile-categories a:hover {
+    color: #2E8B57;
+}
+
+.bbc-mobile-home a {
+    color: #2E8B57;
+    font-weight: 700;
+}
+
+.bbc-mobile-home a:hover {
+    color: #2E8B57 !important;
+}
+
+.bbc-mobile-auth {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    border-bottom: none !important;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+}
+
+.bbc-mobile-auth a {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.bbc-mobile-signin {
+    border: 1px solid #666666;
+    background: transparent;
+    color: #ffffff;
+}
+
+.bbc-mobile-signin:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+}
+
+.bbc-mobile-signup {
+    background: #2E8B57;
+    border: 1px solid #2E8B57;
+    color: white;
+}
+
+.bbc-mobile-signup:hover {
+    background: #1E6B47;
+    border-color: #1E6B47;
+    color: white !important;
+}
+
+/* 14. Backdrop for mobile menu */
+.bbc-mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1003;
+    display: none;
+    backdrop-filter: blur(3px);
+}
+
+.bbc-mobile-backdrop.active {
+    display: block;
+}
+
+/* 15. Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #2E8B57, #1E3A8A);
+    z-index: 9999;
+    transition: width 0.1s;
+}
+
+/* 16. Responsive Design */
+@media (max-width: 1200px) {
+    .bbc-main-container,
+    .bbc-top-container {
+        padding: 0 15px;
+    }
+    
+    .bbc-categories a {
+        padding: 0 18px;
+    }
+    
+    .bbc-search-input {
+        width: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Hide desktop elements on mobile */
+    .bbc-categories {
+        display: none;
+    }
+    
+    .bbc-search-container {
+        display: none;
+    }
+    
+    .bbc-top-right .bbc-signin,
+    .bbc-top-right .bbc-signup {
+        display: none;
+    }
+    
+    .bbc-menu-toggle .bbc-menu-text {
+        display: inline;
+    }
+    
+    /* Adjust top strip for mobile */
+    .bbc-top-container {
+        padding: 0 15px;
+    }
+    
+    .bbc-brand {
+        font-size: 13px;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .bbc-search-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .bbc-menu-toggle {
+        padding: 8px 12px;
+    }
+    
+    .bbc-main-nav {
+        display: none;
+    }
+    
+    /* Show only search toggle and menu toggle */
+    .bbc-top-right {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bbc-top-strip {
+        padding: 8px 0;
+    }
+    
+    .bbc-brand {
+        font-size: 12px;
+        max-width: 150px;
+    }
+    
+    .bbc-mobile-overlay {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .bbc-menu-text {
+        display: none !important;
+    }
+    
+    .bbc-menu-toggle {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+    }
+    
+    .bbc-search-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .bbc-top-container {
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bbc-brand {
+        font-size: 11px;
+        max-width: 120px;
+    }
+    
+    .bbc-mobile-search-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .bbc-mobile-search-box input,
+    .bbc-mobile-search-btn {
+        width: 100%;
+    }
+    
+    .bbc-mobile-search-btn {
+        padding: 12px;
+    }
+    
+    .bbc-mobile-auth {
+        flex-direction: column;
+    }
+}
+
+/* 17. Fix for body overflow when menus are open */
+body.bbc-menu-open {
+    overflow: hidden;
+}
+
+/* 18. Sticky Navigation Effect */
+.bbc-nav.scrolled .bbc-top-strip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slideDown 0.3s ease;
+}
+
+.bbc-nav.scrolled .bbc-main-nav {
+    position: fixed;
+    top: 48px; /* Height of top strip */
+    left: 0;
+    right: 0;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* 19. Smooth scrolling for the page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 20. Clear floats and box-sizing */
+.bbc-nav *,
+.bbc-nav *::before,
+.bbc-nav *::after {
+    box-sizing: border-box;
+}
+
+/* 21. Focus styles for accessibility */
+.bbc-search-toggle:focus,
+.bbc-menu-toggle:focus,
+.bbc-search-input:focus,
+.bbc-search-btn:focus,
+.bbc-mobile-close:focus,
+.bbc-signin:focus,
+.bbc-signup:focus {
+    outline: 2px solid #2E8B57;
+    outline-offset: 2px;
+}
+
+/* 22. Prevent text selection on interactive elements */
+.bbc-search-toggle,
+.bbc-menu-toggle,
+.bbc-search-btn,
+.bbc-mobile-search-btn,
+.bbc-mobile-close {
+    user-select: none;
+}
+
+/* ===== UPDATED LOGO STYLES ===== */
+.bbc-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.bbc-logo-link:hover {
+    opacity: 0.9;
+}
+
+.bbc-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #2E8B57;
+    padding: 3px;
+    background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
-.agent-logo:hover {
-    transform: scale(1.05);
+.bbc-logo:hover {
+    transform: rotate(5deg);
 }
 
-.logo {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-left: 1rem;
-    transition: all 0.3s ease;
-}
-
-.logo:hover {
-    color: #FFD700;
-    transform: translateY(-1px);
-}
-
-.nav-links {
+/* Mobile Logo */
+.bbc-mobile-logo {
     display: flex;
-    list-style: none;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a {
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    flex: 1;
 }
 
-.nav-links a:hover {
-    color: var(--white);
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+.bbc-mobile-logo-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+    border: 2px solid #2E8B57;
+    background: white;
 }
 
-.nav-links a.active {
-    color: var(--white);
-    background: rgba(255, 255, 255, 0.2);
+.bbc-mobile-brand {
+    color: white;
     font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 
-/* Current page indicator */
-.nav-links li::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: #FFD700;
-    transition: width 0.3s ease;
+/* Mobile Header Fix */
+.bbc-mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
 }
 
-.nav-links li:hover::after {
-    width: 70%;
+/* Mobile Sections */
+.bbc-mobile-sections {
+    padding-bottom: 20px;
 }
 
-/* Mobile menu toggle (for future responsiveness) */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
+.bbc-section-group {
+    margin-bottom: 25px;
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0.5rem;
-        display: none;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .nav-links a {
-        padding: 0.8rem;
-        text-align: center;
-        border-radius: 4px;
-    }
+.bbc-section-title {
+    color: #2E8B57;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #333;
+    font-weight: 600;
 }
 
-/* ===== SECTION STYLES ===== */
-
-.section {
-    padding: var(--section-padding);
+.bbc-mobile-categories a span {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 24px;
+    display: inline-block;
+    text-align: center;
 }
 
-.section-light {
-    background-color: var(--background-light);
+/* Smooth scrolling for section links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Account for fixed header */
 }
+
+/* Highlight active section */
+.section:target {
+    animation: highlightSection 1.5s ease;
+}
+
+@keyframes highlightSection {
+    0% { background-color: transparent; }
+    20% { background-color: rgba(46, 139, 87, 0.1); }
+    100% { background-color: transparent; }
+}
+
 
 /* ===== FOOTER STYLES ===== */
 .footer {
@@ -297,296 +1012,6 @@ p {
     padding: 2rem 1rem;
 }
 
-.footer-social{
-    text-align: center;
-    margin: 1.5rem 0;
-
-}
-
-.footer-social h4{
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: var(--white);
-}
-
-.footer-social .social-links{
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-.footer-social .social-links :hover{
-    background: var(--white);
-    color: var(--primary-color);
-    border-color: var(--white);
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 1rem 0;
-}
-
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-
-/* ===== SAFE ENHANCEMENTS - TARGET YOUR EXISTING CLASSES ===== */
-
-/* 1. Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* 2. Enhanced Button Animations */
-.btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* 3. Enhanced Card Hover Effects */
-.player-card, .team-card, .mv-card, .service-card {
-    transition: all 0.3s ease;
-}
-
-.player-card:hover, .team-card:hover, .mv-card:hover, .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* 4. Enhanced Form Interactions */
-.form-control {
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 15px rgba(46, 139, 87, 0.1);
-}
-
-/* 5. Enhanced Navigation Effects */
-.nav-links a {
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* 6. Professional Focus States */
-.btn:focus, .form-control:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-/* 7. Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--background-light);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
-.agent-logo {
-    width: 150px;
-    height: 65;
-    margin-right: 20px;
-    border-radius: 20px;
-    border: #DC2626;
-    border-color: green;
-}
-
-
-/* ===== PROFESSIONAL TEXT-ONLY ANNOUNCEMENTS ===== */
-.announcements-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.announcement-item {
-    background: var(--white);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid var(--primary-color);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.announcement-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.announcement-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.8rem;
-    gap: 0.8rem;
-}
-
-.announcement-icon {
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.announcement-title {
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    margin: 0;
-    flex: 1;
-}
-
-.announcement-badge {
-    background: var(--accent-color);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.announcement-meta {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-light);
-    font-size: 0.9rem;
-}
-
-.announcement-date {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.announcement-category {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.announcement-content {
-    color: var(--text-dark);
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-}
-
-.announcement-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.announcement-link:hover {
-    color: var(--primary-color);
-    gap: 0.8rem;
-}
-
-.announcement-link::after {
-    content: '→';
-    transition: transform 0.3s ease;
-}
-
-.announcement-link:hover::after {
-    transform: translateX(3px);
-}
-
-/* Priority Colors */
-.announcement-urgent {
-    border-left-color: #DC2626;
-}
-
-.announcement-urgent .announcement-badge {
-    background: #DC2626;
-}
-
-.announcement-important {
-    border-left-color: #F59E0B;
-}
-
-.announcement-important .announcement-badge {
-    background: #F59E0B;
-}
-
-.announcement-update {
-    border-left-color: #10B981;
-}
-
-.announcement-update .announcement-badge {
-    background: #10B981;
-}
-
-/* View All Button */
-.view-all-announcements {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-@media (max-width: 768px) {
-    .announcement-header {
-        flex-wrap: wrap;
-    }
-    
-    .announcement-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .announcement-item {
-        padding: 1.2rem;
-    }
-}
-
-/* ===== FOOTER SOCIAL MEDIA STYLES ===== */
 .footer-social {
     text-align: center;
     margin: 2rem 0;
@@ -694,4 +1119,661 @@ html {
 .footer-links a:hover {
     color: var(--white);
     text-decoration: underline;
+}
+
+/* ===== MOBILE RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav-search {
+        max-width: 250px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Show hamburger menu */
+    .menu-toggle {
+        display: flex;
+        order: 3;
+    }
+    
+    /* Reorder layout */
+    .nav-left {
+        order: 1;
+        flex: 1;
+    }
+    
+    .nav-right {
+        order: 2;
+        display: none;
+    }
+    
+    /* Hide desktop search, show mobile toggle */
+    .nav-search .search-container {
+        display: none;
+    }
+    
+    .search-toggle {
+        display: flex;
+        margin-right: 10px;
+    }
+    
+    /* Mobile navigation menu */
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 300px;
+        height: calc(100vh - 70px);
+        background: linear-gradient(135deg, rgba(30, 58, 138, 0.98) 0%, rgba(46, 139, 87, 0.98) 100%);
+        flex-direction: column;
+        padding: 30px;
+        gap: 0;
+        transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        overflow-y: auto;
+        backdrop-filter: blur(20px);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 15px 0;
+        font-size: 16px;
+        width: 100%;
+    }
+    
+    /* Mobile auth buttons */
+    .auth-buttons-nav {
+        flex-direction: column;
+        margin: 20px 0 0;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .auth-nav-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    /* Brand area adjustments */
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .agent-logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Container padding */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Typography */
+    h1 { 
+        font-size: 2.2rem !important; 
+        line-height: 1.2;
+    }
+    
+    h2 { 
+        font-size: 1.8rem !important; 
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    /* Grid layouts become single column */
+    .news-grid,
+    .mv-grid,
+    .team-grid,
+    .contact-grid,
+    .matches-filters,
+    .stats-leaderboards,
+    .announcements-grid,
+    .fixtures-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+    
+    /* Fix tables */
+    .standings-preview {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 1rem -1rem;
+        padding: 1rem;
+    }
+    
+    .standings-table {
+        min-width: 600px;
+    }
+    
+    /* Cards become full width */
+    .match-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .team.home {
+        justify-content: center;
+        text-align: center;
+    }
+    
+}
+
+
+/* Specific Fix for Tables (Matches Page) */
+.standings-preview {
+    overflow-x: auto; /* Already present, but essential */
+    -webkit-overflow-scrolling: touch;
+}
+
+.standings-table {
+    min-width: 600px; /* Reduced from 800px to avoid extreme scrolling */
+}
+
+/* Specific Fix for Tables (Matches Page) */
+.standings-preview {
+    overflow-x: auto; /* Already present, but essential */
+    -webkit-overflow-scrolling: touch;
+}
+
+.standings-table {
+    min-width: 600px; /* Reduced from 800px to avoid extreme scrolling */
+}
+
+/* Enhanced card hover effects */
+.news-card, .video-card, .story-card, .sports-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.news-card:hover, .video-card:hover, .story-card:hover, .sports-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.news-image, .video-thumbnail {
+    overflow: hidden;
+}
+
+.news-card:hover .news-image img,
+.video-card:hover .video-thumbnail img {
+    transform: scale(1.05);
+    transition: transform 0.6s ease;
+}
+
+/* BACK TO THE TOP */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #2E8B57;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(46, 139, 87, 0.4);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #1E6B47;
+    transform: translateY(-5px);
+}
+
+/* Optimize animations for performance */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Lazy loading for images */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Smooth section transitions */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add loading placeholder */
+.news-image, .video-thumbnail, .sports-image {
+    position: relative;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+
+
+/* ===== AUTH MODAL STYLES FOR SIGN IN AND OUT ===== */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.auth-modal.active {
+    display: flex;
+}
+
+.auth-modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.auth-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.auth-close-btn:hover {
+    background: #f5f5f5;
+    color: #ff0000;
+}
+
+.auth-form {
+    padding: 40px;
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-size: 28px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-input input {
+    padding-right: 50px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+.forgot-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.auth-submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.auth-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+}
+
+.auth-divider {
+    text-align: center;
+    position: relative;
+    margin: 25px 0;
+    color: #999;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.auth-divider span {
+    background: white;
+    padding: 0 15px;
+    position: relative;
+    font-size: 14px;
+}
+
+.social-auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-btn:hover {
+    background: #f8f9fa;
+    border-color: #ccc;
+}
+
+.google-btn:hover {
+    border-color: #db4437;
+}
+
+.facebook-btn:hover {
+    border-color: #4267B2;
+}
+
+.auth-switch {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.switch-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.switch-link:hover {
+    text-decoration: underline;
+}
+
+.password-strength {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 20%;
+    background: #ff4757;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.strength-text {
+    font-size: 12px;
+    color: #666;
+    min-width: 50px;
+}
+
+.terms {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.terms a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .auth-form {
+        padding: 25px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .social-auth {
+        grid-template-columns: 1fr;
+    }
+    
+    .auth-header h2 {
+        font-size: 24px;
+    }
 }
