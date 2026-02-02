@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fixtures, Results & Statistics - Football Agency Sierra Leone">
     <title>Matches & Statistics - Football Agency Sierra Leone</title>
+     <link rel="icon" type="image/svg+xml" href="./IMAGES/logo.svg">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="./css/matches.css">
+    <link rel="stylesheet" href="./css/matches2.css">
    
 </head>
 <body>
@@ -156,408 +158,1475 @@
     </div>
 </div>
 
-    <!-- ===== PAGE HEADER ===== -->
-    <header class="page-header">
-        <div class="container">
-            <h1>MATCHES & STATISTICS</h1>
-            <p>Complete coverage of Sierra Leone Premier League - Fixtures, Results & Player Stats</p>
+   <!-- Replace the existing page-header section in matches.html -->
+<header class="page-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="header-text">
+                <h1>MATCHES & STATISTICS</h1>
+                <p class="subtitle">Complete coverage of Sierra Leone Premier League - Fixtures, Results & Player Stats</p>
+                
+                <!-- League Stats Badges -->
+                <div class="league-stats">
+                    <div class="stat-badge">
+                        <span class="stat-number">18</span>
+                        <span class="stat-label">Teams</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">306</span>
+                        <span class="stat-label">Matches</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">2025/26</span>
+                        <span class="stat-label">Season</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">Matchweek 1</span>
+                        <span class="stat-label">Current</span>
+                    </div>
+                </div>
+                
+                <!-- Quick Navigation Buttons -->
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="scrollToSection('fixtures-container')">
+                        📅 View Fixtures
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('standings-container')">
+                        📊 View Standings
+                    </button>
+                    <button class="btn-outline" onclick="scrollToSection('stats-container')">
+                        ⭐ Top Scorers
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Hero Visual -->
+            <div class="header-visual">
+                <div class="match-highlight">
+                    <div class="live-indicator">LIVE</div>
+                    <div class="highlight-teams">
+                        <div class="highlight-team">
+                            <div class="team-logo-large">BR</div>
+                            <span class="team-name">Bo Rangers</span>
+                            <span class="team-score">2</span>
+                        </div>
+                        <div class="highlight-vs">VS</div>
+                        <div class="highlight-team">
+                            <span class="team-score">1</span>
+                            <span class="team-name">East End Lions</span>
+                            <div class="team-logo-large">EEL</div>
+                        </div>
+                    </div>
+                    <div class="highlight-info">
+                        <span>65' Minute</span>
+                        <span>📍 Bo Stadium</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- ===== MAIN CONTENT ===== -->
+    
     <main>
-        <section class="section">
-            <div class="container">
-                <!-- Matches Navigation -->
-                <div class="matches-nav">
-                    <button class="matches-tab active" data-tab="fixtures">📅 FIXTURES</button>
-                    <button class="matches-tab" data-tab="results">🏆 RESULTS</button>
-                    <button class="matches-tab" data-tab="standings">📊 STANDINGS</button>
-                    <button class="matches-tab" data-tab="stats">⭐ STATISTICS</button>
+        <!-- MATCHES NAV OR SECTION -->
+<div class="matches-nav">
+    <div class="nav-container">
+        <button class="matches-tab active" data-tab="fixtures">
+            <span class="tab-icon">📅</span>
+            <span class="tab-title">Fixtures</span>
+            <span class="tab-badge">9</span>
+        </button>
+        <button class="matches-tab" data-tab="results">
+            <span class="tab-icon">🏆</span>
+            <span class="tab-title">Results</span>
+            <span class="tab-badge">9</span>
+        </button>
+        <button class="matches-tab" data-tab="standings">
+            <span class="tab-icon">📊</span>
+            <span class="tab-title">Standings</span>
+        </button>
+        <button class="matches-tab" data-tab="stats">
+            <span class="tab-icon">⭐</span>
+            <span class="tab-title">Statistics</span>
+        </button>
+    </div>
+    
+    <!-- Filters -->
+    <div class="matches-filters">
+        <select class="filter-select" id="filter-date">
+            <option value="all">All Dates</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+        </select>
+        
+        <select class="filter-select" id="filter-team">
+            <option value="all">All Teams</option>
+            <option value="bo-rangers">Bo Rangers</option>
+            <option value="east-end">East End Lions</option>
+            <!-- Add all 18 teams -->
+        </select>
+        
+        <select class="filter-select" id="filter-competition">
+            <option value="all">All Competitions</option>
+            <option value="premier">Premier League</option>
+            <option value="cup">FA Cup</option>
+            <option value="friendly">Friendlies</option>
+        </select>
+        
+        <button class="filter-btn" id="reset-filters">
+            <span>🔄</span> Reset
+        </button>
+    </div>
+</div>
+
+       
+            <!-- ===== ENHANCED FIXTURES SECTION ===== -->
+<div class="matches-container active" id="fixtures-container">
+    <section class="fixtures-section">
+        <div class="section-header enhanced-header">
+            <h2>📅 UPCOMING FIXTURES</h2>
+            <p>Sierra Leone Premier League 2025/26 Season - Matchweek 1</p>
+            <div class="section-controls">
+                <div class="date-navigation">
+                    <button class="nav-btn prev">← Prev</button>
+                    <span class="current-week">Week 1 • Nov 15-17, 2025</span>
+                    <button class="nav-btn next">Next →</button>
                 </div>
+                <button class="calendar-export" id="export-fixtures">
+                    <span>📅</span> Add to Calendar
+                </button>
+            </div>
+        </div>
 
-                <!-- ===== FIXTURES SECTION ===== -->
-                <div class="matches-container active" id="fixtures-container">
-                    <section class="fixtures-section">
-                        <div class="section-header">
-                            <h2>📅 UPCOMING FIXTURES</h2>
-                            <p>Sierra Leone Premier League 2025/26 Season - Matchweek 1</p>
-                        </div>
-
-                        <!-- Matchweek 1 -->
-                        <div class="matchweek-group">
-                            <h3 class="matchweek-title">MATCH WEEK 1 </h3>
-                            <span class="matchweek-dates">November 15-17, 2025</span>
-                            
-                            <!-- Match 1 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">BR</div>
-                                    <div class="team-info">
-                                        <div class="team-name">BO RANGERS</div>
-                                        <div class="team-form">Champions</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Saturday, November 15, 2025</div>
-                                    <div class="match-time">16:00 GMT</div>
-                                    <div class="match-venue">📍 Bo Stadium, Bo City</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: A. Bangura</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Wilberforce Strikers</div>
-                                        <div class="team-form">Newly Promoted</div>
-                                    </div>
-                                      <div class="team-logo">WS</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 2 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">EEL</div>
-                                    <div class="team-info">
-                                        <div class="team-name">East End Lions</div>
-                                        <div class="team-form">2nd Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Saturday, November 15, 2025</div>
-                                    <div class="match-time">15:30 GMT</div>
-                                    <div class="match-venue">📍 National Stadium, Freetown</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: S. Koroma</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">FC Kallon</div>
-                                        <div class="team-form">3rd Position</div>
-                                    </div>
-                                    <div class="team-logo">FCL</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 3 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">MB</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Mighty Blackpool</div>
-                                        <div class="team-form">4th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Sunday, November 16, 2025</div>
-                                    <div class="match-time">17:00 GMT</div>
-                                    <div class="match-venue">📍 Brookfields Stadium</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: M. Sesay</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Kamboi Eagles</div>
-                                        <div class="team-form">5th Position</div>
-                                    </div>
-                                    <div class="team-logo">KE</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 4 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">WUS</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Wusum Stars</div>
-                                        <div class="team-form">6th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Sunday, November 16, 2025</div>
-                                    <div class="match-time">15:30 GMT</div>
-                                    <div class="match-venue">📍 Wusum Stadium, Makeni</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: P. Conteh</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Diamond Stars</div>
-                                        <div class="team-form">7th Position</div>
-                                    </div>
-                                    <div class="team-logo">DIA</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 5 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">FTC</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Freetown City</div>
-                                        <div class="team-form">8th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Sunday, November 16, 2025</div>
-                                    <div class="match-time">16:00 GMT</div>
-                                    <div class="match-venue">📍 SLFA Academy</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: J. Kamara</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Bhantal FC</div>
-                                        <div class="team-form">9th Position</div>
-                                    </div>
-                                    <div class="team-logo">BHA</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 6 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">AC</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Abacha City</div>
-                                        <div class="team-form">10th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Monday, November 17, 2025</div>
-                                    <div class="match-time">15:30 GMT</div>
-                                    <div class="match-venue">📍 Abacha Stadium</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: L. Turay</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Bai Bureh Warriors</div>
-                                        <div class="team-form">11th Position</div>
-                                    </div>
-                                    <div class="team-logo">BBW</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 7 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">LUA</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Luawa FC</div>
-                                        <div class="team-form">12th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Monday, November 17, 2025</div>
-                                    <div class="match-time">16:00 GMT</div>
-                                    <div class="match-venue">📍 Kenema Field</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: S. Bangura</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Old Edwardians</div>
-                                        <div class="team-form">13th Position</div>
-                                    </div>
-                                    <div class="team-logo">OE</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 8 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">BS</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Bullom Stars</div>
-                                        <div class="team-form">14th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Monday, November 17, 2025</div>
-                                    <div class="match-time">17:00 GMT</div>
-                                    <div class="match-venue">📍 Bonthe Stadium</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: M. Koroma</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Ports Authority</div>
-                                        <div class="team-form">15th Position</div>
-                                    </div>
-                                    <div class="team-logo">PA</div>
-                                </div>
-                            </div>
-
-                            <!-- Match 9 -->
-                            <div class="match-card fixture">
-                                <div class="team away">
-                                    <div class="team-logo">SLIFA</div>
-                                    <div class="team-info">
-                                        <div class="team-name">SLIFA Mount Aureol</div>
-                                        <div class="team-form">16th Position</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Monday, November 17, 2025</div>
-                                    <div class="match-time">16:30 GMT</div>
-                                    <div class="match-venue">📍 Mount Aureol Ground</div>
-                                    <div class="match-status status-upcoming">Upcoming</div>
-                                    <div class="match-referee">Referee: A. Conteh</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Star Sport Academy</div>
-                                        <div class="team-form">17th Position</div>
-                                    </div>
-                                    <div class="team-logo">SSA</div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+        <!-- Matchweek 1 -->
+        <div class="matchweek-group enhanced-group">
+            <div class="group-header">
+                <h3 class="matchweek-title">MATCH WEEK 1</h3>
+                <span class="matchweek-dates">November 15-17, 2025</span>
+                <span class="total-matches">9 Matches</span>
+            </div>
+            
+            <!-- Match 1 -->
+            <div class="match-card enhanced fixture">
+                <div class="match-status upcoming">
+                    <span class="status-dot"></span>
+                    <span>UPCOMING</span>
                 </div>
-
-                <!-- ===== RESULTS SECTION ===== -->
-                <div class="matches-container" id="results-container">
-                    <section class="results-section">
-                        <div class="section-header">
-                            <h2>🏆 Recent Results</h2>
-                            <p>Sierra Leone Premier League 2025/26 Season - Previous Matches</p>
+                
+                <div class="team away">
+                     <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER: Replace WS with actual logo -->
+                        <!-- <img src="./IMAGES/teams/bo rangers.png" alt="Wilberforce Strikers" class="team-logo-img"> -->
+                        <div class="team-logo" data-team="wilberforce">BR</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">BO RANGERS</div>
+                        <div class="team-meta">
+                            <span class="team-form champions">Champions</span>
+                            <span class="team-position">1st</span>
                         </div>
-
-                        <!-- October Results -->
-                        <div class="results-group">
-                            <h3 class="results-period">October 2025</h3>
-                            
-                            <!-- Result 1 -->
-                            <div class="match-card result">
-                                <div class="team away">
-                                    <div class="team-logo">BR</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Bo Rangers</div>
-                                        <div class="team-scorers">
-                                            <span class="scorer">J. Bangura 25', 67'</span>
-                                            <span class="scorer">A. Turay 89'</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Saturday, October 25, 2025</div>
-                                    <div class="match-score">
-                                        <span class="score">3</span>
-                                        <span class="score-separator">-</span>
-                                        <span class="score">1</span>
-                                    </div>
-                                    <div class="match-venue">📍 Bo Stadium, Bo City</div>
-                                    <div class="match-status status-completed">Full Time</div>
-                                    <div class="match-attendance">Attendance: 4,200</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">East End Lions</div>
-                                        <div class="team-scorers">
-                                            <span class="scorer">M. Kamara 55'</span>
-                                        </div>
-                                    </div>
-                                    <div class="team-logo">EEL</div>
-                                </div>
-                            </div>
-
-                            <!-- Result 2 -->
-                            <div class="match-card result">
-                                <div class="team away">
-                                    <div class="team-logo">FCL</div>
-                                    <div class="team-info">
-                                        <div class="team-name">FC Kallon</div>
-                                        <div class="team-scorers">
-                                            <span class="scorer">S. Conteh 12'</span>
-                                            <span class="scorer">I. Sesay 78'</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Sunday, October 26, 2025</div>
-                                    <div class="match-score">
-                                        <span class="score">2</span>
-                                        <span class="score-separator">-</span>
-                                        <span class="score">0</span>
-                                    </div>
-                                    <div class="match-venue">📍 SLFA Academy, Freetown</div>
-                                    <div class="match-status status-completed">Full Time</div>
-                                    <div class="match-attendance">Attendance: 2,800</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Mighty Blackpool</div>
-                                        <div class="team-scorers">
-                                            <span class="scorer">-</span>
-                                        </div>
-                                    </div>
-                                    <div class="team-logo">MB</div>
-                                </div>
-                            </div>
-
-                            <!-- Result 3 -->
-                            <div class="match-card result">
-                                <div class="team away">
-                                    <div class="team-logo">KE</div>
-                                    <div class="team-info">
-                                        <div class="team-name">Kamboi Eagles</div>
-                                        <div class="team-scorers">
-                                            <span class="scorer">P. Koroma 34'</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="match-details">
-                                    <div class="match-date">Saturday, October 18, 2025</div>
-                                    <div class="match-score">
-                                        <span class="score">1</span>
-                                        <span class="score-separator">-</span>
-                                        <span class="score">1</span>
-                                    </div>
-                                    <div class="match-venue">📍 Kenema Field</div>
-                                    <div class="match-status status-completed">Full Time</div>
-                                    <div class="match-attendance">Attendance: 1,950</div>
-                                </div>
-                                
-                                <div class="team home">
-                                    <div class="team-info">
-                                        <div class="team-name">Wusum Stars</div>
-                                        <div class="team-scorers">
-                                            <span class="scorer">A. Bangura 72'</span>
-                                        </div>
-                                    </div>
-                                    <div class="team-logo">WUS</div>
-                                </div>
-                            </div>
-
-                            <!-- Continue with more results for all 18 teams... -->
+                        <div class="team-last-matches">
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator draw"></span>
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator win"></span>
                         </div>
-                    </section>
+                    </div>
                 </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Saturday, November 15</div>
+                        <div class="match-time">16:00 GMT</div>
+                        <div class="vs-container">
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="match-venue">
+                            <span>📍 Bo Stadium, Bo City</span>
+                            <small>Capacity: 5,000</small>
+                        </div>
+                        <div class="match-prediction">
+                            <span>Prediction: </span>
+                            <span class="prediction-value">85% Home Win</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Wilberforce Strikers</div>
+                        <div class="team-meta">
+                            <span class="team-form promoted">Newly Promoted</span>
+                            <span class="team-position">18th</span>
+                        </div>
+                        <div class="team-last-matches">
+                            <span class="form-indicator loss"></span>
+                            <span class="form-indicator loss"></span>
+                            <span class="form-indicator loss"></span>
+                            <span class="form-indicator loss"></span>
+                            <span class="form-indicator draw"></span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER: Replace WS with actual logo -->
+                        <!-- <img src="./IMAGES/teams/wilberforce-strikers.png" alt="Wilberforce Strikers" class="team-logo-img"> -->
+                        <div class="team-logo" data-team="wilberforce">WS</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn" title="Set Reminder">
+                        <span>⏰</span>
+                    </button>
+                    <button class="action-btn" title="View Stats">
+                        <span>📊</span>
+                    </button>
+                    <button class="action-btn" title="Get Tickets">
+                        <span>🎫</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Match 2 -->
+            <div class="match-card enhanced fixture">
+                <div class="match-status upcoming">
+                    <span class="status-dot"></span>
+                    <span>UPCOMING</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER: Replace EEL with actual logo -->
+                        <div class="team-logo" data-team="east-end-lions">EEL</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">East End Lions</div>
+                        <div class="team-meta">
+                            <span class="team-form">Runners Up</span>
+                            <span class="team-position">2nd</span>
+                        </div>
+                        <div class="team-last-matches">
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator draw"></span>
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator loss"></span>
+                            <span class="form-indicator win"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Saturday, November 15</div>
+                        <div class="match-time">15:30 GMT</div>
+                        <div class="vs-container">
+                            <span class="vs">VS</span>
+                        </div>
+                        <div class="match-venue">
+                            <span>📍 National Stadium, Freetown</span>
+                            <small>Capacity: 45,000</small>
+                        </div>
+                        <div class="match-prediction">
+                            <span>Prediction: </span>
+                            <span class="prediction-value">60% Home Win</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">FC Kallon</div>
+                        <div class="team-meta">
+                            <span class="team-form">Top 3</span>
+                            <span class="team-position">3rd</span>
+                        </div>
+                        <div class="team-last-matches">
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator draw"></span>
+                            <span class="form-indicator draw"></span>
+                            <span class="form-indicator win"></span>
+                            <span class="form-indicator win"></span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER: Replace FCL with actual logo -->
+                        <div class="team-logo" data-team="fc-kallon"><img src="./IMAGES/blackpool.webp" alt=""></div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn" title="Set Reminder">
+                        <span>⏰</span>
+                    </button>
+                    <button class="action-btn" title="View Stats">
+                        <span>📊</span>
+                    </button>
+                    <button class="action-btn" title="Get Tickets">
+                        <span>🎫</span>
+                    </button>
+                </div>
+            </div>
+
+           <!-- Match 3: Mighty Blackpool vs Kamboi Eagles -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="mighty-blackpool">MB</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">Mighty Blackpool</div>
+            <div class="team-meta">
+                <span class="team-form">Top 4</span>
+                <span class="team-position">4th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator win"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Sunday, November 16</div>
+            <div class="match-time">17:00 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 Brookfields Stadium</span>
+                <small>Capacity: 15,000</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">55% Home Win</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Kamboi Eagles</div>
+            <div class="team-meta">
+                <span class="team-form">Mid Table</span>
+                <span class="team-position">5th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator win"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="kamboi-eagles">KE</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+
+<!-- Match 4: Wusum Stars vs Diamond Stars -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="wusum-stars">WUS</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">Wusum Stars</div>
+            <div class="team-meta">
+                <span class="team-form">Consistent</span>
+                <span class="team-position">6th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Sunday, November 16</div>
+            <div class="match-time">15:30 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 Wusum Stadium, Makeni</span>
+                <small>Capacity: 5,000</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">50% Draw</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Diamond Stars</div>
+            <div class="team-meta">
+                <span class="team-form">Improving</span>
+                <span class="team-position">7th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator win"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="diamond-stars">DIA</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+
+<!-- Match 5: Freetown City vs Bhantal FC -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="freetown-city">FTC</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">Freetown City</div>
+            <div class="team-meta">
+                <span class="team-form">City Club</span>
+                <span class="team-position">8th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator win"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Sunday, November 16</div>
+            <div class="match-time">16:00 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 SLFA Academy</span>
+                <small>Capacity: 3,000</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">60% Home Win</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Bhantal FC</div>
+            <div class="team-meta">
+                <span class="team-form">Struggling</span>
+                <span class="team-position">9th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator win"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="bhantal-fc">BHA</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+
+<!-- Match 6: Abacha City vs Bai Bureh Warriors -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="abacha-city">AC</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">Abacha City</div>
+            <div class="team-meta">
+                <span class="team-form">Lower Mid</span>
+                <span class="team-position">10th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Monday, November 17</div>
+            <div class="match-time">15:30 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 Abacha Stadium</span>
+                <small>Capacity: 2,500</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">45% Away Win</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Bai Bureh Warriors</div>
+            <div class="team-meta">
+                <span class="team-form">Defensive</span>
+                <span class="team-position">11th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="bai-bureh-warriors">BBW</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+
+<!-- Match 7: Luawa FC vs Old Edwardians -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="luawa-fc">LUA</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">Luawa FC</div>
+            <div class="team-meta">
+                <span class="team-form">Fighting</span>
+                <span class="team-position">12th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Monday, November 17</div>
+            <div class="match-time">16:00 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 Kenema Field</span>
+                <small>Capacity: 3,000</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">40% Home Win</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Old Edwardians</div>
+            <div class="team-meta">
+                <span class="team-form">Relegation Zone</span>
+                <span class="team-position">13th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator win"></span>
+                <span class="form-indicator loss"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="old-edwardians">OE</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+
+<!-- Match 8: Bullom Stars vs Ports Authority -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="bullom-stars">BS</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">Bullom Stars</div>
+            <div class="team-meta">
+                <span class="team-form">Bottom Half</span>
+                <span class="team-position">14th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Monday, November 17</div>
+            <div class="match-time">17:00 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 Bonthe Stadium</span>
+                <small>Capacity: 2,000</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">35% Draw</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Ports Authority</div>
+            <div class="team-meta">
+                <span class="team-form">Struggling</span>
+                <span class="team-position">15th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="ports-authority">PA</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+
+<!-- Match 9: SLIFA Mount Aureol vs Star Sport Academy -->
+<div class="match-card enhanced fixture">
+    <div class="match-status upcoming">
+        <span class="status-dot"></span>
+        <span>UPCOMING</span>
+    </div>
+    
+    <div class="team away">
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="slifa">SLIFA</div>
+        </div>
+        <div class="team-info">
+            <div class="team-name">SLIFA Mount Aureol</div>
+            <div class="team-meta">
+                <span class="team-form">Relegation Zone</span>
+                <span class="team-position">16th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="match-details">
+        <div class="match-center">
+            <div class="match-date">Monday, November 17</div>
+            <div class="match-time">16:30 GMT</div>
+            <div class="vs-container">
+                <span class="vs">VS</span>
+            </div>
+            <div class="match-venue">
+                <span>📍 Mount Aureol Ground</span>
+                <small>Capacity: 1,500</small>
+            </div>
+            <div class="match-prediction">
+                <span>Prediction: </span>
+                <span class="prediction-value">30% Away Win</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="team home">
+        <div class="team-info">
+            <div class="team-name">Star Sport Academy</div>
+            <div class="team-meta">
+                <span class="team-form">Bottom</span>
+                <span class="team-position">17th</span>
+            </div>
+            <div class="team-last-matches">
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator draw"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+                <span class="form-indicator loss"></span>
+            </div>
+        </div>
+        <div class="team-logo-container">
+            <div class="team-logo" data-team="star-sport-academy">SSA</div>
+        </div>
+    </div>
+    
+    <div class="match-actions">
+        <button class="action-btn" title="Set Reminder">
+            <span>⏰</span>
+        </button>
+        <button class="action-btn" title="View Stats">
+            <span>📊</span>
+        </button>
+        <button class="action-btn" title="Get Tickets">
+            <span>🎫</span>
+        </button>
+    </div>
+</div>
+        
+        <!-- Week Navigation -->
+        <div class="week-navigation">
+            <button class="week-nav-btn disabled">
+                <span>←</span> Previous Week
+            </button>
+            <div class="current-week-info">
+                <span class="week-number">Week 1 of 34</span>
+                <span class="week-dates">Nov 15-17, 2025</span>
+            </div>
+            <button class="week-nav-btn">
+                Next Week <span>→</span>
+            </button>
+        </div>
+    </section>
+</div>
+
+<!-- ===== ENHANCED RESULTS SECTION ===== -->
+<div class="matches-container" id="results-container">
+    <section class="results-section">
+        <div class="section-header enhanced-header">
+            <h2>🏆 RECENT RESULTS</h2>
+            <p>Sierra Leone Premier League 2025/26 Season - Previous Matches</p>
+            <div class="section-controls">
+                <select class="results-filter" id="month-filter">
+                    <option value="all">All Months</option>
+                    <option value="october" selected>October 2025</option>
+                    <option value="september">September 2025</option>
+                    <option value="august">August 2025</option>
+                </select>
+                <button class="btn-highlights" id="view-highlights">
+                    <span>🎬</span> Watch Highlights
+                </button>
+            </div>
+        </div>
+
+        <!-- October Results -->
+        <div class="results-group enhanced-group">
+            <div class="group-header">
+                <h3 class="results-period">October 2025</h3>
+                <span class="results-count">9 Matches</span>
+                <span class="results-stats">
+                    <span class="stat-item">⚽ 24 Goals</span>
+                    <span class="stat-item">🟨 18 Cards</span>
+                    <span class="stat-item">👥 25,420 Attendance</span>
+                </span>
+            </div>
+            
+            <!-- Result 1 - Already exists (Bo Rangers 3-1 East End Lions) -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="bo-rangers"><img src="./IMAGES/teams/bo rangers.jpg" alt=""></div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Bo Rangers</div>
+                        <div class="team-scorers">
+                            <span class="scorer">J. Bangura 25', 67'</span>
+                            <span class="scorer">A. Turay 89'</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Saturday, October 25</div>
+                        <div class="match-score">
+                            <span class="score away">3</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">1</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 4 Goals</span>
+                            <span class="stat">🟨 4 Cards</span>
+                            <span class="stat">👥 4,200</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">East End Lions</div>
+                        <div class="team-scorers">
+                            <span class="scorer">M. Kamara 55'</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="east-end-lions">EEL</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 2 - Already exists (FC Kallon 2-0 Mighty Blackpool) -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="fc-kallon">FCL</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">FC Kallon</div>
+                        <div class="team-scorers">
+                            <span class="scorer">S. Conteh 12'</span>
+                            <span class="scorer">I. Sesay 78'</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Sunday, October 26</div>
+                        <div class="match-score">
+                            <span class="score away">2</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">0</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 2 Goals</span>
+                            <span class="stat">🟨 3 Cards</span>
+                            <span class="stat">👥 2,800</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Mighty Blackpool</div>
+                        <div class="team-scorers">
+                            <span class="scorer">-</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="mighty-blackpool">MB</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 3 - Already exists (Kamboi Eagles 1-1 Wusum Stars) -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="kamboi-eagles">KE</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Kamboi Eagles</div>
+                        <div class="team-scorers">
+                            <span class="scorer">P. Koroma 34'</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Saturday, October 18</div>
+                        <div class="match-score">
+                            <span class="score away">1</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">1</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 2 Goals</span>
+                            <span class="stat">🟨 2 Cards</span>
+                            <span class="stat">👥 1,950</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Wusum Stars</div>
+                        <div class="team-scorers">
+                            <span class="scorer">A. Bangura 72'</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="wusum-stars">WUS</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 4 - NEW: Freetown City 2-2 Diamond Stars -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="freetown-city">FTC</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Freetown City</div>
+                        <div class="team-scorers">
+                            <span class="scorer">M. Bangura 32'</span>
+                            <span class="scorer">S. Conteh 67'</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Sunday, October 19</div>
+                        <div class="match-score">
+                            <span class="score away">2</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">2</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 4 Goals</span>
+                            <span class="stat">🟨 5 Cards</span>
+                            <span class="stat">👥 2,100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Diamond Stars</div>
+                        <div class="team-scorers">
+                            <span class="scorer">S. Kargbo 45+1'</span>
+                            <span class="scorer">I. Sesay 78'</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="diamond-stars">DIA</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 5 - NEW: Bhantal FC 1-0 Abacha City -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="bhantal-fc">BHA</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Bhantal FC</div>
+                        <div class="team-scorers">
+                            <span class="scorer">I. Sesay 55'</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Saturday, October 18</div>
+                        <div class="match-score">
+                            <span class="score away">1</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">0</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 1 Goal</span>
+                            <span class="stat">🟨 3 Cards</span>
+                            <span class="stat">👥 1,800</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Abacha City</div>
+                        <div class="team-scorers">
+                            <span class="scorer">-</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="abacha-city">AC</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 6 - NEW: Bai Bureh Warriors 0-0 Luawa FC -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="bai-bureh-warriors">BBW</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Bai Bureh Warriors</div>
+                        <div class="team-scorers">
+                            <span class="scorer">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Friday, October 17</div>
+                        <div class="match-score">
+                            <span class="score away">0</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">0</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 0 Goals</span>
+                            <span class="stat">🟨 4 Cards</span>
+                            <span class="stat">👥 1,200</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Luawa FC</div>
+                        <div class="team-scorers">
+                            <span class="scorer">-</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="luawa-fc">LUA</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 7 - NEW: Old Edwardians 2-1 Bullom Stars -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="old-edwardians">OE</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Old Edwardians</div>
+                        <div class="team-scorers">
+                            <span class="scorer">M. Conteh 28'</span>
+                            <span class="scorer">A. Kamara 76'</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Sunday, October 12</div>
+                        <div class="match-score">
+                            <span class="score away">2</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">1</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 3 Goals</span>
+                            <span class="stat">🟨 2 Cards</span>
+                            <span class="stat">👥 1,500</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Bullom Stars</div>
+                        <div class="team-scorers">
+                            <span class="scorer">S. Bangura 65'</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="bullom-stars">BS</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 8 - NEW: Ports Authority 0-1 SLIFA Mount Aureol -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="ports-authority">PA</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Ports Authority</div>
+                        <div class="team-scorers">
+                            <span class="scorer">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Saturday, October 11</div>
+                        <div class="match-score">
+                            <span class="score away">0</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">1</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 1 Goal</span>
+                            <span class="stat">🟨 3 Cards</span>
+                            <span class="stat">👥 800</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">SLIFA Mount Aureol</div>
+                        <div class="team-scorers">
+                            <span class="scorer">P. Turay 89'</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="slifa">SLIFA</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Result 9 - NEW: Star Sport Academy 0-2 Wilberforce Strikers -->
+            <div class="match-card enhanced result">
+                <div class="match-status completed">
+                    <span>COMPLETED</span>
+                </div>
+                
+                <div class="team away">
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER -->
+                        <div class="team-logo" data-team="star-sport-academy">SSA</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Star Sport Academy</div>
+                        <div class="team-scorers">
+                            <span class="scorer">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-details">
+                    <div class="match-center">
+                        <div class="match-date">Friday, October 10</div>
+                        <div class="match-score">
+                            <span class="score away">0</span>
+                            <span class="score-separator">-</span>
+                            <span class="score home">2</span>
+                        </div>
+                        <div class="match-stats">
+                            <span class="stat">⚽ 2 Goals</span>
+                            <span class="stat">🟨 1 Card</span>
+                            <span class="stat">👥 1,100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team home">
+                    <div class="team-info">
+                        <div class="team-name">Wilberforce Strikers</div>
+                        <div class="team-scorers">
+                            <span class="scorer">J. Koroma 45'</span>
+                            <span class="scorer">A. Sesay 78'</span>
+                        </div>
+                    </div>
+                    <div class="team-logo-container">
+                        <!-- IMAGE PLACEHOLDER: This matches the fixtures -->
+                        <div class="team-logo" data-team="wilberforce">WS</div>
+                    </div>
+                </div>
+                
+                <div class="match-actions">
+                    <button class="action-btn highlight" title="Watch Highlights">
+                        <span>🎬</span>
+                    </button>
+                    <button class="action-btn stats" title="Match Statistics">
+                        <span>📈</span>
+                    </button>
+                    <button class="action-btn report" title="Match Report">
+                        <span>📄</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="load-more-results">
+                <span>📜</span> LOAD MORE RESULTS
+            </button>
+        </div>
+    </section>
+</div> <br>
 
                 <!-- ===== STANDINGS SECTION ===== -->
                 <div class="matches-container" id="standings-container">
@@ -1333,46 +2402,7 @@
     </div>
 </div>
 <script>
-// Match Tab Navigation
-document.addEventListener('DOMContentLoaded', function() {
-    // Tab Navigation for Matches Page
-    const matchTabs = document.querySelectorAll('.matches-tab');
-    const matchContainers = document.querySelectorAll('.matches-container');
-    
-    if (matchTabs.length > 0) {
-        matchTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const targetTab = this.getAttribute('data-tab');
-                
-                // Remove active class from all tabs
-                matchTabs.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Hide all containers
-                matchContainers.forEach(container => {
-                    container.classList.remove('active');
-                });
-                
-                // Show target container
-                const targetContainer = document.getElementById(`${targetTab}-container`);
-                if (targetContainer) {
-                    targetContainer.classList.add('active');
-                }
-                
-                // Update URL hash without scrolling
-                history.pushState(null, null, `#${targetTab}`);
-            });
-        });
-        
-        // Check for hash on page load
-        const hash = window.location.hash.substring(1);
-        if (hash && ['fixtures', 'results', 'standings', 'stats'].includes(hash)) {
-            const tab = document.querySelector(`.matches-tab[data-tab="${hash}"]`);
-            if (tab) tab.click();
-        }
-    }
-    
+ 
     // Form Guide Visualization (for standings)
     const formIndicators = document.querySelectorAll('.form-indicator');
     formIndicators.forEach(indicator => {
@@ -1420,79 +2450,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-    // ===== CORE FUNCTIONALITY =====
-// Shared across all pages
-
-// Utility Functions
-const CoreUtils = {
-    // Debounce function for performance
-    debounce: function(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    },
-
-    // Throttle function
-    throttle: function(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        };
-    },
-
-    // Format date
-    formatDate: function(date) {
-        return new Date(date).toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-    },
-
-    // Validate email
-    isValidEmail: function(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-};
-
-// Scroll Progress Bar
-class ScrollProgress {
-    constructor() {
-        this.progressBar = null;
-        this.init();
-    }
-
-    init() {
-        this.progressBar = document.createElement('div');
-        this.progressBar.className = 'scroll-progress';
-        document.body.appendChild(this.progressBar);
-        
-        window.addEventListener('scroll', () => this.updateProgress());
-        this.updateProgress();
-    }
-
-    updateProgress() {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        this.progressBar.style.width = scrolled + '%';
-    }
-}
-
+    
 // Back to Top Button
 class BackToTop {
     constructor() {
@@ -2114,6 +3072,1088 @@ document.addEventListener('DOMContentLoaded', function() {
     ↑
 </button> 
 
+<script>
+    // ===== CORE TAB SWITCHING SYSTEM =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded - Initializing matches functionality...');
+    
+    // ===== 1. FIX TAB SWITCHING =====
+    const matchTabs = document.querySelectorAll('.matches-tab');
+    const matchContainers = document.querySelectorAll('.matches-container');
+    
+    console.log('Found tabs:', matchTabs.length);
+    console.log('Found containers:', matchContainers.length);
+    
+    function switchTab(targetTab) {
+        console.log('Switching to tab:', targetTab);
+        
+        // Remove active class from all tabs
+        matchTabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // Add active class to clicked tab
+        const clickedTab = document.querySelector(`.matches-tab[data-tab="${targetTab}"]`);
+        if (clickedTab) {
+            clickedTab.classList.add('active');
+        }
+        
+        // Hide all containers
+        matchContainers.forEach(container => {
+            container.classList.remove('active');
+            container.style.display = 'none';
+        });
+        
+        // Show target container
+        const targetContainer = document.getElementById(`${targetTab}-container`);
+        if (targetContainer) {
+            targetContainer.classList.add('active');
+            targetContainer.style.display = 'block';
+            console.log('Showing container:', targetContainer.id);
+        }
+        
+        // Update URL hash
+        history.pushState(null, null, `#${targetTab}`);
+    }
+    
+    // Add click events to tabs
+    matchTabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetTab = this.getAttribute('data-tab');
+            switchTab(targetTab);
+        });
+    });
+    
+    // Check for hash on page load
+    const hash = window.location.hash.substring(1);
+    if (hash && ['fixtures', 'results', 'standings', 'stats'].includes(hash)) {
+        switchTab(hash);
+    } else {
+        // Default to fixtures if no hash
+        switchTab('fixtures');
+    }
+    
+    // ===== 2. ENHANCED MATCHES FUNCTIONALITY =====
+   // ===== ENHANCED MATCHES FUNCTIONALITY =====
+class EnhancedMatches {
+    constructor() {
+        this.initialized = false;
+    }
+    
+    init() {
+        if (this.initialized) return;
+        
+        console.log('Initializing EnhancedMatches...');
+        
+        // Initialize all features
+        this.fixButtonLabels();
+        this.setupMatchInteractions();
+        this.setupFilters();
+        this.setupWeekNavigation();
+        this.setupCalendarExport();
+        this.setupHighlightsModal();
+        this.setupLoadMore();
+        
+        this.initialized = true;
+    }
+    
+    // Fix button labels for fixtures vs results
+    fixButtonLabels() {
+        // Fix fixtures section buttons
+        document.querySelectorAll('#fixtures-container .action-btn').forEach(btn => {
+            const span = btn.querySelector('span');
+            if (span && span.textContent === '📊') {
+                span.textContent = '📋';
+                btn.title = 'View Match Preview';
+                btn.classList.add('preview-btn');
+            }
+        });
+        
+        // Fix results section buttons
+        document.querySelectorAll('#results-container .action-btn').forEach(btn => {
+            const span = btn.querySelector('span');
+            if (span && span.textContent === '📊') {
+                btn.title = 'View Match Statistics';
+                btn.classList.add('stats-btn');
+            }
+        });
+    }
+    
+    setupMatchInteractions() {
+        // Hover effects for match cards
+        document.querySelectorAll('.match-card.enhanced').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // Action button clicks
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.handleButtonClick(btn);
+            });
+        });
+    }
+    
+    handleButtonClick(button) {
+        const title = button.getAttribute('title') || '';
+        const icon = button.querySelector('span')?.textContent || '';
+        const matchCard = button.closest('.match-card');
+        
+        console.log('Button clicked:', { title, icon });
+        
+        // Determine what type of button was clicked
+        if (title.includes('Reminder') || icon === '⏰') {
+            this.setMatchReminder(matchCard);
+        }
+        else if (title.includes('Tickets') || icon === '🎫') {
+            this.showTicketInfo(matchCard);
+        }
+        else if (title.includes('Preview') || icon === '📋') {
+            this.showMatchPreview(matchCard);
+        }
+        else if (title.includes('Statistics') || icon === '📊') {
+            this.showMatchStatistics(matchCard);
+        }
+        else if (title.includes('Highlights') || icon === '🎬') {
+            this.playHighlights(matchCard);
+        }
+        else if (title.includes('Report') || icon === '📄') {
+            this.showMatchReport(matchCard);
+        }
+    }
+    
+    // ===== FIXTURES: Match Preview =====
+    showMatchPreview(matchCard) {
+        const homeTeam = this.getTeamName(matchCard, 'home');
+        const awayTeam = this.getTeamName(matchCard, 'away');
+        const date = this.getMatchDate(matchCard);
+        const time = this.getMatchTime(matchCard);
+        const venue = this.getMatchVenue(matchCard);
+        const prediction = this.getPrediction(matchCard);
+        
+        const preview = `📋 MATCH PREVIEW
 
+${awayTeam} vs ${homeTeam}
+${date} • ${time}
+📍 ${venue}
+
+TEAM FORM:
+${this.getTeamForm(matchCard, 'home')}: ${this.getFormIndicator(matchCard, 'home')}
+${this.getTeamForm(matchCard, 'away')}: ${this.getFormIndicator(matchCard, 'away')}
+
+HEAD TO HEAD:
+${this.getHeadToHead(homeTeam, awayTeam)}
+
+KEY PLAYERS:
+• ${awayTeam}: J. Bangura (12 goals this season)
+• ${homeTeam}: M. Kamara (10 goals this season)
+
+INJURY UPDATES:
+${awayTeam}: ${this.getInjuryUpdate(awayTeam)}
+${homeTeam}: ${this.getInjuryUpdate(homeTeam)}
+
+WEATHER FORECAST:
+☀️ Sunny, 28°C, 10% chance of rain
+
+PREDICTION:
+${prediction}
+
+EXPECTED LINEUPS:
+${awayTeam}: 4-3-3 formation
+${homeTeam}: 4-4-2 formation
+
+BROADCAST INFO:
+📺 SLBC Sports
+🌐 www.footballagency.sl/live`;
+        
+        this.showModal('Match Preview', preview);
+    }
+    
+    // ===== RESULTS: Match Statistics =====
+    showMatchStatistics(matchCard) {
+        const homeTeam = this.getTeamName(matchCard, 'home');
+        const awayTeam = this.getTeamName(matchCard, 'away');
+        const score = this.getMatchScore(matchCard);
+        const [awayScore, homeScore] = score.split('-').map(s => parseInt(s.trim()) || 0);
+        
+        const stats = this.generateRealisticStats(awayScore, homeScore);
+        
+        const statistics = `📊 MATCH STATISTICS
+
+${awayTeam} ${score} ${homeTeam}
+${this.getMatchDate(matchCard)} • ${this.getMatchVenue(matchCard)}
+
+MATCH DATA:
+• Attendance: ${this.getAttendance(matchCard)}
+• Referee: ${this.getReferee(matchCard)}
+• Match Status: Completed
+
+KEY STATISTICS:
+• Possession: ${stats.possession.home}% - ${stats.possession.away}%
+• Total Shots: ${stats.shots.home} - ${stats.shots.away}
+• Shots on Target: ${stats.shotsOnTarget.home} - ${stats.shotsOnTarget.away}
+• Corners: ${stats.corners.home} - ${stats.corners.away}
+• Fouls: ${stats.fouls.home} - ${stats.fouls.away}
+• Offsides: ${stats.offsides.home} - ${stats.offsides.away}
+• Yellow Cards: ${stats.yellowCards.home} - ${stats.yellowCards.away}
+• Red Cards: ${stats.redCards.home} - ${stats.redCards.away}
+
+PASSING STATS:
+• Pass Accuracy: ${stats.passAccuracy.home}% - ${stats.passAccuracy.away}%
+• Total Passes: ${stats.totalPasses.home} - ${stats.totalPasses.away}
+• Key Passes: ${stats.keyPasses.home} - ${stats.keyPasses.away}
+
+DEFENSIVE STATS:
+• Tackles: ${stats.tackles.home} - ${stats.tackles.away}
+• Interceptions: ${stats.interceptions.home} - ${stats.interceptions.away}
+• Clearances: ${stats.clearances.home} - ${stats.clearances.away}
+• Blocks: ${stats.blocks.home} - ${stats.blocks.away}
+
+ATTACKING STATS:
+• Crosses: ${stats.crosses.home} - ${stats.crosses.away}
+• Dribbles Attempted: ${stats.dribbles.home} - ${stats.dribbles.away}
+• Aerials Won: ${stats.aerials.home} - ${stats.aerials.away}
+
+GOALKEEPER STATS:
+• Saves: ${stats.saves.home} - ${stats.saves.away}
+• Claims: ${stats.claims.home} - ${stats.claims.away}
+• Punches: ${stats.punches.home} - ${stats.punches.away}
+
+EXPECTED GOALS (xG):
+${awayTeam}: ${stats.xG.away}
+${homeTeam}: ${stats.xG.home}
+
+MAN OF THE MATCH:
+${this.getManOfTheMatch(homeTeam, awayTeam, awayScore, homeScore)}`;
+        
+        this.showModal('Match Statistics', statistics);
+    }
+    
+    // ===== HELPER METHODS =====
+    getTeamName(matchCard, side) {
+        return matchCard.querySelector(`.team.${side} .team-name`)?.textContent || `${side} Team`;
+    }
+    
+    getMatchDate(matchCard) {
+        return matchCard.querySelector('.match-date')?.textContent || 'Date not available';
+    }
+    
+    getMatchTime(matchCard) {
+        return matchCard.querySelector('.match-time')?.textContent || 'Time not available';
+    }
+    
+    getMatchVenue(matchCard) {
+        const venue = matchCard.querySelector('.match-venue span');
+        return venue ? venue.textContent.replace('📍 ', '') : 'Venue not available';
+    }
+    
+    getPrediction(matchCard) {
+        const prediction = matchCard.querySelector('.prediction-value');
+        return prediction ? prediction.textContent : 'No prediction available';
+    }
+    
+    getTeamForm(matchCard, side) {
+        return this.getTeamName(matchCard, side);
+    }
+    
+    getFormIndicator(matchCard, side) {
+        const indicators = matchCard.querySelectorAll(`.team.${side} .form-indicator`);
+        if (indicators.length === 0) return 'No recent form';
+        
+        return Array.from(indicators).map(ind => {
+            if (ind.classList.contains('win')) return 'W';
+            if (ind.classList.contains('draw')) return 'D';
+            if (ind.classList.contains('loss')) return 'L';
+            return '-';
+        }).join(' ');
+    }
+    
+    getMatchScore(matchCard) {
+        const scores = matchCard.querySelectorAll('.score');
+        if (scores.length >= 2) {
+            return `${scores[0]?.textContent || '0'} - ${scores[1]?.textContent || '0'}`;
+        }
+        return '0 - 0';
+    }
+    
+    getAttendance(matchCard) {
+        const stats = matchCard.querySelector('.match-stats');
+        if (stats) {
+            const statItems = stats.querySelectorAll('.stat');
+            for (let item of statItems) {
+                if (item.textContent.includes('👥')) {
+                    return item.textContent.replace('👥', '').trim();
+                }
+            }
+        }
+        return 'Not available';
+    }
+    
+    getReferee(matchCard) {
+        // Look for referee info in the match card
+        const refereeSpan = matchCard.querySelector('.match-referee');
+        if (refereeSpan) {
+            return refereeSpan.textContent.replace('Referee: ', '');
+        }
+        return 'A. Bangura';
+    }
+    
+    // ===== DATA GENERATION METHODS =====
+    getHeadToHead(homeTeam, awayTeam) {
+        const headToHead = {
+            'Bo Rangers': {
+                'Wilberforce Strikers': 'Last 5 meetings: 4W 1D 0L',
+                'East End Lions': 'Last 5 meetings: 3W 1D 1L'
+            },
+            'East End Lions': {
+                'FC Kallon': 'Last 5 meetings: 2W 2D 1L'
+            }
+        };
+        
+        return headToHead[homeTeam]?.[awayTeam] || 
+               headToHead[awayTeam]?.[homeTeam] || 
+               'First competitive meeting';
+    }
+    
+    getInjuryUpdate(team) {
+        const injuries = {
+            'Bo Rangers': 'No injuries reported',
+            'East End Lions': 'M. Kamara (suspended)',
+            'FC Kallon': 'S. Conteh (fitness test)',
+            'Wilberforce Strikers': 'A. Conteh (ankle injury)'
+        };
+        
+        return injuries[team] || 'No injuries reported';
+    }
+    
+    getManOfTheMatch(homeTeam, awayTeam, awayScore, homeScore) {
+        const scorers = {
+            'Bo Rangers': ['J. Bangura', 'A. Turay'],
+            'East End Lions': ['M. Kamara'],
+            'FC Kallon': ['S. Conteh', 'I. Sesay'],
+            'Wilberforce Strikers': ['J. Koroma']
+        };
+        
+        const winningTeam = awayScore > homeScore ? awayTeam : homeTeam;
+        const teamScorers = scorers[winningTeam];
+        
+        if (teamScorers && teamScorers.length > 0) {
+            return `${teamScorers[0]} (${winningTeam})`;
+        }
+        
+        return 'To be announced';
+    }
+    
+    generateRealisticStats(awayScore, homeScore) {
+        const totalGoals = awayScore + homeScore;
+        const isHomeWin = homeScore > awayScore;
+        const isDraw = homeScore === awayScore;
+        
+        return {
+            possession: {
+                home: isHomeWin ? 55 : isDraw ? 50 : 45,
+                away: isHomeWin ? 45 : isDraw ? 50 : 55
+            },
+            shots: {
+                home: 8 + homeScore * 2 + Math.floor(Math.random() * 4),
+                away: 8 + awayScore * 2 + Math.floor(Math.random() * 4)
+            },
+            shotsOnTarget: {
+                home: 4 + homeScore + Math.floor(Math.random() * 3),
+                away: 4 + awayScore + Math.floor(Math.random() * 3)
+            },
+            corners: {
+                home: 3 + homeScore + Math.floor(Math.random() * 3),
+                away: 3 + awayScore + Math.floor(Math.random() * 3)
+            },
+            fouls: {
+                home: 10 + Math.floor(Math.random() * 6),
+                away: 10 + Math.floor(Math.random() * 6)
+            },
+            offsides: {
+                home: Math.floor(Math.random() * 4),
+                away: Math.floor(Math.random() * 4)
+            },
+            yellowCards: {
+                home: Math.floor(Math.random() * 3),
+                away: Math.floor(Math.random() * 3)
+            },
+            redCards: {
+                home: Math.random() > 0.85 ? 1 : 0,
+                away: Math.random() > 0.85 ? 1 : 0
+            },
+            passAccuracy: {
+                home: 70 + (isHomeWin ? 10 : isDraw ? 5 : 0) + Math.floor(Math.random() * 10),
+                away: 70 + (isHomeWin ? 0 : isDraw ? 5 : 10) + Math.floor(Math.random() * 10)
+            },
+            totalPasses: {
+                home: 350 + (isHomeWin ? 50 : 0) + Math.floor(Math.random() * 100),
+                away: 350 + (isHomeWin ? 0 : 50) + Math.floor(Math.random() * 100)
+            },
+            keyPasses: {
+                home: 6 + homeScore + Math.floor(Math.random() * 3),
+                away: 6 + awayScore + Math.floor(Math.random() * 3)
+            },
+            tackles: {
+                home: 12 + Math.floor(Math.random() * 8),
+                away: 12 + Math.floor(Math.random() * 8)
+            },
+            interceptions: {
+                home: 8 + Math.floor(Math.random() * 6),
+                away: 8 + Math.floor(Math.random() * 6)
+            },
+            clearances: {
+                home: 15 + Math.floor(Math.random() * 10),
+                away: 15 + Math.floor(Math.random() * 10)
+            },
+            blocks: {
+                home: 3 + Math.floor(Math.random() * 4),
+                away: 3 + Math.floor(Math.random() * 4)
+            },
+            crosses: {
+                home: 12 + homeScore * 2 + Math.floor(Math.random() * 6),
+                away: 12 + awayScore * 2 + Math.floor(Math.random() * 6)
+            },
+            dribbles: {
+                home: 8 + homeScore + Math.floor(Math.random() * 5),
+                away: 8 + awayScore + Math.floor(Math.random() * 5)
+            },
+            aerials: {
+                home: 12 + Math.floor(Math.random() * 8),
+                away: 12 + Math.floor(Math.random() * 8)
+            },
+            saves: {
+                home: awayScore > 0 ? awayScore + Math.floor(Math.random() * 3) : 0,
+                away: homeScore > 0 ? homeScore + Math.floor(Math.random() * 3) : 0
+            },
+            claims: {
+                home: Math.floor(Math.random() * 5),
+                away: Math.floor(Math.random() * 5)
+            },
+            punches: {
+                home: Math.floor(Math.random() * 3),
+                away: Math.floor(Math.random() * 3)
+            },
+            xG: {
+                home: (homeScore + Math.random() * 0.8).toFixed(1),
+                away: (awayScore + Math.random() * 0.8).toFixed(1)
+            }
+        };
+    }
+    
+    // ===== ACTION METHODS =====
+    setMatchReminder(matchCard) {
+        const homeTeam = this.getTeamName(matchCard, 'home');
+        const awayTeam = this.getTeamName(matchCard, 'away');
+        const date = this.getMatchDate(matchCard);
+        const time = this.getMatchTime(matchCard);
+        
+        const button = matchCard.querySelector('[title*="Reminder"]');
+        const originalHTML = button.innerHTML;
+        
+        // Visual feedback
+        button.innerHTML = '✅';
+        button.style.background = '#2ecc71';
+        button.style.color = 'white';
+        button.style.borderColor = '#2ecc71';
+        
+        setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.style.background = '';
+            button.style.color = '';
+            button.style.borderColor = '';
+        }, 2000);
+        
+        alert(`✅ Reminder set!\n\n${awayTeam} vs ${homeTeam}\n${date} at ${time}\n\nYou'll be notified 1 hour before the match.`);
+    }
+    
+    showTicketInfo(matchCard) {
+        const homeTeam = this.getTeamName(matchCard, 'home');
+        const awayTeam = this.getTeamName(matchCard, 'away');
+        const venue = this.getMatchVenue(matchCard);
+        
+        const ticketInfo = `🎫 TICKET INFORMATION
+
+Match: ${awayTeam} vs ${homeTeam}
+Venue: ${venue}
+
+TICKET PRICES:
+• VIP: SLL 150,000
+• Regular: SLL 50,000
+• Student: SLL 25,000
+• Child (Under 12): SLL 15,000
+
+PURCHASE OPTIONS:
+1. Stadium Box Office
+   Open: 9AM - 5PM daily
+   
+2. Online Booking
+   Website: www.tickets.slfa.gov.sl
+   
+3. Partner Banks
+   • Sierra Leone Commercial Bank
+   • Rokel Commercial Bank
+
+IMPORTANT NOTES:
+• Tickets are non-refundable
+• Gates open 2 hours before kickoff
+• Valid ID required for student tickets
+• Children must be accompanied by adults`;
+
+        this.showModal('Ticket Information', ticketInfo);
+    }
+    
+    playHighlights(matchCard) {
+        const homeTeam = this.getTeamName(matchCard, 'home');
+        const awayTeam = this.getTeamName(matchCard, 'away');
+        const score = this.getMatchScore(matchCard);
+        
+        const highlightsInfo = `🎬 MATCH HIGHLIGHTS
+
+${awayTeam} ${score} ${homeTeam}
+
+HIGHLIGHTS AVAILABLE:
+• Full Match Highlights (8:45)
+• Goals Only (2:30)
+• Key Moments (4:15)
+• Post-Match Analysis (5:20)
+
+WATCH OPTIONS:
+1. SLBC Sports Channel
+2. YouTube: Sierra Leone FA
+3. Mobile App: SLFA Official App
+4. Website: highlights.footballagency.sl
+
+NEXT MATCH:
+Check our fixtures section for upcoming matches!`;
+
+        this.showModal('Match Highlights', highlightsInfo);
+    }
+    
+    showMatchReport(matchCard) {
+        const homeTeam = this.getTeamName(matchCard, 'home');
+        const awayTeam = this.getTeamName(matchCard, 'away');
+        const score = this.getMatchScore(matchCard);
+        const date = this.getMatchDate(matchCard);
+        const venue = this.getMatchVenue(matchCard);
+        
+        const report = `📄 MATCH REPORT
+
+FINAL SCORE: ${awayTeam} ${score} ${homeTeam}
+DATE: ${date}
+VENUE: ${venue}
+ATTENDANCE: ${this.getAttendance(matchCard)}
+
+MATCH SUMMARY:
+${this.generateMatchSummary(awayTeam, homeTeam, score)}
+
+KEY MOMENTS:
+${this.generateKeyMoments(score)}
+
+GOALSCORERS:
+${this.generateGoalScorers(awayTeam, homeTeam, score)}
+
+MAN OF THE MATCH:
+${this.getManOfTheMatch(homeTeam, awayTeam, 
+    parseInt(score.split('-')[0]), 
+    parseInt(score.split('-')[1]))}
+
+MANAGER COMMENTS:
+"${this.generateManagerComment(homeTeam, awayTeam, score)}"
+
+NEXT FIXTURES:
+• ${awayTeam}: vs ${this.getNextOpponent(awayTeam)}
+• ${homeTeam}: vs ${this.getNextOpponent(homeTeam)}`;
+
+        this.showModal('Match Report', report);
+    }
+    
+    generateMatchSummary(awayTeam, homeTeam, score) {
+        const [awayScore, homeScore] = score.split('-').map(s => parseInt(s.trim()));
+        
+        if (awayScore > homeScore) {
+            return `${awayTeam} secured an important away victory against ${homeTeam} in a closely contested match. The visitors showed clinical finishing to take all three points.`;
+        } else if (homeScore > awayScore) {
+            return `${homeTeam} claimed a hard-fought home win against ${awayTeam}. The hosts dominated possession and created numerous chances throughout the match.`;
+        } else {
+            return `A well-fought draw between ${awayTeam} and ${homeTeam}. Both teams had chances to win but had to settle for a share of the points.`;
+        }
+    }
+    
+    generateKeyMoments(score) {
+        const [awayScore, homeScore] = score.split('-').map(s => parseInt(s.trim()));
+        const totalGoals = awayScore + homeScore;
+        
+        let moments = '';
+        let minute = 15;
+        
+        for (let i = 0; i < totalGoals; i++) {
+            minute += Math.floor(Math.random() * 25) + 10;
+            moments += `• ${minute}': GOAL! Scored by ${i % 2 === 0 ? 'Home team' : 'Away team'}\n`;
+        }
+        
+        // Add some other key moments
+        moments += `• 32': Yellow card issued\n`;
+        if (Math.random() > 0.7) moments += `• 67': Penalty appeal waved away\n`;
+        moments += `• 85': Important save by goalkeeper\n`;
+        
+        return moments;
+    }
+    
+    generateGoalScorers(awayTeam, homeTeam, score) {
+        const [awayScore, homeScore] = score.split('-').map(s => parseInt(s.trim()));
+        let scorers = '';
+        
+        if (awayScore > 0) {
+            scorers += `${awayTeam}:\n`;
+            for (let i = 0; i < awayScore; i++) {
+                scorers += `  • Player ${i + 1} (${15 + i * 25}')\n`;
+            }
+        }
+        
+        if (homeScore > 0) {
+            scorers += `${homeTeam}:\n`;
+            for (let i = 0; i < homeScore; i++) {
+                scorers += `  • Player ${i + 1} (${30 + i * 20}')\n`;
+            }
+        }
+        
+        return scorers || 'No goals scored in this match';
+    }
+    
+    generateManagerComment(homeTeam, awayTeam, score) {
+        const [awayScore, homeScore] = score.split('-').map(s => parseInt(s.trim()));
+        
+        if (homeScore > awayScore) {
+            return `I'm proud of the team's performance today. We showed great character and deserved the three points.`;
+        } else if (awayScore > homeScore) {
+            return `We're disappointed with the result but credit to ${awayTeam}. We'll learn from this and come back stronger.`;
+        } else {
+            return `A fair result overall. Both teams gave their all and a point each is probably deserved.`;
+        }
+    }
+    
+    getNextOpponent(team) {
+        const opponents = {
+            'Bo Rangers': 'East End Lions',
+            'East End Lions': 'Bo Rangers',
+            'FC Kallon': 'Mighty Blackpool',
+            'Mighty Blackpool': 'FC Kallon',
+            'Wilberforce Strikers': 'Kamboi Eagles'
+        };
+        
+        return opponents[team] || 'TBA';
+    }
+    
+    // ===== MODAL SYSTEM =====
+    showModal(title, content) {
+        // Remove existing modal if any
+        const existingModal = document.querySelector('.match-modal');
+        if (existingModal) existingModal.remove();
+        
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'match-modal';
+        
+        // Add styles
+        const styles = document.createElement('style');
+        styles.textContent = `
+            .match-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.85);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                padding: 20px;
+                animation: fadeIn 0.3s ease;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            .modal-content {
+                background: white;
+                border-radius: 20px;
+                max-width: 600px;
+                width: 100%;
+                max-height: 80vh;
+                overflow-y: auto;
+                animation: slideUp 0.3s ease;
+            }
+            
+            @keyframes slideUp {
+                from { transform: translateY(50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            
+            .modal-header {
+                padding: 1.5rem 2rem;
+                background: linear-gradient(135deg, #0d2b4e, #1a4a7a);
+                border-radius: 20px 20px 0 0;
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .modal-header h3 {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+            
+            .close-modal {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                line-height: 1;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .modal-body {
+                padding: 2rem;
+                font-family: 'Courier New', monospace;
+                white-space: pre-line;
+                line-height: 1.6;
+                font-size: 0.95rem;
+                background: #f8fafc;
+            }
+            
+            .modal-footer {
+                padding: 1.5rem 2rem;
+                border-top: 1px solid #e2e8f0;
+                text-align: center;
+                background: white;
+                border-radius: 0 0 20px 20px;
+            }
+            
+            .modal-btn {
+                background: linear-gradient(135deg, #4ecdc4, #2e8b57);
+                color: white;
+                border: none;
+                padding: 0.8rem 2rem;
+                border-radius: 10px;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: transform 0.2s ease;
+            }
+            
+            .modal-btn:hover {
+                transform: translateY(-2px);
+            }
+        `;
+        
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>${title}</h3>
+                    <button class="close-modal">×</button>
+                </div>
+                <div class="modal-body">${content}</div>
+                <div class="modal-footer">
+                    <button class="modal-btn">Close</button>
+                </div>
+            </div>
+        `;
+        
+        document.head.appendChild(styles);
+        document.body.appendChild(modal);
+        
+        // Close functionality
+        const closeBtn = modal.querySelector('.close-modal');
+        const footerBtn = modal.querySelector('.modal-btn');
+        
+        const closeModal = () => {
+            modal.remove();
+            styles.remove();
+        };
+        
+        closeBtn.addEventListener('click', closeModal);
+        footerBtn.addEventListener('click', closeModal);
+        
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Close on escape key
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        
+        document.addEventListener('keydown', handleEscape);
+    }
+    
+    // ===== OTHER FEATURES =====
+    setupFilters() {
+        const monthFilter = document.getElementById('month-filter');
+        if (monthFilter) {
+            monthFilter.addEventListener('change', (e) => {
+                this.filterResults(e.target.value);
+            });
+        }
+        
+        const resetBtn = document.getElementById('reset-filters');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-select').forEach(select => {
+                    select.value = 'all';
+                });
+                this.filterResults('all');
+            });
+        }
+    }
+    
+    filterResults(month) {
+        if (month === 'all') {
+            document.querySelectorAll('.match-card').forEach(card => {
+                card.style.display = 'flex';
+            });
+        } else {
+            // Simulate filtering
+            document.querySelectorAll('.match-card').forEach(card => {
+                card.style.display = 'none';
+            });
+            // Show first few as example
+            document.querySelectorAll('.match-card').forEach((card, index) => {
+                if (index < 3) card.style.display = 'flex';
+            });
+        }
+    }
+    
+    setupWeekNavigation() {
+        document.querySelectorAll('.week-nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.classList.contains('disabled')) {
+                    this.loadWeek(btn);
+                }
+            });
+        });
+    }
+    
+    loadWeek(button) {
+        const originalText = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = '<span>⏳</span> Loading...';
+        
+        setTimeout(() => {
+            button.disabled = false;
+            button.innerHTML = originalText;
+            alert('Week navigation would load new fixtures here.');
+        }, 1000);
+    }
+    
+    setupCalendarExport() {
+        const exportBtn = document.getElementById('export-fixtures');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', () => {
+                this.exportFixtures();
+            });
+        }
+    }
+    
+    exportFixtures() {
+        alert('✅ Fixtures exported to calendar!\n\nDownload will start automatically.');
+        
+        // Simulate download
+        setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = '#';
+            link.download = 'sl-premier-fixtures.ics';
+            link.click();
+        }, 500);
+    }
+    
+    setupHighlightsModal() {
+        const viewHighlightsBtn = document.getElementById('view-highlights');
+        if (viewHighlightsBtn) {
+            viewHighlightsBtn.addEventListener('click', () => {
+                this.showAllHighlights();
+            });
+        }
+    }
+    
+    showAllHighlights() {
+        const highlights = `🎬 ALL MATCH HIGHLIGHTS
+
+RECENT MATCHES:
+1. Bo Rangers 3-1 East End Lions (2:45)
+   • Watch: https://youtube.com/watch?v=example1
+   
+2. FC Kallon 2-0 Mighty Blackpool (3:15)
+   • Watch: https://youtube.com/watch?v=example2
+   
+3. Kamboi Eagles 1-1 Wusum Stars (2:30)
+   • Watch: https://youtube.com/watch?v=example3
+
+FEATURED HIGHLIGHTS:
+• Goal of the Week: J. Bangura (Bo Rangers)
+• Save of the Week: P. Mansaray (Wusum Stars)
+• Match of the Week: Bo Rangers vs East End Lions
+
+UPCOMING LIVE STREAMS:
+• Saturday: Wilberforce Strikers vs Bo Rangers
+• Sunday: East End Lions vs FC Kallon
+
+SUBSCRIBE:
+📺 SLBC Sports
+📱 SLFA Mobile App
+🌐 www.footballagency.sl/highlights`;
+
+        this.showModal('All Highlights', highlights);
+    }
+    
+    setupLoadMore() {
+        const loadMoreBtn = document.getElementById('load-more-results');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                this.loadMoreResults(loadMoreBtn);
+            });
+        }
+    }
+    
+    loadMoreResults(button) {
+        const originalText = button.innerHTML;
+        button.disabled = true;
+        button.innerHTML = '<span>⏳</span> Loading More Results...';
+        
+        setTimeout(() => {
+            button.disabled = false;
+            button.innerHTML = '<span>✅</span> All Results Loaded';
+            button.style.opacity = '0.7';
+            button.style.cursor = 'not-allowed';
+            
+            alert('Additional historical results loaded!');
+        }, 1500);
+    }
+}
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Enhanced Matches
+    const enhancedMatches = new EnhancedMatches();
+    enhancedMatches.init();
+    
+    // Ensure button labels are fixed after page load
+    setTimeout(() => {
+        enhancedMatches.fixButtonLabels();
+    }, 100);
+    
+    // Form indicator colors
+    document.querySelectorAll('.form-indicator').forEach(indicator => {
+        if (indicator.classList.contains('win')) {
+            indicator.style.backgroundColor = '#2ecc71';
+        } else if (indicator.classList.contains('draw')) {
+            indicator.style.backgroundColor = '#f39c12';
+        } else if (indicator.classList.contains('loss')) {
+            indicator.style.backgroundColor = '#e74c3c';
+        }
+    });
+    
+    console.log('EnhancedMatches initialized successfully!');
+});
+    // ===== 3. INITIALIZE EVERYTHING =====
+    const enhancedMatches = new EnhancedMatches();
+    enhancedMatches.init();
+    
+    // ===== 4. FORM GUIDE VISUALIZATION =====
+    const formIndicators = document.querySelectorAll('.form-indicator');
+    formIndicators.forEach(indicator => {
+        if (indicator.classList.contains('win')) {
+            indicator.style.backgroundColor = '#2ecc71';
+        } else if (indicator.classList.contains('draw')) {
+            indicator.style.backgroundColor = '#f39c12';
+        } else if (indicator.classList.contains('loss')) {
+            indicator.style.backgroundColor = '#e74c3c';
+        }
+    });
+    
+    console.log('Matches page initialized successfully!');
+});
+
+// ===== SIMPLE SCROLL TO TOP =====
+window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    }
+});
+
+document.getElementById('backToTop')?.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== SIMPLE ANIMATIONS =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate match cards on load
+    setTimeout(() => {
+        document.querySelectorAll('.match-card').forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    }, 300);
+});
+</script>
+
+<!-- FOR THE HEADER FUNCTIO -->
+ <script>
+    // Scroll to section function - Add this to your existing JS file
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        const offset = 120; // Adjust based on your header height
+        const sectionTop = section.offsetTop - offset;
+        
+        window.scrollTo({
+            top: sectionTop,
+            behavior: 'smooth'
+        });
+        
+        // Add visual feedback
+        section.classList.add('highlight-section');
+        setTimeout(() => {
+            section.classList.remove('highlight-section');
+        }, 2000);
+    }
+}
+
+
+ </script>
+
+ 
 </body>
 </html>
